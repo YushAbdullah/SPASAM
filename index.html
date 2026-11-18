@@ -341,6 +341,13 @@ footer nav a{color:var(--on-kayu);text-decoration:none;font-size:14px;padding:6p
 .livelink{display:inline-flex;align-items:center;gap:9px;color:var(--on-kayu);font-size:14px;font-weight:500;text-decoration:none;min-height:44px}
 .livelink:hover span{text-decoration:underline;text-underline-offset:3px}
 @media (prefers-reduced-motion:reduce){.dot{animation:none}}
+/* social fallback */
+.feedfallback[hidden]{display:none}
+.feedfallback{display:flex;align-items:center;gap:18px;margin-top:20px;background:var(--kayu);color:var(--on-kayu);border-radius:var(--r-xl);padding:18px;text-decoration:none}
+.ffscreen{width:96px;height:150px;border-radius:18px;border:3px solid #4d3726;background:radial-gradient(80% 60% at 50% 40%,#4a3322,#1d140e);display:grid;place-items:center;flex:none}
+.fftxt{display:grid;gap:4px}
+.fftxt b{font-family:var(--serif);font-size:24px;font-weight:400;color:#fff}
+.fftxt > span:last-child{font-size:14px;color:var(--on-kayu-m)}
 /* social */
 .social{background:var(--paper);border-top:1px solid var(--line)}
 .socgrid{display:grid;gap:14px}
@@ -547,9 +554,9 @@ footer nav a{color:var(--on-kayu);text-decoration:none;font-size:14px;padding:6p
         <div>
           <div class="orn"><svg><use href="#orn"/></svg></div>
           <p class="eyebrow" data-en="Social media">Media sosial</p>
-          <h2 id="h-sos" style="margin-top:10px" data-en="See Sam <em>at work</em>">Lihat Sam <em>beraksi</em></h2>
+          <h2 id="h-sos" style="margin-top:10px" data-en="Sam&#39;s <em>latest</em> updates">Perkongsian <em>terkini</em> Sam</h2>
         </div>
-        <p class="lead" data-en="Latest videos, tips and client moments from TikTok and Facebook — updated automatically whenever Sam posts.">Video terkini, tip dan detik bersama pelanggan dari TikTok dan Facebook — dikemas kini secara automatik setiap kali Sam membuat hantaran.</p>
+        <p class="lead" data-en="Tips, promotions and short videos from Sam on TikTok and Facebook. New posts appear here automatically.">Tip, promosi dan video pendek daripada Sam di TikTok dan Facebook. Hantaran baharu muncul di sini secara automatik.</p>
       </div>
       <div class="socgrid">
         <a class="soccard rv" id="tkCard" href="https://www.tiktok.com/@urutkt" target="_blank" rel="noopener">
@@ -563,6 +570,10 @@ footer nav a{color:var(--on-kayu);text-decoration:none;font-size:14px;padding:6p
           <span class="socgo" data-en="Follow">Ikuti</span>
         </a>
       </div>
+      <a class="feedfallback" id="feedFallback" href="https://www.tiktok.com/@urutkt" target="_blank" rel="noopener">
+        <span class="ffscreen"><svg viewBox="0 0 24 24" width="40" height="40" aria-hidden="true"><path fill="#D9B97A" d="M8 5.5v13l11-6.5-11-6.5Z"/></svg></span>
+        <span class="fftxt"><span class="livetag" style="color:#7fd3a0"><i class="dot"></i>LIVE FEED</span><b data-en="Latest TikTok videos">Video TikTok terkini</b><span data-en="Shown automatically on the live website. Tap to watch now on TikTok.">Dipaparkan secara automatik di laman web sebenar. Tekan untuk tonton terus di TikTok.</span></span>
+      </a>
       <div class="feeds" id="feeds" hidden>
         <div class="feed" id="tkFeed" aria-label="TikTok @urutkt"></div>
         <div class="feed" id="fbFeed" aria-label="Facebook Spa SAM"></div>
@@ -1225,7 +1236,9 @@ loadLive(); setInterval(loadLive,120000);
   var tkUrl="https://www.tiktok.com/@"+tk;
   $("#tkCard").href=tkUrl; $("#tkCard b").textContent="@"+tk; $("#fbCard").href=fbPage||fbLink;
   var canEmbed=location.protocol==="https:"&&!/claude|anthropic/.test(location.hostname);
+  $("#feedFallback").href=tkUrl;
   if(!canEmbed) return;
+  $("#feedFallback").hidden=true;
   var started=false;
   function start(){
     if(started) return; started=true;
