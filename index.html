@@ -265,7 +265,7 @@ footer nav a{color:var(--on-kayu);text-decoration:none;font-size:14px;padding:6p
 .slots{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:8px}
 .slot{border:1.5px solid var(--line);background:#fff;border-radius:999px;min-height:48px;font-weight:500;font-size:14px;cursor:pointer;transition:all .2s}
 .slot[aria-pressed="true"]{background:var(--bronze);border-color:var(--bronze);color:#fff}
-.slot:disabled{opacity:.4;cursor:not-allowed;text-decoration:line-through}
+.slot:disabled{opacity:1;cursor:not-allowed;text-decoration:line-through;background:#EDE7DF;border-color:#E2D9CD;color:#9A8E80}
 .hint{font-size:13px;color:var(--muted);background:var(--paper);border-radius:var(--r-md);padding:12px 14px;margin-top:14px;display:flex;gap:10px}
 .hint svg{width:16px;height:16px;flex:none;margin-top:2px;color:var(--bronze)}
 .field{display:grid;gap:6px;margin-bottom:14px}
@@ -756,7 +756,7 @@ function errText(code){
   var m=M[code]; return m?t(m[0],m[1]):t("Ralat sambungan. Sila cuba lagi atau WhatsApp Sam.","Connection problem. Please try again or WhatsApp Sam.");
 }
 
-var B={svc:null,date:null,slot:null,mode:"in",area:"",name:"",phone:"",first:null,note:"",id:null,status:null,receipt:false,offline:false};
+var B={svc:null,date:null,slot:null,mode:"in",area:"",name:"",phone:"",first:null,note:"",id:null,status:null,receipt:false,offline:false,pay:"now"};
 try{ var saved=JSON.parse(localStorage.getItem("sam-me")||"{}"); B.name=saved.name||""; B.phone=saved.phone||""; }catch(e){}
 var LAST={}; try{ LAST=JSON.parse(localStorage.getItem("sam-last")||"{}"); }catch(e){}
 var F={id:LAST.id||"",phone:LAST.phone||B.phone||""};   // find-booking form
@@ -800,7 +800,7 @@ function show(){ sheetOpen=true; renderStep(); sheet.classList.add("open"); scri
 function openSheet(svcId,opener){
   lastFocus=opener||document.activeElement; err=""; busy=false;
   if(view==="deposit"&&B.id&&!svcId){ show(); return; } // resume unfinished deposit
-  B.id=null; B.status=null; B.receipt=false; B.offline=false; upload={state:"idle",name:""};
+  B.id=null; B.status=null; B.receipt=false; B.offline=false; B.pay="now"; upload={state:"idle",name:""};
   if(svcId){ B.svc=svcId; view="date"; } else view="svc";
   show();
 }
@@ -853,7 +853,7 @@ function renderStep(){
   $("#progress").style.display=(n||view==="done")?"":"none";
   $$("#progress i").forEach(function(el,i){ el.classList.toggle("on",view==="done"||i<(n||0)); });
   $("#stepLabel").textContent=n?(t("Langkah ","Step ")+n+t(" daripada 5"," of 5")):(view==="done"?t("Tempahan dihantar","Booking sent"):t("Tempahan saya","My booking"));
-  $("#sheetTitle").textContent=(view==="deposit"&&s)?t("Bayar deposit RM","Pay RM")+s.dep+t(""," deposit"):t(TITLES[view][0],TITLES[view][1]);
+  $("#sheetTitle").textContent=(view==="deposit"&&s)?t("Deposit RM","RM")+s.dep+t(""," deposit"):t(TITLES[view][0],TITLES[view][1]);
   var h="";
   if(view==="svc"){
     h='<div role="radiogroup" aria-label="'+t("Servis","Service")+'">'+SVC.map(function(x){ return '<button type="button" class="opt" role="radio" aria-checked="'+(B.svc===x.id)+'" data-svc="'+x.id+'"><span class="radio"></span><span class="txt"><b>'+esc(x[lang])+'</b><span>'+x.min+' min · '+t("deposit","deposit")+' RM'+x.dep+'</span></span><span class="pr">RM'+x.rm+'</span></button>'; }).join("")+'</div>';
@@ -931,6 +931,17 @@ function depositHTML(){
   var h='';
   if(B.id) h+='<div class="idbox"><span><small>'+t("ID tempahan anda — simpan untuk semak/tukar","Your booking ID — keep it to check/change")+'</small><b>'+esc(B.id)+'</b></span><button type="button" class="copybtn light" data-copy="'+esc(B.id)+'">'+t("Salin","Copy")+'</button></div>';
   else if(B.offline) h+='<p class="hint" style="margin:0 0 14px"><svg><use href="#i-info"/></svg><span>'+t("Sistem tempahan tidak dapat dihubungi. Teruskan bayar deposit dan hantar butiran melalui WhatsApp — Sam akan rekodkan secara manual.","The booking system couldn't be reached. Pay the deposit and send your details via WhatsApp — Sam will record it manually.")+'</span></p>';
+  h+='<div role="radiogroup" aria-label="'+t("Cara bayar deposit","How to pay the deposit")+'" style="margin-bottom:16px">'+
+    '<button type="button" class="opt" role="radio" aria-checked="'+(B.pay==="now")+'" data-pay="now"><span class="radio"></span><span class="txt"><b>'+t("Bayar deposit sekarang","Pay the deposit now")+'</b><span>'+t("QR DuitNow / pindahan Maybank — slot disahkan lebih cepat","DuitNow QR / Maybank transfer — your slot is confirmed faster")+'</span></span></button>'+
+    '<button type="button" class="opt" role="radio" aria-checked="'+(B.pay==="later")+'" data-pay="later"><span class="radio"></span><span class="txt"><b>'+t("Bayar kemudian melalui WhatsApp","Pay later via WhatsApp")+'</b><span>'+t("Sam akan hantar butiran deposit di WhatsApp","Sam sends you the deposit details on WhatsApp")+'</span></span></button></div>';
+  if(B.pay==="later"){
+    h+='<ol class="paysteps">'+
+      '<li><i>1</i><div style="flex:1;min-width:0"><b>'+t("Hantar mesej WhatsApp","Send the WhatsApp message")+'</b><p class="tiny" style="margin-top:4px">'+t("Butiran tempahan sudah ditulis untuk anda.","Your booking details are written for you.")+'</p></div></li>'+
+      '<li><i>2</i><div style="flex:1;min-width:0"><b>'+t("Sam hantar butiran deposit","Sam sends the deposit details")+' (RM'+s.dep+')</b></div></li>'+
+      '<li><i>3</i><div style="flex:1;min-width:0"><b>'+t("Bayar & hantar resit di WhatsApp","Pay & send the receipt on WhatsApp")+'</b><p class="tiny" style="margin-top:4px">'+t("Tempahan disahkan selepas deposit diterima.","Your booking is confirmed once the deposit is received.")+'</p></div></li></ol>'+
+      '<p class="hint"><svg><use href="#i-info"/></svg><span>'+(B.id?t("Slot anda sudah ditahan dengan ID ","Your slot is held under ID ")+'<b>'+esc(B.id)+'</b>. ':'')+t("Bayar deposit secepat mungkin supaya slot tidak dilepaskan.","Please pay the deposit soon so the slot isn’t released.")+'</span></p>';
+    return h;
+  }
   h+='<ol class="paysteps">';
   h+='<li><i>1</i><div style="flex:1;min-width:0"><b>'+t("Bayar deposit","Pay the deposit")+' RM'+s.dep+'</b><div class="pay">'+
     '<div class="qrwrap"><a href="'+BANK.qr+'" download="SAM-DuitNow-QR.jpg" aria-label="'+t("Muat turun QR DuitNow","Download DuitNow QR")+'"><img src="'+BANK.qr+'" alt="QR DuitNow Maybank — Muhammad Aiman Syafiq" width="300" height="300"></a>'+
@@ -952,8 +963,10 @@ function depositHTML(){
 function doneHTML(){
   return '<div class="done"><div class="big"><svg><use href="#i-check"/></svg></div><h3>'+t("Terima kasih, ","Thank you, ")+esc(B.name.split(" ")[0])+'!</h3>'+
     (B.id?'<p>'+t("ID tempahan: ","Booking ID: ")+'<b>'+esc(B.id)+'</b></p>':'')+
+    (B.pay==="later"?'<ol><li><i>1</i><span>'+t("Sam balas di WhatsApp dengan butiran deposit.","Sam replies on WhatsApp with the deposit details.")+'</span></li>'+
+    '<li><i>2</i><span>'+t("Bayar deposit dan hantar resit dalam chat.","Pay the deposit and send the receipt in the chat.")+'</span></li>':
     '<ol><li><i>1</i><span>'+t("Sam semak resit deposit anda.","Sam checks your deposit receipt.")+'</span></li>'+
-    '<li><i>2</i><span>'+t("Sam sahkan tempahan di WhatsApp.","Sam confirms your booking on WhatsApp.")+'</span></li>'+
+    '<li><i>2</i><span>'+t("Sam sahkan tempahan di WhatsApp.","Sam confirms your booking on WhatsApp.")+'</span></li>')+
     '<li><i>3</i><span>'+t("Perlu tukar tarikh? Gunakan “Semak / tukar tempahan”.","Need another date? Use “Check / change booking”.")+'</span></li></ol>'+
     '<div class="copyrow"><button type="button" class="btn btn-outline" id="copyMsg"><svg><use href="#i-copy"/></svg><span>'+t("Salin mesej","Copy message")+'</span></button>'+
     (API&&B.id?'<button type="button" class="btn btn-outline" data-manage><svg><use href="#i-cal"/></svg><span>'+t("Semak tempahan","Check booking")+'</span></button>':'')+'</div></div>';
@@ -963,6 +976,7 @@ function bindStep(){
   $$("[data-di]",body).forEach(function(b){ b.addEventListener("click",function(){ var d=days()[+b.dataset.di]; if(view==="resched"){ R.date=d; } else B.date=d; err=""; renderStep(); var el=$('[data-di="'+b.dataset.di+'"]',body); if(el){ el.focus(); el.scrollIntoView({inline:"center",block:"nearest"}); } }); });
   $$("[data-si]",body).forEach(function(b){ b.addEventListener("click",function(){ var i=+b.dataset.si; if(view==="resched") R.slot=i; else B.slot=i; $$("[data-si]",body).forEach(function(x){x.setAttribute("aria-pressed",String(x===b));}); updateFoot(); }); });
   $$("[data-mode]",body).forEach(function(b){ b.addEventListener("click",function(){ B.mode=b.dataset.mode; renderStep(); var f=$("#fArea"); if(f) f.focus(); }); });
+  $$("[data-pay]",body).forEach(function(b){ b.addEventListener("click",function(){ B.pay=b.dataset.pay; err=""; renderStep(); }); });
   $$("[data-first]",body).forEach(function(b){ b.addEventListener("click",function(){ B.first=b.dataset.first==="1"; $$("[data-first]",body).forEach(function(x){x.setAttribute("aria-pressed",String(x===b));}); updateFoot(); }); });
   var m={fArea:["area",B],fName:["name",B],fPhone:["phone",B],fNote:["note",B],mId:["id",F],mPhone:["phone",F]};
   Object.keys(m).forEach(function(id){ var el=document.getElementById(id); if(el) el.addEventListener("input",function(){ m[id][1][m[id][0]]=el.value; updateFoot(); }); });
@@ -971,7 +985,7 @@ function bindStep(){
   var fr=$("#fReceipt"); if(fr) fr.addEventListener("change",function(){ if(fr.files&&fr.files[0]) sendReceipt(fr.files[0]); });
   var lb=$("label.upload",body); if(lb) lb.addEventListener("keydown",function(e){ if(e.key==="Enter"||e.key===" "){ e.preventDefault(); var f=$("#fReceipt"); if(f) f.click(); } });
   var gr=$("#goResched"); if(gr) gr.addEventListener("click",function(){ R={date:null,slot:null}; err=""; view="resched"; renderStep(); });
-  var gp=$("#goPay"); if(gp) gp.addEventListener("click",function(){ B.svc=M.service||B.svc; B.id=M.id; B.name=M.name||B.name; B.phone=F.phone; B.date=parseYmd(M.date); B.slot=slotIdx(M.time); B.mode=M.mode; upload={state:"idle",name:""}; err=""; view="deposit"; renderStep(); });
+  var gp=$("#goPay"); if(gp) gp.addEventListener("click",function(){ B.svc=M.service||B.svc; B.id=M.id; B.name=M.name||B.name; B.phone=F.phone; B.date=parseYmd(M.date); B.slot=slotIdx(M.time); B.mode=M.mode; B.pay="now"; upload={state:"idle",name:""}; err=""; view="deposit"; renderStep(); });
   var sel=$('.date[aria-pressed="true"]',body); if(sel&&sel.scrollIntoView) sel.scrollIntoView({inline:"center",block:"nearest"});
 }
 function copyText(txt,okMsg){ try{ navigator.clipboard.writeText(txt).then(function(){toast(okMsg);},function(){toast(t("Tidak dapat menyalin","Couldn't copy"));}); }catch(e){ toast(t("Tidak dapat menyalin","Couldn't copy")); } }
@@ -998,8 +1012,12 @@ function message(){
   if(B.first!==null) L.push((en?"• First time: ":"• Pertama kali: ")+(B.first?(en?"Yes":"Ya"):(en?"No":"Tidak")));
   if(B.note.trim()) L.push((en?"• Note: ":"• Nota: ")+B.note.trim());
   L.push("");
-  L.push(en?("Deposit RM"+s.dep+" paid to "+BANK.bank+" "+BANK.acc+". Receipt attached."):("Deposit RM"+s.dep+" telah dibayar ke "+BANK.bank+" "+BANK.acc+". Resit dilampirkan."));
-  if(upload.state==="done") L.push(en?"(Receipt also uploaded on the website.)":"(Resit juga telah dimuat naik di web app.)");
+  if(B.pay==="later"){
+    L.push(en?("I haven't paid the RM"+s.dep+" deposit yet. Please send me the deposit details to confirm this slot."):("Saya belum bayar deposit RM"+s.dep+". Mohon hantar butiran deposit untuk sahkan slot ini."));
+  } else {
+    L.push(en?("Deposit RM"+s.dep+" paid to "+BANK.bank+" "+BANK.acc+". Receipt attached."):("Deposit RM"+s.dep+" telah dibayar ke "+BANK.bank+" "+BANK.acc+". Resit dilampirkan."));
+    if(upload.state==="done") L.push(en?"(Receipt also uploaded on the website.)":"(Resit juga telah dimuat naik di web app.)");
+  }
   L.push(en?"Thank you!":"Terima kasih!");
   return L.join("\n");
 }
@@ -1099,7 +1117,11 @@ function sendReceipt(file){
 }
 $("#sendBtn").addEventListener("click",function(e){
   if(this.getAttribute("aria-disabled")==="true"){ e.preventDefault(); return; }
-  if(view==="deposit"){ saveLast(); setTimeout(function(){ view="done"; renderStep(); },350); }
+  if(view==="deposit"){
+    saveLast();
+    if(API&&B.id) api("POST",{action:"paymode",id:B.id,phone:B.phone.trim(),mode:B.pay}).catch(function(){});
+    setTimeout(function(){ view="done"; renderStep(); },350);
+  }
 });
 
 function toast(msg){ var el=$("#toast"); el.textContent=msg; el.classList.add("show"); clearTimeout(toast._t); toast._t=setTimeout(function(){el.classList.remove("show");},2200); }

@@ -7,12 +7,16 @@ Masa diperlukan: lebih kurang **15 minit**, sekali sahaja. Buat di **komputer / 
 1. Pelanggan tempah di web app → pilih servis, tarikh & masa (slot yang sudah diambil ditanda **Penuh**).
 2. Tempahan **masuk automatik** ke Google Sheet "Tempahan" dan **Google Calendar** akaun `syafiqaurawellness@gmail.com`.
 3. **Emel** dihantar ke `syafiqaurawellness@gmail.com` untuk setiap tempahan baharu.
-4. Pelanggan nampak **QR DuitNow + Maybank 1630 4662 3774**, bayar deposit, dan **muat naik resit** di web app → resit disimpan dalam Google Drive dan **emel dengan resit** dihantar kepada Sam.
-5. Pelanggan tekan **Hantar ke WhatsApp** → butiran tempahan + ID siap ditulis; pelanggan lampirkan resit dalam chat.
+4. Pelanggan pilih **cara deposit** (slot tetap ditahan untuk kedua-dua pilihan):
+   - **Bayar deposit sekarang** → QR DuitNow + Maybank 1630 4662 3774 → **muat naik resit** di web app → resit disimpan dalam Google Drive dan **emel dengan resit** dihantar kepada Sam.
+   - **Bayar kemudian melalui WhatsApp** → mesej WhatsApp meminta Sam hantar butiran deposit. Lajur **Cara deposit** dalam Sheet tertulis "Melalui WhatsApp".
+5. Pelanggan tekan **Hantar ke WhatsApp** → butiran tempahan + ID siap ditulis.
 6. **Tukar tarikh — semua ikut serentak:**
    - Pelanggan tukar di web app ("Tempahan saya") → Sheet + Calendar bertukar + emel kepada Sam.
    - Sam tukar **Tarikh / Masa / Status** dalam Sheet → Calendar bertukar.
    - Sam **seret acara** dalam Google Calendar → Sheet dikemas kini (setiap 10 minit).
+
+**Slot ikut jadual Sam:** website hanya membenarkan masa yang kosong dalam Google Calendar Sam. Slot yang sudah ditempah, atau bertembung dengan apa-apa acara dalam kalendar Sam (cth. "Rehat 1–2 petang"), dipaparkan **kelabu "Penuh"** dan tidak boleh dipilih. Acara **sepanjang hari** (cth. "Cuti") menutup seluruh hari itu. Dua orang tidak boleh tempah slot yang sama.
 
 Warna acara Calendar: **Kuning** = menunggu deposit · **Oren** = semak resit · **Hijau** = disahkan · **Kelabu** = selesai. Status **Batal** memadam acara dan membuka semula slot.
 
@@ -68,6 +72,9 @@ Warna acara Calendar: **Kuning** = menunggu deposit · **Oren** = semak resit ·
 - Emel **"Resit deposit diterima"** masuk → semak resit → tukar Status kepada **Disahkan** dalam Sheet (acara jadi hijau) → tekan butang **WhatsApp pelanggan (sahkan)** dalam emel untuk hantar mesej pengesahan.
 - Selepas sesi → Status **Selesai**.
 - Batal → Status **Batal** (slot dibuka semula).
+
+- Mahu tutup masa tertentu? Tambah acara dalam Google Calendar (cth. "Rehat") — slot itu jadi kelabu di website.
+- Cuti sehari? Tambah acara **sepanjang hari** — seluruh hari ditutup.
 
 ## Tetapan pilihan (bahagian `CONFIG` dalam Code.gs)
 

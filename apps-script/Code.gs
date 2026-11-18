@@ -11,7 +11,8 @@
  *      * customer changes date on the website  -> Sheet + Calendar move
  *      * Sam edits Tarikh / Masa / Status in the Sheet -> Calendar moves / recolours
  *      * Sam drags the event in Google Calendar -> Sheet updates (every 10 min)
- *  - Tells the website which slots are already taken
+ *  - Tells the website which slots are taken: other bookings AND anything busy in Sam's
+ *    Google Calendar (a timed event blocks overlapping slots; an all-day event closes the day)
  *
  * Setup: see SETUP.md. Run setup() once, then Deploy > New deployment > Web app.
  */
@@ -53,7 +54,7 @@ var STATUS = {
 
 var COLS = ['ID', 'Dibuat', 'Status', 'Servis', 'Minit', 'Harga (RM)', 'Deposit (RM)', 'Tarikh', 'Masa',
   'Jenis', 'Kawasan / alamat', 'Nama', 'Telefon', 'Pertama kali', 'Nota', 'Resit', 'Resit diterima',
-  'Event ID', 'Dikemaskini', 'Sumber'];
+  'Event ID', 'Dikemaskini', 'Sumber', 'Cara deposit'];
 var C = {}; COLS.forEach(function (n, i) { C[n] = i + 1; });
 
 // ===================== ONE-TIME SETUP =====================
@@ -102,6 +103,7 @@ function doPost(e) {
     if (body.action === 'book') return json_(book_(body));
     if (body.action === 'receipt') return json_(receipt_(body));
     if (body.action === 'reschedule') return json_(reschedule_(body));
+    if (body.action === 'paymode') return json_(paymode_(body));
     return json_({ ok: false, error: 'unknown_action' });
   } catch (err) {
     return json_({ ok: false, error: String(err.message || err) });
@@ -140,7 +142,7 @@ function book_(b) {
       'Jenis': b.mode === 'in' ? 'In-Call' : 'Out-Call', 'Kawasan / alamat': area, 'Nama': name,
       'Telefon': phone, 'Pertama kali': b.first === true ? 'Ya' : (b.first === false ? 'Tidak' : ''),
       'Nota': clean_(b.note, 500), 'Resit': '', 'Resit diterima': '', 'Event ID': '',
-      'Dikemaskini': now, 'Sumber': 'Web app (' + (b.lang === 'en' ? 'EN' : 'BM') + ')'
+      'Dikemaskini': now, 'Sumber': 'Web app (' + (b.lang === 'en' ? 'EN' : 'BM') + ')', 'Cara deposit': 'Belum dipilih'
     };
     sh.appendRow(COLS.map(function (k) { return row[k]; }));
     var r = sh.getLastRow();
@@ -170,6 +172,7 @@ function receipt_(b) {
   sh.getRange(r, C['Resit']).setValue(file.getUrl());
   sh.getRange(r, C['Resit diterima']).setValue(now);
   if (o['Status'] === STATUS.PENDING) sh.getRange(r, C['Status']).setValue(STATUS.RECEIPT);
+  sh.getRange(r, C['Cara deposit']).setValue('Bayar terus (resit dimuat naik)');
   sh.getRange(r, C['Dikemaskini']).setValue(now);
   var obj = rowObj_(sh, r);
   upsertEvent_(obj);
@@ -200,6 +203,19 @@ function reschedule_(b) {
   } finally {
     lock.releaseLock();
   }
+}
+
+// Customer chose: pay now, or get deposit details from Sam on WhatsApp (slot stays held either way)
+function paymode_(b) {
+  var found = findBooking_(b.id, b.phone);
+  if (!found) return { ok: false, error: 'not_found' };
+  var o = found.obj, sh = found.sheet, r = found.row;
+  if (o['Resit']) return { ok: true, status: o['Status'] }; // receipt already in: keep it
+  var label = b.mode === 'later' ? 'Melalui WhatsApp (minta butiran)' : 'Bayar terus';
+  sh.getRange(r, C['Cara deposit']).setValue(label);
+  sh.getRange(r, C['Dikemaskini']).setValue(new Date());
+  upsertEvent_(rowObj_(sh, r));
+  return { ok: true, status: o['Status'] };
 }
 
 function lookup_(id, phone) {
@@ -318,6 +334,7 @@ function eventDesc_(o) {
     'Jenis: ' + o['Jenis'] + (o['Kawasan / alamat'] ? ' · ' + o['Kawasan / alamat'] : ''),
     'Pertama kali: ' + (o['Pertama kali'] || '-'),
     'Nota: ' + (o['Nota'] || '-'),
+    'Cara deposit: ' + (o['Cara deposit'] || '-'),
     'Resit: ' + (o['Resit'] || 'belum'),
     '',
     'Tukar Tarikh/Masa/Status dalam Google Sheet "Tempahan", atau seret acara ini — kedua-duanya akan diselaraskan.'
@@ -336,16 +353,17 @@ function takenSlots_(date, min, excludeId) {
       if (toDateStr_(v[C['Tarikh'] - 1]) === date && v[C['Status'] - 1] !== STATUS.CANCELLED) count++;
     });
   }
-  var events = cal.getEvents(dayStart, dayEnd).filter(function (ev) {
-    return !ev.isAllDayEvent() && ev.getId() !== excludeEv;
-  });
+  var all = cal.getEvents(dayStart, dayEnd).filter(function (ev) { return ev.getId() !== excludeEv; });
+  var dayOff = all.some(function (ev) { return ev.isAllDayEvent(); }); // e.g. "Cuti" all-day = closed
+  var events = all.filter(function (ev) { return !ev.isAllDayEvent(); });
   var now = new Date();
   var taken = CONFIG.SLOTS.filter(function (s) {
     var a = toDate_(date, s), b = new Date(a.getTime() + min * 60000);
     if (a.getTime() < now.getTime() + CONFIG.MIN_LEAD_MINUTES * 60000) return true;
     return events.some(function (ev) { return ev.getStartTime() < b && ev.getEndTime() > a; });
   });
-  return { taken: taken, full: count >= CONFIG.MAX_PER_DAY };
+  if (dayOff) taken = CONFIG.SLOTS.slice();
+  return { taken: taken, full: dayOff || count >= CONFIG.MAX_PER_DAY };
 }
 
 // ===================== EMAIL =====================
@@ -356,7 +374,7 @@ function notify_(subject, o, intro, attachments) {
     ['ID', o['ID']], ['Status', o['Status']], ['Servis', o['Servis'] + ' (' + o['Minit'] + ' min)'],
     ['Tarikh & masa', fmtWhen_(o['Tarikh'], o['Masa'])], ['Jenis', o['Jenis'] + (o['Kawasan / alamat'] ? ' — ' + o['Kawasan / alamat'] : '')],
     ['Nama', o['Nama']], ['Telefon', '+' + o['Telefon']], ['Pertama kali', o['Pertama kali'] || '-'],
-    ['Harga / deposit', 'RM' + o['Harga (RM)'] + ' / RM' + o['Deposit (RM)']], ['Nota', o['Nota'] || '-'],
+    ['Harga / deposit', 'RM' + o['Harga (RM)'] + ' / RM' + o['Deposit (RM)']], ['Cara deposit', o['Cara deposit'] || '-'], ['Nota', o['Nota'] || '-'],
     ['Resit', o['Resit'] ? '<a href="' + o['Resit'] + '">Buka resit</a>' : 'Belum']
   ];
   var html = '<div style="font-family:Arial,sans-serif;max-width:560px;color:#241A14">' +
