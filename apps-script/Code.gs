@@ -322,7 +322,7 @@ function upsertEvent_(o) {
   var end = new Date(start.getTime() + (Number(o['Minit']) || 60) * 60000);
   var title = statusTag_(o['Status']) + ' · ' + o['Servis'] + ' · ' + o['Nama'];
   var desc = eventDesc_(o);
-  var loc = o['Jenis'] === 'Out-Call' ? ('Out-Call: ' + o['Kawasan / alamat']) : 'In-Call · Chendering, Kuala Terengganu';
+  var loc = o['Jenis'] === 'Out-Call' ? ('Out-Call: ' + o['Kawasan / alamat']) : 'In-Call · Flat Cerung Binjai, Chendering, Kuala Terengganu';
 
   if (!ev) {
     ev = cal.createEvent(title, start, end, { description: desc, location: loc });
@@ -459,7 +459,7 @@ function clientMail_(sh, r, kind) {
   var rows = [
     [T('ID tempahan', 'Booking ID'), o['ID']], [T('Servis', 'Service'), o['Servis'] + ' (' + o['Minit'] + ' min)'],
     [T('Tarikh & masa', 'Date & time'), fmtWhen_(o['Tarikh'], o['Masa'])],
-    [T('Lokasi', 'Where'), o['Jenis'] === 'Out-Call' ? 'Out-Call — ' + o['Kawasan / alamat'] : 'In-Call · Chendering, Kuala Terengganu'],
+    [T('Lokasi', 'Where'), o['Jenis'] === 'Out-Call' ? 'Out-Call — ' + o['Kawasan / alamat'] : 'In-Call · Flat Cerung Binjai, Chendering, Kuala Terengganu'],
     [T('Harga', 'Price'), 'RM' + o['Harga (RM)'] + ' · ' + T('deposit', 'deposit') + ' RM' + o['Deposit (RM)']]
   ];
   var deposit = (kind === 'received' && !o['Resit']) ?
@@ -477,7 +477,7 @@ function clientMail_(sh, r, kind) {
     '" style="background:#1E7E45;color:#fff;padding:11px 18px;border-radius:999px;text-decoration:none;display:inline-block">WhatsApp Sam</a> ' +
     (kind !== 'cancelled' ? '<a href="' + CONFIG.SITE_URL + '" style="background:#86663F;color:#fff;padding:11px 18px;border-radius:999px;text-decoration:none;display:inline-block">' + T('Semak / tukar tempahan', 'Check / change booking') + '</a>' : '') + '</p>' +
     '<p style="font-size:12px;color:#8a7a6b">' + T('Untuk semak atau tukar tempahan, gunakan ID ', 'To check or change your booking, use ID ') + esc_(o['ID']) + T(' dan nombor telefon anda di laman web.', ' and your phone number on the website.') +
-    '<br>Spa SAM · Chendering, Kuala Terengganu · WhatsApp 011-6979 6259</p></div>';
+    '<br>Spa SAM · Flat Cerung Binjai, Chendering, Kuala Terengganu · WhatsApp 011-6979 6259</p></div>';
   var plain = head[0] + '\n\n' + head[1] + '\n\n' + rows.map(function (x) { return x[0] + ': ' + x[1]; }).join('\n');
   try {
     sendMail_(to, head[0] + ' — ' + o['ID'] + ' · ' + fmtWhen_(o['Tarikh'], o['Masa']), plain, html, null, CONFIG.SENDER_NAME);
