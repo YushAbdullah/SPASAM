@@ -11,10 +11,19 @@ Website for **Spa SAM (Syafiq Aura Massage)**: traditional Malay massage, bekam 
 | `index.html` | The whole website: services, booking flow, FAQ, contact. One file, no build step. |
 | `img/` | Photos used on the site |
 | `brand/` | SAM logo files (SVG + PNG): horizontal, stacked, reversed, mark, app icon, favicon |
+| `config.js` | Paste the Google Apps Script web-app URL here to switch on automation |
+| `apps-script/` | Booking backend for Google Apps Script (Sheet + Calendar + email + receipts) |
+| `SETUP.md` | Step-by-step setup guide (Bahasa Melayu) |
 
 ## How booking works
 
-Customers pick a service, date, time and In-Call / Out-Call, then tap **Hantar via WhatsApp**. The site opens WhatsApp to Sam (011-6979 6259) with the booking message already written. Sam confirms, sends deposit details, and the customer replies with the receipt.
+1. Customer picks a service, a free date/time and In-Call / Out-Call (taken slots show as *Penuh*).
+2. The booking is saved to the **Tempahan** Google Sheet and a **Google Calendar** event, and an email goes to syafiqaurawellness@gmail.com.
+3. Customer pays the deposit (DuitNow QR / Maybank 1630 4662 3774) and uploads the receipt → saved to Google Drive and emailed to Sam.
+4. Customer sends the pre-written booking message + receipt to Sam on WhatsApp (011-6979 6259).
+5. Date changes stay in sync: website ("Tempahan saya") ↔ Sheet ↔ Calendar.
+
+See **[SETUP.md](SETUP.md)** to switch the automation on. Without `apiUrl` in `config.js`, the site still works in WhatsApp-only mode.
 
 ## Updating
 

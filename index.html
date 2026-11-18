@@ -297,6 +297,35 @@ footer nav a{color:var(--on-kayu);text-decoration:none;font-size:14px;padding:6p
 .toast{position:fixed;left:50%;bottom:96px;transform:translate(-50%,20px);background:var(--kayu);color:var(--on-kayu);padding:10px 16px;border-radius:999px;font-size:14px;z-index:80;opacity:0;transition:all .32s var(--ease);pointer-events:none}
 .toast.show{opacity:1;transform:translate(-50%,0)}
 
+/* booking v2 */
+.muted{color:var(--muted);font-weight:400}
+.err{color:#A33A2B;font-size:13px;margin:10px 0 0}
+.slot small{display:block;font-size:11px;font-weight:600;line-height:1;margin-top:2px}
+.loading{opacity:.55;pointer-events:none}
+.idbox{display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--kayu);color:var(--on-kayu);border-radius:var(--r-lg);padding:12px 16px;margin-bottom:16px}
+.idbox small{display:block;font-size:12px;color:var(--on-kayu-m)}
+.idbox b{font-family:var(--serif);font-size:24px;letter-spacing:.06em;color:#fff;white-space:nowrap}
+.idbox{flex-wrap:wrap}
+.copybtn{border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:999px;font-size:12px;font-weight:600;padding:0 12px;min-height:34px;cursor:pointer;white-space:nowrap}
+.copybtn.light{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.3);color:#fff}
+.paysteps{list-style:none;margin:0;padding:0;display:grid;gap:18px}
+.paysteps > li{display:flex;gap:12px;align-items:flex-start}
+.paysteps > li > i{font-style:normal;width:28px;height:28px;border-radius:50%;background:var(--bronze);color:#fff;display:grid;place-items:center;font-size:13px;font-weight:600;flex:none;margin-top:1px}
+.paysteps > li b{font-weight:600;font-size:15px}
+.pay{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:14px;margin-top:10px}
+.qrwrap{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.qrwrap img{width:136px;height:136px;border-radius:12px;border:1px solid var(--line);background:#fff;object-fit:contain}
+.bankrows{display:grid;gap:7px;font-size:13px;flex:1;min-width:170px}
+.bankrows div{display:flex;justify-content:space-between;gap:10px}
+.bankrows span{color:var(--muted)}
+.bankrows b{font-weight:600;font-size:13px}
+.bankrows .copybtn{justify-self:start;margin-top:2px}
+.tiny{font-size:12px;color:var(--muted);line-height:1.45;margin-top:10px}
+.upload{display:flex;align-items:center;gap:12px;border:1.5px dashed #cdb89c;border-radius:var(--r-lg);padding:14px;background:#fffdf9;cursor:pointer;min-height:64px;margin-top:10px;font-size:14px}
+.upload small{color:var(--muted);font-size:12px}
+.upload.ok{border-style:solid;border-color:var(--wa);background:#f1f8f3;cursor:default}
+.statuspill{display:inline-block;border-radius:999px;padding:5px 11px;font-size:12px;font-weight:600;white-space:nowrap}
+.linkbtn{background:none;border:0;padding:6px 0;color:var(--on-kayu-m);font-size:14px;text-decoration:underline;text-underline-offset:3px;cursor:pointer;justify-self:start;min-height:44px;text-align:left}
 /* hero entrance */
 @keyframes hin{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
 .hin{animation:hin .8s var(--ease) both}
@@ -386,6 +415,7 @@ footer nav a{color:var(--on-kayu);text-decoration:none;font-size:14px;padding:6p
       <a href="#kenali-sam" data-en="Meet Sam">Kenali Sam</a>
       <a href="#soalan" data-en="FAQ">Soalan</a>
       <a href="#hubungi" data-en="Contact">Hubungi</a>
+      <a href="#" data-manage data-en="My booking">Tempahan saya</a>
     </nav>
     <div class="lang" role="group" aria-label="Bahasa / Language">
       <button type="button" data-lang="bm" aria-pressed="true">BM</button>
@@ -415,6 +445,7 @@ footer nav a{color:var(--on-kayu);text-decoration:none;font-size:14px;padding:6p
           <button class="btn btn-primary" type="button" data-book><span data-en="Book a session">Tempah Sesi</span><span class="disc"><svg><use href="#i-arrow"/></svg></span></button>
           <a class="btn btn-ghost-light" href="#servis"><span data-en="View services &amp; prices">Lihat servis &amp; harga</span></a>
         </div>
+        <button type="button" class="linkbtn hin" data-manage data-en="Already booked? Check or change your booking">Sudah tempah? Semak atau tukar tempahan</button>
         <div class="hero-facts hin">
           <span><svg><use href="#i-clock"/></svg><span data-en="10 AM – 10 PM">10 pagi – 10 malam</span></span>
           <span><svg><use href="#i-home"/></svg>In-Call &amp; Out-Call</span>
@@ -431,7 +462,7 @@ footer nav a{color:var(--on-kayu);text-decoration:none;font-size:14px;padding:6p
       <div class="t"><span class="ic"><svg><use href="#i-users"/></svg></span><span><b data-en="Men only">Khas lelaki</b><small data-en="Chendering, K. Terengganu">Chendering, K. Terengganu</small></span></div>
       <div class="t"><span class="ic"><svg><use href="#i-car"/></svg></span><span><b>In-Call / Out-Call</b><small data-en="Premises or your home">Premis atau rumah anda</small></span></div>
       <div class="t"><span class="ic"><svg><use href="#i-wa"/></svg></span><span><b data-en="Book via WhatsApp">Tempah via WhatsApp</b><small data-en="Sam replies personally">Sam balas sendiri</small></span></div>
-      <div class="t"><span class="ic"><svg><use href="#i-shield"/></svg></span><span><b data-en="Deposit from RM10">Deposit dari RM10</b><small data-en="Only after Sam confirms">Selepas Sam sahkan</small></span></div>
+      <div class="t"><span class="ic"><svg><use href="#i-shield"/></svg></span><span><b data-en="Deposit RM10 / RM20">Deposit RM10 / RM20</b><small data-en="DuitNow QR · Maybank">QR DuitNow · Maybank</small></span></div>
     </div>
   </section>
 
@@ -448,7 +479,7 @@ footer nav a{color:var(--on-kayu);text-decoration:none;font-size:14px;padding:6p
       </div>
       <div class="filters" role="group" aria-label="Tapis servis" id="filters"></div>
       <div class="grid" id="svcGrid"></div>
-      <p class="note"><svg><use href="#i-info"/></svg><span data-en="Deposit: RM10 for single services, RM20 for packages — paid only after Sam confirms your slot. Package contents are confirmed by Sam when you book.">Deposit: RM10 untuk servis individu, RM20 untuk pakej — dibayar hanya selepas Sam sahkan slot anda. Kandungan pakej disahkan oleh Sam semasa tempahan.</span></p>
+      <p class="note"><svg><use href="#i-info"/></svg><span data-en="Deposit: RM10 for single services, RM20 for packages — paid when you book by DuitNow QR or Maybank transfer. The balance is paid at your session. Package contents are confirmed by Sam.">Deposit: RM10 untuk servis individu, RM20 untuk pakej — dibayar semasa tempah melalui QR DuitNow atau pindahan Maybank. Baki dibayar semasa sesi. Kandungan pakej disahkan oleh Sam.</span></p>
     </div>
   </section>
 
@@ -459,13 +490,13 @@ footer nav a{color:var(--on-kayu);text-decoration:none;font-size:14px;padding:6p
         <div class="orn"><svg><use href="#orn"/></svg></div>
         <p class="eyebrow" data-en="How to book">Cara tempah</p>
         <h2 id="h-cara" data-en="Four steps, <em>no fuss</em>">Empat langkah, <em>tanpa leceh</em></h2>
-        <p class="lead" data-en="No account, no forms to print. Everything happens in WhatsApp with Sam himself.">Tiada akaun, tiada borang. Semuanya berlaku di WhatsApp bersama Sam sendiri.</p>
+        <p class="lead" data-en="No account needed. Book here, pay by QR, and everything goes straight to Sam on WhatsApp.">Tiada akaun diperlukan. Tempah di sini, bayar dengan QR, dan semuanya terus kepada Sam di WhatsApp.</p>
       </div>
       <ol class="steps">
-        <li class="step rv"><span class="num">1</span><div><h3 data-en="Choose">Pilih</h3><p data-en="Pick a service, date, time and In-Call or Out-Call on this site.">Pilih servis, tarikh, masa dan In-Call atau Out-Call di laman ini.</p></div></li>
-        <li class="step rv"><span class="num">2</span><div><h3 data-en="Send">Hantar</h3><p data-en="Tap <b>Send via WhatsApp</b> — your booking message is already written.">Tekan <b>Hantar via WhatsApp</b> — mesej tempahan sudah siap ditulis.</p></div></li>
-        <li class="step rv"><span class="num">3</span><div><h3 data-en="Confirm">Sahkan</h3><p data-en="Sam checks his schedule, confirms your slot and sends the deposit details.">Sam semak jadual, sahkan slot anda dan hantar butiran deposit.</p></div></li>
-        <li class="step rv"><span class="num">4</span><div><h3 data-en="Relax">Rehat</h3><p data-en="Pay the deposit, send the receipt in the same chat — your session is locked in.">Bayar deposit, hantar resit dalam chat yang sama — sesi anda disahkan.</p></div></li>
+        <li class="step rv"><span class="num">1</span><div><h3 data-en="Choose">Pilih</h3><p data-en="Pick a service, then a free date and time, and In-Call or Out-Call.">Pilih servis, tarikh &amp; masa yang masih kosong, dan In-Call atau Out-Call.</p></div></li>
+        <li class="step rv"><span class="num">2</span><div><h3 data-en="Pay deposit">Bayar deposit</h3><p data-en="Scan the DuitNow QR or transfer to Maybank, then upload the receipt.">Imbas QR DuitNow atau pindahan Maybank, kemudian muat naik resit.</p></div></li>
+        <li class="step rv"><span class="num">3</span><div><h3 data-en="WhatsApp">WhatsApp</h3><p data-en="Your booking details are written for you — attach the receipt and send to Sam.">Butiran tempahan siap ditulis — lampirkan resit dan hantar kepada Sam.</p></div></li>
+        <li class="step rv"><span class="num">4</span><div><h3 data-en="Confirmed">Disahkan</h3><p data-en="Sam checks the receipt and confirms. Need another date? Change it with your booking ID.">Sam semak resit dan sahkan. Perlu tukar tarikh? Tukar sendiri dengan ID tempahan.</p></div></li>
       </ol>
       <div class="steps-cta">
         <button class="btn btn-primary" type="button" data-book><span data-en="Start booking">Mula tempah</span><span class="disc"><svg><use href="#i-arrow"/></svg></span></button>
@@ -531,10 +562,10 @@ footer nav a{color:var(--on-kayu);text-decoration:none;font-size:14px;padding:6p
       </div>
       <div class="faq">
         <details class="rv"><summary data-en="Who are the services for?">Servis ini untuk siapa?</summary><p class="a" data-en="Syafiq Aura Massage is for men only. All treatments are done one-to-one by Sam, professionally and discreetly.">Syafiq Aura Massage khas untuk pelanggan lelaki sahaja. Semua rawatan dijalankan seorang demi seorang oleh Sam, secara profesional dan berhemah.</p></details>
-        <details class="rv"><summary data-en="Do I need to book in advance?">Perlu tempah awal ke?</summary><p class="a" data-en="Yes — sessions are by appointment. The time you choose is a request; Sam confirms availability personally. He takes at most five clients a day so nobody is rushed, so booking early gives you the best choice of times.">Ya — sesi mengikut temujanji. Masa yang anda pilih ialah permintaan; Sam akan sahkan sendiri. Sam ambil maksimum lima pelanggan sehari supaya tiada yang tergesa-gesa, jadi tempah awal untuk pilihan masa yang lebih baik.</p></details>
-        <details class="rv"><summary data-en="How does the deposit work?">Bagaimana dengan deposit?</summary><p class="a" data-en="RM10 for single services and RM20 for packages. You only pay after Sam confirms your slot in WhatsApp — he will send the payment details, then you reply with the receipt. The balance is paid at the session.">RM10 untuk servis individu dan RM20 untuk pakej. Anda hanya bayar selepas Sam sahkan slot di WhatsApp — Sam akan hantar butiran bayaran, kemudian anda balas dengan resit. Baki dibayar semasa sesi.</p></details>
-        <details class="rv"><summary data-en="In-Call or Out-Call — what's the difference?">In-Call atau Out-Call — apa bezanya?</summary><p class="a" data-en="In-Call: you come to Sam's premises in Chendering. Out-Call: Sam comes to your home or hotel. For Out-Call, share your area when booking; any travel charge is confirmed by Sam before you pay.">In-Call: anda datang ke premis Sam di Chendering. Out-Call: Sam datang ke rumah atau hotel anda. Untuk Out-Call, kongsikan kawasan anda semasa tempah; sebarang caj perjalanan akan disahkan oleh Sam sebelum anda bayar.</p></details>
-        <details class="rv"><summary data-en="What if I need to reschedule?">Bagaimana jika saya perlu tukar masa?</summary><p class="a" data-en="Message Sam on WhatsApp as early as you can and he will help you find a new slot. Rescheduling and refund terms are confirmed with Sam directly.">Mesej Sam di WhatsApp seawal mungkin dan Sam akan bantu cari slot baharu. Terma tukar masa dan pemulangan wang disahkan terus dengan Sam.</p></details>
+        <details class="rv"><summary data-en="Do I need to book in advance?">Perlu tempah awal ke?</summary><p class="a" data-en="Yes — sessions are by appointment. Slots already taken show as Taken when you book. Sam sees at most five clients a day so nobody is rushed, so booking early gives you the best choice of times.">Ya — sesi mengikut temujanji. Slot yang sudah diambil ditanda Penuh semasa anda tempah. Sam ambil maksimum lima pelanggan sehari supaya tiada yang tergesa-gesa, jadi tempah awal untuk pilihan masa yang lebih baik.</p></details>
+        <details class="rv"><summary data-en="How does the deposit work?">Bagaimana dengan deposit?</summary><p class="a" data-en="RM10 for single services and RM20 for packages, paid right after you book: scan the DuitNow QR or transfer to Maybank 1630 4662 3774 (Muhammad Aiman Syafiq). Upload the receipt on the site and attach it in WhatsApp. Sam checks it and confirms your booking. The balance is paid at the session.">RM10 untuk servis individu dan RM20 untuk pakej, dibayar sejurus selepas tempah: imbas QR DuitNow atau pindahan ke Maybank 1630 4662 3774 (Muhammad Aiman Syafiq). Muat naik resit di laman ini dan lampirkan di WhatsApp. Sam akan semak dan sahkan tempahan anda. Baki dibayar semasa sesi.</p></details>
+        <details class="rv"><summary data-en="In-Call or Out-Call — what's the difference?">In-Call atau Out-Call — apa bezanya?</summary><p class="a" data-en="In-Call: you come to Sam's premises in Chendering. Out-Call: Sam comes to your home or hotel. For Out-Call, share your area when booking; any travel charge is confirmed by Sam on WhatsApp.">In-Call: anda datang ke premis Sam di Chendering. Out-Call: Sam datang ke rumah atau hotel anda. Untuk Out-Call, kongsikan kawasan anda semasa tempah; sebarang caj perjalanan akan dimaklumkan oleh Sam di WhatsApp.</p></details>
+        <details class="rv"><summary data-en="What if I need to reschedule?">Bagaimana jika saya perlu tukar masa?</summary><p class="a" data-en="Tap <b>My booking</b>, enter your booking ID and phone number, and pick a new free slot — Sam is notified automatically. You can also message him on WhatsApp. Refund terms are confirmed with Sam directly.">Tekan <b>Tempahan saya</b>, masukkan ID tempahan dan nombor telefon, dan pilih slot baharu yang kosong — Sam akan dimaklumkan secara automatik. Anda juga boleh mesej Sam di WhatsApp. Terma pemulangan wang disahkan terus dengan Sam.</p></details>
         <details class="rv"><summary data-en="What should I prepare before a session?">Apa perlu saya sediakan sebelum sesi?</summary><p class="a" data-en="Eat lightly at least an hour before, tell Sam about any injuries, health conditions or areas to avoid, and arrive a few minutes early to settle in.">Makan ringan sekurang-kurangnya sejam sebelum, maklumkan kepada Sam tentang kecederaan, keadaan kesihatan atau bahagian yang perlu dielakkan, dan datang beberapa minit awal untuk berehat.</p></details>
         <details class="rv"><summary data-en="What do the certificates mean?">Apa maksud sijil-sijil tersebut?</summary><p class="a" data-en="They show Sam took part in the named courses. They are not a medical licence, and the services here are for relaxation and wellbeing, not medical treatment.">Ia menunjukkan Sam telah menyertai kursus yang dinyatakan. Ia bukan lesen perubatan, dan servis di sini adalah untuk relaksasi dan kesejahteraan, bukan rawatan perubatan.</p></details>
       </div>
@@ -565,6 +596,7 @@ footer nav a{color:var(--on-kayu);text-decoration:none;font-size:14px;padding:6p
             <button class="btn btn-primary" type="button" data-book><span data-en="Book a session">Tempah Sesi</span><span class="disc"><svg><use href="#i-arrow"/></svg></span></button>
             <a class="btn btn-wa" data-wa-general href="#" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg><span data-en="Chat on WhatsApp">Chat di WhatsApp</span></a>
           </div>
+          <button type="button" class="linkbtn" data-manage data-en="Check or change an existing booking">Semak atau tukar tempahan sedia ada</button>
         </div>
       </div>
     </div>
@@ -576,7 +608,7 @@ footer nav a{color:var(--on-kayu);text-decoration:none;font-size:14px;padding:6p
   <div class="wrap">
     <svg class="logo" viewBox="0 0 473 114" role="img" aria-label="SAM — Syafiq Aura Massage"><g transform="translate(-14.25 -4.071428571428571) scale(1.0178571428571428)"><path d="M50 4 C 57 15 79 21 86 39 L 86 103 Q 86 116 73 116 L 27 116 Q 14 116 14 103 L 14 39 C 21 21 43 15 50 4 Z" fill="#FFFFFF"/><g fill="#2A1D14"><path transform="translate(50 62) rotate(45)" d="M0 -5 C -9.5 -12 -9.5 -25 0 -31 C 9.5 -25 9.5 -12 0 -5 Z"/><path transform="translate(50 62) rotate(135)" d="M0 -5 C -9.5 -12 -9.5 -25 0 -31 C 9.5 -25 9.5 -12 0 -5 Z"/><path transform="translate(50 62) rotate(225)" d="M0 -5 C -9.5 -12 -9.5 -25 0 -31 C 9.5 -25 9.5 -12 0 -5 Z"/><path transform="translate(50 62) rotate(315)" d="M0 -5 C -9.5 -12 -9.5 -25 0 -31 C 9.5 -25 9.5 -12 0 -5 Z"/><path transform="translate(50 62) rotate(0)" d="M0 -7 C -4.2 -10.5 -4.2 -16.5 0 -21 C 4.2 -16.5 4.2 -10.5 0 -7 Z"/><path transform="translate(50 62) rotate(90)" d="M0 -7 C -4.2 -10.5 -4.2 -16.5 0 -21 C 4.2 -16.5 4.2 -10.5 0 -7 Z"/><path transform="translate(50 62) rotate(180)" d="M0 -7 C -4.2 -10.5 -4.2 -16.5 0 -21 C 4.2 -16.5 4.2 -10.5 0 -7 Z"/><path transform="translate(50 62) rotate(270)" d="M0 -7 C -4.2 -10.5 -4.2 -16.5 0 -21 C 4.2 -16.5 4.2 -10.5 0 -7 Z"/><circle cx="50" cy="62" r="3.2"/><path d="M38 96.4 L41.6 100 L38 103.6 L34.4 100 Z"/><path d="M50 96.4 L53.6 100 L50 103.6 L46.4 100 Z"/><path d="M62 96.4 L65.6 100 L62 103.6 L58.4 100 Z"/></g><path d="M50 12.5 C 56.5 21.5 74.5 26.5 80 41 L 80 102 Q 80 110 72 110 L 28 110 Q 20 110 20 102 L 20 41 C 25.5 26.5 43.5 21.5 50 12.5 Z" fill="none" stroke="#2A1D14" stroke-width="1.6"/></g><path fill="#FFFFFF" d="M181.35 58.85Q180.8 58.85 180.67 57.96Q180.21 53.96 179.95 51.74Q179.7 49.53 179.59 48.43Q179.48 47.32 179.46 47Q179.44 46.68 179.44 46.55Q179.44 46.09 179.87 45.53Q180.29 44.98 180.89 44.98Q181.31 44.98 181.8 45.49Q182.29 46 182.74 46.68Q183.18 47.36 183.5 48.04Q183.82 48.72 183.91 49.02Q185.01 51.36 186.31 52.96Q187.61 54.55 189.27 55.51Q190.93 56.47 193.01 56.89Q195.1 57.32 197.78 57.32Q202.33 57.32 204.87 55.15Q207.4 52.98 207.4 48.17Q207.4 45.4 206.18 43.15Q204.97 40.89 203.01 38.96Q201.06 37.02 198.55 35.28Q196.04 33.53 193.4 31.74Q190.76 29.96 188.25 28.02Q185.74 26.09 183.78 23.74Q181.82 21.4 180.61 18.55Q179.4 15.7 179.4 12.13Q179.4 9.96 180.18 8.09Q180.97 6.21 182.29 4.68Q183.61 3.15 185.38 1.94Q187.14 0.72 189.14 -0.11Q191.14 -0.94 193.21 -1.36Q195.27 -1.79 197.23 -1.79Q198.8 -1.79 200.4 -1.51Q201.99 -1.23 203.55 -0.85Q205.1 -0.47 206.67 -0.02Q208.25 0.43 209.78 0.81L212.59 0.55Q212.97 0.55 213.08 0.87Q213.18 1.19 213.23 1.45L214.46 11.45Q214.46 11.66 213.91 11.74Q213.35 11.83 213.06 11.83Q212.8 11.83 212.29 11.77Q211.78 11.7 211.7 11.62Q211.57 11.49 211.38 11.09Q211.18 10.68 210.97 10.19Q210.76 9.7 210.52 9.19Q210.29 8.68 210.04 8.3Q207.99 5.15 204.8 3.6Q201.61 2.04 197.78 2.04Q196.12 2.04 194.67 2.43Q193.23 2.81 192.16 3.64Q191.1 4.47 190.48 5.74Q189.87 7.02 189.87 8.81Q189.87 11.4 191.08 13.51Q192.29 15.62 194.27 17.47Q196.25 19.32 198.78 21.06Q201.31 22.81 203.93 24.62Q206.55 26.43 209.08 28.47Q211.61 30.51 213.59 32.98Q215.57 35.45 216.78 38.47Q217.99 41.49 217.99 45.28Q217.99 47.79 217.12 49.96Q216.25 52.13 214.76 53.89Q213.27 55.66 211.27 57.02Q209.27 58.38 206.99 59.3Q204.72 60.21 202.31 60.68Q199.91 61.15 197.61 61.15Q194.72 61.15 192.57 60.72Q190.42 60.3 188.87 59.77Q187.31 59.23 186.25 58.81Q185.18 58.38 184.46 58.38Q184.21 58.38 184.08 58.43Z M234.24 58Q234.24 57.66 234.58 57.66Q235.39 57.62 236.47 57.43Q237.56 57.23 238.68 56.62Q239.81 56 240.87 54.79Q241.94 53.57 242.66 51.45L259.77 1.83Q259.77 1.87 259.79 1.79Q259.81 1.7 259.81 1.62Q259.81 1.32 259.58 0.87Q259.34 0.43 259.34 0.21Q259.34 0 259.51 0H271.85Q271.94 0.04 272.09 0.09Q272.24 0.13 272.32 0.34L290.32 50.85Q290.75 52.04 291.13 52.89Q291.51 53.74 292.04 54.4Q292.58 55.06 293.39 55.6Q294.19 56.13 295.47 56.68Q296.07 56.98 297.09 57.32Q298.11 57.66 299.04 57.66Q299.26 57.66 299.32 57.79Q299.39 57.91 299.39 58.04V59.66Q299.39 59.74 299.32 59.87Q299.26 60 299.04 60H269.17Q268.96 60 268.9 59.87Q268.83 59.74 268.83 59.66V58Q268.83 57.91 268.9 57.79Q268.96 57.66 269.17 57.66Q269.34 57.66 269.51 57.64Q269.68 57.62 269.77 57.62Q270.24 57.57 271.11 57.53Q271.98 57.49 273 57.38Q274.02 57.28 275.07 57.04Q276.11 56.81 276.96 56.36Q277.81 55.91 278.36 55.19Q278.92 54.47 278.92 53.4Q278.92 53.15 278.83 52.81L273.26 37.45Q273.22 37.36 273.11 37.06Q273 36.77 272.77 36.45Q272.53 36.13 272.17 35.87Q271.81 35.62 271.3 35.62H255.94Q255.39 35.62 255 35.87Q254.62 36.13 254.36 36.43Q254.11 36.72 253.96 37.02Q253.81 37.32 253.81 37.36Q252.45 41.36 251.51 44.11Q250.58 46.85 249.96 48.64Q249.34 50.43 249 51.4Q248.66 52.38 248.51 52.83Q248.36 53.28 248.34 53.38Q248.32 53.49 248.32 53.49Q248.32 53.62 248.36 53.77Q248.41 53.91 248.45 54.04Q248.79 55.11 249.7 55.81Q250.62 56.51 251.81 56.91Q253 57.32 254.26 57.49Q255.51 57.66 256.49 57.66H257.6Q257.81 57.66 257.87 57.79Q257.94 57.91 257.94 58V59.66Q257.94 59.74 257.87 59.87Q257.81 60 257.6 60H234.58Q234.24 60 234.24 59.66ZM256.53 29.49Q256.45 29.7 256.41 29.91Q256.36 30.13 256.36 30.34Q256.36 30.6 256.49 30.74Q256.62 30.89 257 30.89H269.77Q270.24 30.89 270.39 30.7Q270.53 30.51 270.53 30.26Q270.53 30.04 270.49 29.87Q270.45 29.7 270.36 29.49L264.7 13.96Q264.49 13.36 264.07 13.09Q263.64 12.81 263.3 12.81Q262.96 12.81 262.53 13.13Q262.11 13.45 261.9 14Z M312.91 57.79Q312.91 57.7 312.97 57.57Q313.03 57.45 313.25 57.45Q316.05 57.45 317.61 56.79Q319.16 56.13 319.91 54.96Q320.65 53.79 320.82 52.17Q320.99 50.55 321.08 48.68Q321.33 43.19 321.69 38.02Q322.05 32.85 322.39 27.85Q322.74 22.85 322.99 17.96Q323.25 13.06 323.25 8.13V6.55Q323.25 5.57 322.61 4.83Q321.97 4.09 321.1 3.57Q320.22 3.06 319.33 2.81Q318.44 2.55 317.93 2.55Q317.59 2.55 317.59 2.21V0.34Q317.59 0.26 317.63 0.13Q317.67 0 317.93 0H332.99Q333.46 0.09 333.76 0.32Q334.05 0.55 334.31 0.94L352.82 42.21Q353.12 42.94 353.59 42.94Q354.05 42.94 354.27 42.72Q354.48 42.51 354.61 42.17L372.91 1.7Q373.33 0.89 373.76 0.45Q374.18 0 374.61 0H389.59Q389.84 0 389.88 0.13Q389.93 0.26 389.93 0.34V2.21Q389.93 2.3 389.86 2.43Q389.8 2.55 389.59 2.55Q389.5 2.55 388.59 2.72Q387.67 2.89 386.59 3.38Q385.5 3.87 384.61 4.79Q383.71 5.7 383.71 7.19L386.18 52.51Q386.22 53.74 386.84 54.6Q387.46 55.45 388.35 56Q389.25 56.55 390.25 56.83Q391.25 57.11 392.12 57.26Q392.99 57.4 393.61 57.43Q394.22 57.45 394.27 57.45Q394.48 57.45 394.54 57.57Q394.61 57.7 394.61 57.79V59.66Q394.61 59.74 394.54 59.87Q394.48 60 394.27 60H366.27Q365.93 60 365.93 59.66V57.79Q365.93 57.45 366.27 57.45Q367.29 57.45 368.59 57.34Q369.88 57.23 371.08 56.85Q372.27 56.47 373.08 55.72Q373.88 54.98 373.88 53.74L371.93 18.98Q371.88 18.55 371.71 18.55Q371.54 18.55 371.37 18.94L352.74 59.28Q352.52 59.74 352.16 59.87Q351.8 60 350.91 60Q349.37 60 348.63 59.91Q347.88 59.83 347.63 59.23L329.5 19.28Q329.37 18.98 329.31 18.83Q329.25 18.68 329.08 18.68Q328.78 18.68 328.78 19.23Q328.78 20.51 328.65 22.98Q328.52 25.45 328.31 28.53Q328.1 31.62 327.88 35.06Q327.67 38.51 327.46 41.74Q327.25 44.98 327.12 47.77Q326.99 50.55 326.99 52.34V54.09Q327.16 54.89 327.84 55.53Q328.52 56.17 329.54 56.6Q330.56 57.02 331.8 57.23Q333.03 57.45 334.39 57.45Q334.61 57.45 334.63 57.57Q334.65 57.7 334.65 57.79V59.66Q334.65 60 334.39 60H313.25Q312.91 60 312.91 59.66Z"/><g fill="#E8D3B0"><rect x="98.48571428571428" y="77.4" width="181.49535319148933" height="1.2"/><rect x="291.9810674772036" y="77.4" width="181.49535319148933" height="1.2"/><path d="M285.9810674772036 74.5 L289.4810674772036 78.0 L285.9810674772036 81.5 L282.4810674772036 78.0 Z"/></g><path fill="#E8D3B0" d="M108.18 90.14Q108.3 90.14 108.3 90.39L108.6 92.84Q108.64 93.07 108.64 93.13Q108.64 93.19 108.46 93.19Q108.29 93.19 108.24 93.15Q108.19 93.1 108.15 92.99Q108.1 92.88 108.04 92.75Q107.98 92.61 107.91 92.47Q107.67 91.94 107.15 91.42Q105.88 90.21 104.3 90.21Q103.35 90.21 102.5 90.83Q101.65 91.45 101.65 92.29Q101.65 93.14 101.96 93.76Q102.28 94.38 102.79 94.91Q103.31 95.43 103.98 95.92Q104.64 96.4 105.33 96.89Q107.16 98.17 107.93 99.08Q109.14 100.48 109.24 102.22Q109.24 104.18 107.74 105.34Q106.24 106.51 104.25 106.51Q102.98 106.51 102.23 106.25Q101.47 105.99 101.19 105.88Q100.9 105.76 100.77 105.76Q100.63 105.76 100.6 105.77L100.04 105.89Q99.89 105.89 99.85 105.65Q99.52 102.8 99.52 102.62Q99.52 102.44 99.55 102.38Q99.58 102.32 99.7 102.32Q100.03 102.32 100.29 103.24Q101.5 105.82 104.3 105.82Q105.59 105.82 106.5 105.04Q107.41 104.26 107.41 103.01Q107.41 101.01 105.02 99.28Q104.35 98.8 103.07 97.94Q101.79 97.08 101.04 96.22Q99.85 94.88 99.85 93.25Q99.85 91.61 101.16 90.56Q102.46 89.52 104.15 89.52Q105.02 89.52 106.07 89.82Q107.13 90.11 107.54 90.22Z M121.49 106.2Q121.1 106.2 121.1 105.97V105.86Q121.1 105.67 121.44 105.63Q121.78 105.59 121.88 105.58Q122.76 105.49 123.11 105.15Q123.47 104.81 123.47 104.13V100.33Q123.47 100.25 123.44 100.16L118.74 92.67Q117.63 90.91 116.55 90.64Q116.5 90.63 116.35 90.6Q116.2 90.56 115.68 90.48Q115.5 90.45 115.5 90.22Q115.5 90 115.67 90H122.24Q122.44 90 122.44 90.23Q122.44 90.46 122.24 90.46Q121.47 90.54 121.22 90.62Q120.64 90.83 120.64 91.36Q120.64 91.63 120.78 91.85L124.66 98.05Q124.79 98.24 124.82 98.29Q124.85 98.34 124.95 98.34Q125.04 98.34 125.25 98.01L128.35 92.73Q128.49 92.46 128.67 92.14Q128.85 91.83 128.85 91.49Q128.85 90.65 127.7 90.51Q127.28 90.45 127.25 90.38Q127.22 90.31 127.22 90.21Q127.22 90 127.41 90H132.78Q132.94 90 132.94 90.16Q132.94 90.32 132.89 90.38Q132.83 90.44 132.75 90.47Q132.66 90.49 132.56 90.51Q132.45 90.53 132.11 90.61Q131.31 90.8 130.36 91.88Q130.26 92.01 130.25 92.03L125.71 99.85V104.13Q125.71 104.75 126.06 105.11Q126.41 105.46 127.24 105.57Q128.08 105.68 128.08 105.84V105.97Q128.08 106.2 127.69 106.2Z M144.28 106.11Q144.28 106.2 144.19 106.2H138.32Q138.23 106.2 138.23 106.11V105.83Q138.23 105.74 138.38 105.74Q139.95 105.67 140.5 104.06L145.19 90.49Q145.2 90.47 145.2 90.44L145.08 90.06Q145.08 90 145.12 90H147.42Q147.44 90.01 147.48 90.02Q147.52 90.03 147.55 90.09L152.41 103.73Q152.57 104.04 152.67 104.29Q152.76 104.55 152.89 104.75Q153.16 105.22 153.8 105.48Q154.33 105.74 154.76 105.74Q154.85 105.74 154.85 105.84V106.11Q154.85 106.2 154.76 106.2H147.73Q147.64 106.2 147.64 106.11V105.83Q147.64 105.74 148.06 105.72Q148.49 105.69 148.76 105.67Q150.36 105.5 150.36 104.59Q150.36 104.52 150.34 104.43L148.6 99.54Q148.59 99.51 148.56 99.43Q148.42 99.04 148.08 99.04H144Q143.65 99.04 143.46 99.42Q143.42 99.5 143.42 99.51L141.7 104.56V104.66Q141.7 104.96 142.01 105.2Q142.71 105.74 143.89 105.74H144.19Q144.28 105.74 144.28 105.83ZM147.68 97.77Q147.89 97.77 147.89 97.59Q147.89 97.5 147.85 97.39L146.13 92.68Q146.02 92.37 145.96 92.37Q145.9 92.37 145.78 92.69L144.17 97.39Q144.12 97.5 144.12 97.63Q144.12 97.77 144.3 97.77Z M169.95 96.91Q171.49 96.91 171.49 95.4Q171.49 95.31 171.58 95.31H171.85Q171.95 95.31 171.95 95.4V99.67Q171.95 99.77 171.85 99.77H171.58Q171.49 99.77 171.49 99.67Q171.49 98.62 170.89 98.21Q170.57 98 169.97 98H165.44Q165.17 98 165.17 98.31V104.21Q165.17 104.99 166.1 105.37Q167.04 105.74 167.29 105.74Q167.53 105.74 167.53 105.83V106.11Q167.53 106.2 167.44 106.2H161.17Q161.08 106.2 161.08 106.11V105.83Q161.08 105.74 161.27 105.74Q161.47 105.74 161.88 105.56Q162.29 105.37 162.61 105.01Q162.93 104.65 162.93 104.13V91.72Q162.93 90.98 162.13 90.65Q161.67 90.46 161.23 90.46H161.18Q161.09 90.46 161.09 90.37V90.09Q161.09 90 161.18 90H172.01Q172.15 90.02 172.22 90.06Q172.29 90.1 172.29 90.26V93.04Q172.29 93.18 172.25 93.22Q172.21 93.25 172.11 93.25H171.97Q171.95 93.24 171.81 92.63Q171.68 92.01 171.41 91.68Q170.93 91.17 170.34 91.11Q170.1 91.09 169.75 91.09H165.4Q165.17 91.09 165.17 91.32V96.64Q165.17 96.91 165.44 96.91Z M181.57 91.84Q181.57 90.46 179.98 90.46Q179.73 90.46 179.73 90.37V90.09Q179.73 90 179.82 90H185.58Q185.67 90 185.67 90.09V90.37Q185.67 90.46 185.16 90.46Q184.66 90.46 184.23 90.78Q183.81 91.1 183.81 92.1V104.36Q183.81 105.74 185.41 105.74Q185.65 105.74 185.65 105.83V106.11Q185.65 106.2 185.55 106.2H179.8Q179.71 106.2 179.71 106.11V105.83Q179.71 105.74 180.21 105.74Q180.72 105.74 181.14 105.42Q181.57 105.1 181.57 104.1Z M201.26 106.45Q199.44 106.29 197.91 105.52Q196.38 104.74 195.35 103.65Q193.14 101.32 193.14 98.08Q193.14 94.34 195.7 91.94Q198.26 89.54 202.07 89.54Q205.89 89.54 208.4 91.91Q210.91 94.27 210.91 97.96Q210.91 102.35 206.44 105.32Q206.33 105.38 205.56 105.76Q204.78 106.14 204.78 106.19Q204.78 106.25 205.5 106.73Q206.22 107.22 208.55 109.11Q209.95 110.23 210.72 110.39Q211.49 110.54 211.49 110.69Q211.49 110.98 211.13 111.05Q210.76 111.12 210.01 111.12Q208.71 111.12 207.14 110.27Q204.37 108.44 203.42 107.53Q202.46 106.63 201.74 106.51Q201.52 106.48 201.26 106.45ZM195.55 97.38Q195.57 99.64 196.45 101.51Q197.34 103.37 198.93 104.52Q200.52 105.66 202.61 105.66Q205.17 105.66 206.87 103.66Q208.57 101.65 208.57 98.4Q208.57 95.15 206.91 92.94Q205.06 90.51 201.74 90.31Q198.96 90.31 197.2 92.48Q196.4 93.47 195.96 94.8Q195.53 96.12 195.55 97.38Z  M234.97 106.11Q234.97 106.2 234.88 106.2H229Q228.91 106.2 228.91 106.11V105.83Q228.91 105.74 229.06 105.74Q230.64 105.67 231.19 104.06L235.87 90.49Q235.89 90.47 235.89 90.44L235.76 90.06Q235.76 90 235.81 90H238.1Q238.13 90.01 238.17 90.02Q238.21 90.03 238.23 90.09L243.09 103.73Q243.25 104.04 243.35 104.29Q243.45 104.55 243.57 104.75Q243.85 105.22 244.48 105.48Q245.01 105.74 245.45 105.74Q245.54 105.74 245.54 105.84V106.11Q245.54 106.2 245.45 106.2H238.41Q238.32 106.2 238.32 106.11V105.83Q238.32 105.74 238.75 105.72Q239.17 105.69 239.45 105.67Q241.04 105.5 241.04 104.59Q241.04 104.52 241.02 104.43L239.29 99.54Q239.28 99.51 239.24 99.43Q239.1 99.04 238.76 99.04H234.68Q234.34 99.04 234.14 99.42Q234.11 99.5 234.11 99.51L232.38 104.56V104.66Q232.38 104.96 232.69 105.2Q233.39 105.74 234.58 105.74H234.88Q234.97 105.74 234.97 105.83ZM238.37 97.77Q238.57 97.77 238.57 97.59Q238.57 97.5 238.53 97.39L236.82 92.68Q236.7 92.37 236.64 92.37Q236.59 92.37 236.46 92.69L234.85 97.39Q234.81 97.5 234.81 97.63Q234.81 97.77 234.98 97.77Z M257.37 90.46Q255.44 90.46 255.44 92V100.23Q255.44 102.5 256.94 103.94Q258.45 105.38 260.8 105.38Q263.25 105.38 264.82 104.07Q266.39 102.75 266.39 100.42V93.11Q266.39 92.02 266.19 91.6Q265.7 90.46 263.96 90.46Q263.87 90.46 263.87 90.37V90.09Q263.87 90 263.96 90H269.61Q269.71 90 269.71 90.09V90.37Q269.71 90.46 269.45 90.46Q267.95 90.46 267.61 91.63Q267.56 91.83 267.56 92V99.52Q267.56 104.57 263.7 106.02Q262.4 106.51 261.11 106.51Q256.5 106.51 254.32 104.1Q253.2 102.86 253.2 101.03V91.84Q253.2 90.86 252.01 90.55Q251.67 90.46 251.43 90.46Q251.18 90.46 251.18 90.37V90.09Q251.18 90 251.27 90H257.49Q257.58 90 257.58 90.09V90.37Q257.58 90.46 257.37 90.46Z M275.76 106.2Q275.66 106.2 275.66 105.97V105.83Q275.66 105.74 275.76 105.74Q275.82 105.74 275.97 105.72Q276.12 105.69 276.28 105.67Q276.44 105.65 276.58 105.62Q276.72 105.59 276.78 105.58Q277.95 105.32 277.95 104.25V92.11Q277.95 91.13 277.16 90.71Q276.69 90.46 276.15 90.46H275.71Q275.62 90.46 275.62 90.37V90.09Q275.62 90 275.76 90L282.06 89.83H283.22Q285.26 89.97 286.63 91.3Q288 92.64 288 94.6Q288 96.56 286.37 97.65Q285.87 97.99 285.28 98.25L288.76 103.94Q289.67 105.43 291.2 106.04Q291.32 106.07 291.32 106.2Q291.32 106.49 290.94 106.49Q288.36 106.49 286.83 104.52Q286.5 104.09 286.16 103.55L283.19 98.88L280.45 98.75H280.36Q280.19 98.75 280.19 98.92V104.21Q280.19 104.84 280.55 105.15Q280.9 105.46 281.78 105.58Q282.01 105.61 282.34 105.68Q282.67 105.74 282.79 105.74Q282.91 105.74 282.91 105.83V106.11Q282.91 106.2 282.82 106.2ZM280.19 90.64V97.61L280.21 97.95Q280.25 98.19 280.43 98.2L281.6 98.27Q284.83 98.27 285.5 95.97Q285.72 95.25 285.72 94.32Q285.72 92.5 284.59 91.46Q283.45 90.41 281.7 90.41Q281.53 90.41 281.4 90.42Q281.26 90.43 281.12 90.43Q280.98 90.44 280.83 90.44Q280.67 90.45 280.43 90.45Q280.19 90.46 280.19 90.64Z M302.75 106.11Q302.75 106.2 302.66 106.2H296.79Q296.7 106.2 296.7 106.11V105.83Q296.7 105.74 296.84 105.74Q298.42 105.67 298.97 104.06L303.66 90.49Q303.67 90.47 303.67 90.44L303.54 90.06Q303.54 90 303.59 90H305.89Q305.91 90.01 305.95 90.02Q305.99 90.03 306.01 90.09L310.87 103.73Q311.03 104.04 311.13 104.29Q311.23 104.55 311.36 104.75Q311.63 105.22 312.26 105.48Q312.79 105.74 313.23 105.74Q313.32 105.74 313.32 105.84V106.11Q313.32 106.2 313.23 106.2H306.2Q306.11 106.2 306.11 106.11V105.83Q306.11 105.74 306.53 105.72Q306.96 105.69 307.23 105.67Q308.83 105.5 308.83 104.59Q308.83 104.52 308.81 104.43L307.07 99.54Q307.06 99.51 307.02 99.43Q306.89 99.04 306.54 99.04H302.46Q302.12 99.04 301.92 99.42Q301.89 99.5 301.89 99.51L300.17 104.56V104.66Q300.17 104.96 300.48 105.2Q301.18 105.74 302.36 105.74H302.66Q302.75 105.74 302.75 105.83ZM306.15 97.77Q306.36 97.77 306.36 97.59Q306.36 97.5 306.31 97.39L304.6 92.68Q304.49 92.37 304.43 92.37Q304.37 92.37 304.24 92.69L302.64 97.39Q302.59 97.5 302.59 97.63Q302.59 97.77 302.76 97.77Z  M335.81 105.74Q335.88 105.74 335.88 105.83V106.11Q335.88 106.2 335.81 106.2H330.44Q330.35 106.2 330.35 106.11V105.83Q330.35 105.74 330.44 105.74Q332.33 105.74 332.49 104.12Q332.53 103.65 332.58 102.55Q332.64 101.45 332.89 97.83Q333.14 94.21 333.14 91.96V91.54Q333.14 91.08 332.62 90.77Q332.1 90.46 331.85 90.46Q331.61 90.46 331.61 90.37V90.09Q331.61 90 331.71 90H335.03Q335.24 90.03 335.38 90.25L340.77 102.26Q340.83 102.34 340.86 102.4Q340.9 102.45 341.03 102.45Q341.17 102.44 341.24 102.25L346.57 90.46Q346.81 90 347.01 90H350.35Q350.44 90 350.44 90.09V90.37Q350.44 90.46 350.39 90.46Q350.04 90.46 349.54 90.69Q348.77 91.03 348.77 91.71L349.46 104.41Q349.48 105.01 350.08 105.37Q350.67 105.74 351.64 105.74Q351.73 105.74 351.73 105.83V106.11Q351.73 106.2 351.64 106.2H345.11Q345.02 106.2 345.02 106.11V105.83Q345.02 105.74 345.11 105.74Q347.17 105.74 347.17 104.74L346.56 93.77Q346.55 93.65 346.5 93.65Q346.45 93.65 346.41 93.76L340.7 106.12Q340.66 106.2 340.44 106.2Q340.22 106.2 340.18 106.11L334.55 93.72Q334.49 93.56 334.42 93.56Q334.36 93.56 334.36 93.81Q334.36 94.34 334.08 98.8Q333.81 103.26 333.81 104.36V104.83Q333.95 105.49 335.11 105.68Q335.44 105.74 335.81 105.74Z M363.5 106.11Q363.5 106.2 363.41 106.2H357.54Q357.45 106.2 357.45 106.11V105.83Q357.45 105.74 357.6 105.74Q359.17 105.67 359.72 104.06L364.41 90.49Q364.42 90.47 364.42 90.44L364.3 90.06Q364.3 90 364.34 90H366.64Q366.66 90.01 366.7 90.02Q366.74 90.03 366.77 90.09L371.63 103.73Q371.79 104.04 371.88 104.29Q371.98 104.55 372.11 104.75Q372.38 105.22 373.02 105.48Q373.54 105.74 373.98 105.74Q374.07 105.74 374.07 105.84V106.11Q374.07 106.2 373.98 106.2H366.95Q366.86 106.2 366.86 106.11V105.83Q366.86 105.74 367.28 105.72Q367.71 105.69 367.98 105.67Q369.58 105.5 369.58 104.59Q369.58 104.52 369.56 104.43L367.82 99.54Q367.81 99.51 367.78 99.43Q367.64 99.04 367.29 99.04H363.22Q362.87 99.04 362.68 99.42Q362.64 99.5 362.64 99.51L360.92 104.56V104.66Q360.92 104.96 361.23 105.2Q361.93 105.74 363.11 105.74H363.41Q363.5 105.74 363.5 105.83ZM366.9 97.77Q367.11 97.77 367.11 97.59Q367.11 97.5 367.06 97.39L365.35 92.68Q365.24 92.37 365.18 92.37Q365.12 92.37 365 92.69L363.39 97.39Q363.34 97.5 363.34 97.63Q363.34 97.77 363.51 97.77Z M389 90.14Q389.12 90.14 389.12 90.39L389.42 92.84Q389.46 93.07 389.46 93.13Q389.46 93.19 389.29 93.19Q389.11 93.19 389.06 93.15Q389.02 93.1 388.97 92.99Q388.92 92.88 388.86 92.75Q388.8 92.61 388.73 92.47Q388.49 91.94 387.97 91.42Q386.71 90.21 385.12 90.21Q384.17 90.21 383.32 90.83Q382.47 91.45 382.47 92.29Q382.47 93.14 382.78 93.76Q383.1 94.38 383.62 94.91Q384.13 95.43 384.8 95.92Q385.47 96.4 386.15 96.89Q387.98 98.17 388.75 99.08Q389.96 100.48 390.06 102.22Q390.06 104.18 388.56 105.34Q387.06 106.51 385.07 106.51Q383.8 106.51 383.05 106.25Q382.29 105.99 382.01 105.88Q381.72 105.76 381.59 105.76Q381.46 105.76 381.42 105.77L380.86 105.89Q380.71 105.89 380.67 105.65Q380.34 102.8 380.34 102.62Q380.34 102.44 380.37 102.38Q380.4 102.32 380.52 102.32Q380.85 102.32 381.11 103.24Q382.32 105.82 385.12 105.82Q386.41 105.82 387.32 105.04Q388.23 104.26 388.23 103.01Q388.23 101.01 385.84 99.28Q385.17 98.8 383.89 97.94Q382.62 97.08 381.86 96.22Q380.67 94.88 380.67 93.25Q380.67 91.61 381.98 90.56Q383.28 89.52 384.97 89.52Q385.84 89.52 386.9 89.82Q387.95 90.11 388.36 90.22Z M405.97 90.14Q406.08 90.14 406.08 90.39L406.38 92.84Q406.43 93.07 406.43 93.13Q406.43 93.19 406.25 93.19Q406.07 93.19 406.03 93.15Q405.98 93.1 405.93 92.99Q405.89 92.88 405.82 92.75Q405.76 92.61 405.69 92.47Q405.45 91.94 404.93 91.42Q403.67 90.21 402.09 90.21Q401.13 90.21 400.28 90.83Q399.43 91.45 399.43 92.29Q399.43 93.14 399.75 93.76Q400.06 94.38 400.58 94.91Q401.1 95.43 401.76 95.92Q402.43 96.4 403.12 96.89Q404.95 98.17 405.72 99.08Q406.92 100.48 407.03 102.22Q407.03 104.18 405.53 105.34Q404.03 106.51 402.04 106.51Q400.76 106.51 400.01 106.25Q399.26 105.99 398.97 105.88Q398.68 105.76 398.55 105.76Q398.42 105.76 398.39 105.77L397.82 105.89Q397.67 105.89 397.64 105.65Q397.31 102.8 397.31 102.62Q397.31 102.44 397.33 102.38Q397.36 102.32 397.49 102.32Q397.81 102.32 398.08 103.24Q399.28 105.82 402.09 105.82Q403.37 105.82 404.29 105.04Q405.2 104.26 405.2 103.01Q405.2 101.01 402.81 99.28Q402.13 98.8 400.86 97.94Q399.58 97.08 398.82 96.22Q397.64 94.88 397.64 93.25Q397.64 91.61 398.94 90.56Q400.25 89.52 401.94 89.52Q402.81 89.52 403.86 89.82Q404.91 90.11 405.33 90.22Z M419.35 106.11Q419.35 106.2 419.26 106.2H413.39Q413.29 106.2 413.29 106.11V105.83Q413.29 105.74 413.44 105.74Q415.02 105.67 415.57 104.06L420.26 90.49Q420.27 90.47 420.27 90.44L420.14 90.06Q420.14 90 420.19 90H422.49Q422.51 90.01 422.55 90.02Q422.59 90.03 422.61 90.09L427.47 103.73Q427.63 104.04 427.73 104.29Q427.83 104.55 427.95 104.75Q428.23 105.22 428.86 105.48Q429.39 105.74 429.83 105.74Q429.92 105.74 429.92 105.84V106.11Q429.92 106.2 429.83 106.2H422.8Q422.7 106.2 422.7 106.11V105.83Q422.7 105.74 423.13 105.72Q423.55 105.69 423.83 105.67Q425.43 105.5 425.43 104.59Q425.43 104.52 425.4 104.43L423.67 99.54Q423.66 99.51 423.62 99.43Q423.48 99.04 423.14 99.04H419.06Q418.72 99.04 418.52 99.42Q418.49 99.5 418.49 99.51L416.76 104.56V104.66Q416.76 104.96 417.07 105.2Q417.77 105.74 418.96 105.74H419.26Q419.35 105.74 419.35 105.83ZM422.75 97.77Q422.96 97.77 422.96 97.59Q422.96 97.5 422.91 97.39L421.2 92.68Q421.08 92.37 421.03 92.37Q420.97 92.37 420.84 92.69L419.23 97.39Q419.19 97.5 419.19 97.63Q419.19 97.77 419.36 97.77Z M453.08 99.08Q453.2 99.08 453.2 99.25Q453.2 99.43 453.08 99.5Q452.77 99.63 452.44 99.72Q452.11 99.81 451.84 99.96Q451.2 100.31 451.2 101.08V104.81Q451.2 105.06 449.99 105.49Q448.78 105.91 448.02 106.11Q444.47 106.98 441.68 105.92Q438.47 104.69 437.14 101.52Q436.47 99.94 436.47 98.37Q436.47 96.8 436.78 95.73Q437.73 92.47 440.74 90.71Q442.7 89.56 444.87 89.56Q447.03 89.56 449.47 90.44Q449.92 90.6 449.97 90.6H450.11L450.57 90.48H450.86Q450.99 90.48 450.99 90.61V94.43Q450.99 94.65 450.73 94.65H450.69Q450.47 94.63 450.39 94.07Q450.36 93.95 450.35 93.89Q449.2 90.3 445.5 90.3Q442.54 90.3 440.78 92.54Q439.01 94.78 439.01 97.87Q439.01 100.96 440.79 103.33Q442.56 105.71 445.67 105.71Q447.26 105.71 448.3 105.21Q448.7 105.02 448.92 104.72V101.57Q448.92 100.5 448.31 100Q447.7 99.5 446.07 99.5Q445.94 99.5 445.94 99.29Q445.94 99.08 446.07 99.08Z M459.03 106.11V105.79Q459.03 105.69 459.13 105.69H459.38Q459.86 105.66 460.37 105.65Q460.87 105.65 461.29 105.53Q462.23 105.26 462.23 104.15V92.05Q462.23 90.91 460.88 90.6Q460.5 90.52 460.11 90.46H459.87Q459.78 90.46 459.78 90.37V90.09Q459.78 90 459.87 90H470.8Q471.01 90 471.1 90.07Q471.19 90.15 471.21 90.4L471.42 93.73Q471.42 93.85 471.25 93.85Q471.08 93.85 470.99 93.75Q470.93 93.63 470.82 92.91Q470.71 92.18 470.42 91.7Q470.13 91.22 469.41 91.09H464.62Q464.47 91.09 464.47 91.24V97.18Q464.47 97.3 464.58 97.3H468.56Q470.1 97.3 470.1 95.5Q470.1 95.41 470.19 95.41H470.47Q470.56 95.41 470.56 95.5V100.42Q470.56 100.51 470.47 100.51H470.19Q470.1 100.51 470.1 100.42Q470.1 98.72 469.11 98.46Q468.83 98.39 468.52 98.39H464.58Q464.47 98.39 464.47 98.5V104.1Q464.47 104.96 465.26 105.07Q465.49 105.11 465.74 105.11H469.57Q470.75 105.11 471.41 104.06Q471.88 103.32 471.98 102.35Q472.02 102.03 472.33 102.03Q472.47 102.03 472.47 102.18L472.09 106.04Q472.02 106.2 471.93 106.2H459.13Q459.03 106.2 459.03 106.11Z"/></svg>
     <nav aria-label="Pautan bawah">
-      <a href="#servis" data-en="Services">Servis</a><a href="#cara-tempah" data-en="How to book">Cara Tempah</a><a href="#kenali-sam" data-en="Meet Sam">Kenali Sam</a><a href="#soalan" data-en="FAQ">Soalan</a><a href="#hubungi" data-en="Contact">Hubungi</a>
+      <a href="#servis" data-en="Services">Servis</a><a href="#cara-tempah" data-en="How to book">Cara Tempah</a><a href="#kenali-sam" data-en="Meet Sam">Kenali Sam</a><a href="#soalan" data-en="FAQ">Soalan</a><a href="#hubungi" data-en="Contact">Hubungi</a><a href="#" data-manage data-en="My booking">Tempahan saya</a>
     </nav>
     <p class="disc" data-en="Services are for relaxation and wellbeing and are not a substitute for medical treatment. No cure or treatment outcome is claimed. Please tell Sam about any health conditions before your session.">Servis adalah untuk relaksasi dan kesejahteraan, dan bukan pengganti rawatan perubatan. Tiada tuntutan penyembuhan atau hasil rawatan. Sila maklumkan sebarang keadaan kesihatan kepada Sam sebelum sesi.</p>
     <p style="font-size:12px">© 2026 Syafiq Aura Massage (SAM) · Chendering, Kuala Terengganu</p>
@@ -598,7 +630,7 @@ footer nav a{color:var(--on-kayu);text-decoration:none;font-size:14px;padding:6p
       <div class="sheet-title"><small id="stepLabel"></small><h2 id="sheetTitle"></h2></div>
       <button class="iconbtn" type="button" id="closeBtn" aria-label="Tutup"><svg><use href="#i-x"/></svg></button>
     </div>
-    <div class="progress" id="progress" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+    <div class="progress" id="progress" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
   </div>
   <div class="sheet-body" id="sheetBody"></div>
   <div class="sheet-foot" id="sheetFoot">
@@ -609,6 +641,7 @@ footer nav a{color:var(--on-kayu);text-decoration:none;font-size:14px;padding:6p
 </div>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
+<script src="config.js"></script>
 <script>
 (function(){
 "use strict";
@@ -696,88 +729,193 @@ function renderServices(){
 }
 
 /* ---------- booking state ---------- */
-var B={svc:null,date:null,slot:null,mode:"in",area:"",name:"",phone:"",first:null,note:""};
+var CFG=window.SAM_CONFIG||{};
+var API=String(CFG.apiUrl||"").trim();
+var BANK={bank:"Maybank",acc:"1630 4662 3774",holder:"Muhammad Aiman Syafiq",qr:"img/duitnow-qr.jpg"};
+SLOTS.forEach(function(s){ s.v=(s.h<10?"0":"")+s.h+":"+(s.m<10?"0":"")+s.m; });
+function pad2(n){ return (n<10?"0":"")+n; }
+function ymd(d){ return d.getFullYear()+"-"+pad2(d.getMonth()+1)+"-"+pad2(d.getDate()); }
+function parseYmd(s){ var p=String(s||"").split("-"); return new Date(+p[0],+p[1]-1,+p[2]); }
+function slotIdx(v){ for(var i=0;i<SLOTS.length;i++){ if(SLOTS[i].v===v) return i; } return null; }
+function qs(o){ return Object.keys(o).map(function(k){return encodeURIComponent(k)+"="+encodeURIComponent(o[k]);}).join("&"); }
+function api(method,params){
+  if(!API) return Promise.reject(new Error("no_api"));
+  var ctrl=("AbortController" in window)?new AbortController():null;
+  var timer=setTimeout(function(){ if(ctrl) ctrl.abort(); },30000);
+  var req=method==="GET"?fetch(API+"?"+qs(params),{signal:ctrl&&ctrl.signal}):fetch(API,{method:"POST",body:JSON.stringify(params),signal:ctrl&&ctrl.signal});
+  return req.then(function(r){ clearTimeout(timer); return r.json(); },function(e){ clearTimeout(timer); throw e; });
+}
+function errText(code){
+  var M={slot_taken:["Slot ini baru sahaja diambil. Sila pilih masa lain.","That slot was just taken. Please pick another time."],
+    too_soon:["Masa ini terlalu hampir. Sila pilih slot lain.","That time is too soon. Please choose another slot."],
+    not_found:["Tempahan tidak dijumpai. Semak ID dan nombor telefon.","Booking not found. Check the ID and phone number."],
+    too_many:["Terlalu banyak cubaan. Sila cuba lagi sebentar lagi atau WhatsApp Sam.","Too many attempts. Try again later or WhatsApp Sam."],
+    file_too_big:["Fail terlalu besar (maks. 8MB).","File too large (max 8MB)."],
+    bad_file:["Jenis fail tidak disokong. Gunakan gambar atau PDF.","Unsupported file. Use an image or PDF."],
+    closed:["Tempahan ini sudah selesai atau dibatalkan.","This booking is completed or cancelled."]};
+  var m=M[code]; return m?t(m[0],m[1]):t("Ralat sambungan. Sila cuba lagi atau WhatsApp Sam.","Connection problem. Please try again or WhatsApp Sam.");
+}
+
+var B={svc:null,date:null,slot:null,mode:"in",area:"",name:"",phone:"",first:null,note:"",id:null,status:null,receipt:false,offline:false};
 try{ var saved=JSON.parse(localStorage.getItem("sam-me")||"{}"); B.name=saved.name||""; B.phone=saved.phone||""; }catch(e){}
-var step=0, sheetOpen=false, sent=false, lastFocus=null;
+var LAST={}; try{ LAST=JSON.parse(localStorage.getItem("sam-last")||"{}"); }catch(e){}
+var F={id:LAST.id||"",phone:LAST.phone||B.phone||""};   // find-booking form
+var M=null;                                              // looked-up booking
+var R={date:null,slot:null};                             // reschedule choice
+var view="svc", busy=false, err="", sheetOpen=false, lastFocus=null, upload={state:"idle",name:""};
+var AV={};                                               // availability cache
 var sheet=$("#sheet"), scrim=$("#scrim"), body=$("#sheetBody");
 function svcById(id){ for(var i=0;i<SVC.length;i++){ if(SVC[i].id===id) return SVC[i]; } return null; }
 function days(){ var out=[],d=new Date(); d.setHours(0,0,0,0); for(var i=0;i<14;i++){ var x=new Date(d); x.setDate(d.getDate()+i); out.push(x);} return out; }
 function sameDay(a,b){ return a&&b&&a.toDateString()===b.toDateString(); }
 function slotPast(date,s){ var n=new Date(); if(!sameDay(date,n)) return false; return (s.h*60+s.m) <= (n.getHours()*60+n.getMinutes()+60); }
 function fmtDate(d,long){ var dn=long?DAYS_L[lang][d.getDay()]:DAYS[lang][d.getDay()]; return dn+", "+d.getDate()+" "+MON[lang][d.getMonth()]+" "+d.getFullYear(); }
+function saveLast(){ try{ localStorage.setItem("sam-last",JSON.stringify({id:B.id,phone:B.phone})); localStorage.setItem("sam-me",JSON.stringify({name:B.name.trim(),phone:B.phone.trim()})); }catch(e){} F.id=B.id||F.id; F.phone=B.phone||F.phone; }
 
-document.addEventListener("click",function(e){
-  var b=e.target.closest("[data-book]"); if(!b) return;
-  e.preventDefault(); openSheet(b.getAttribute("data-book")||null, b);
-});
-function openSheet(svcId, opener){
-  lastFocus=opener||document.activeElement;
-  sent=false;
-  if(svcId){ B.svc=svcId; step=1; } else { step=0; }
-  sheetOpen=true; renderStep();
-  sheet.classList.add("open"); scrim.classList.add("open"); sheet.setAttribute("aria-hidden","false");
-  document.body.style.overflow="hidden";
-  setTimeout(function(){ $("#closeBtn").focus(); },50);
+/* availability */
+function avKey(date,min,ex){ return ymd(date)+"|"+min+"|"+(ex||""); }
+function loadAvail(date,min,ex){
+  if(!API||!date) return;
+  var k=avKey(date,min,ex);
+  if(AV[k]&&(AV[k].loading||Date.now()-AV[k].at<60000)) return;
+  AV[k]={loading:true,taken:[],full:false,at:Date.now()};
+  api("GET",{action:"slots",date:ymd(date),min:min,exclude:ex||""}).then(function(r){
+    AV[k]={loading:false,taken:(r&&r.taken)||[],full:!!(r&&r.full),at:Date.now(),ok:!!(r&&r.ok)};
+  },function(){ AV[k]={loading:false,taken:[],full:false,at:Date.now(),ok:false}; }).then(function(){ if(sheetOpen&&(view==="date"||view==="resched")) renderStep(); });
 }
+function slotState(date,i,min,ex){
+  var s=SLOTS[i]; if(slotPast(date,s)) return "past";
+  if(!API) return "free";
+  var a=AV[avKey(date,min,ex)]; if(!a||a.loading) return "loading";
+  if(a.full||a.taken.indexOf(s.v)>=0) return "full";
+  return "free";
+}
+
+/* open / close */
+document.addEventListener("click",function(e){
+  var b=e.target.closest("[data-book]"); if(b){ e.preventDefault(); openSheet(b.getAttribute("data-book")||null,b); return; }
+  var m=e.target.closest("[data-manage]"); if(m){ e.preventDefault(); openManage(m); }
+});
+function show(){ sheetOpen=true; renderStep(); sheet.classList.add("open"); scrim.classList.add("open"); sheet.setAttribute("aria-hidden","false"); document.body.style.overflow=""; document.body.style.overflow="hidden"; setTimeout(function(){ $("#closeBtn").focus(); },50); }
+function openSheet(svcId,opener){
+  lastFocus=opener||document.activeElement; err=""; busy=false;
+  if(view==="deposit"&&B.id&&!svcId){ show(); return; } // resume unfinished deposit
+  B.id=null; B.status=null; B.receipt=false; B.offline=false; upload={state:"idle",name:""};
+  if(svcId){ B.svc=svcId; view="date"; } else view="svc";
+  show();
+}
+function openManage(opener){ lastFocus=opener||document.activeElement; err=""; busy=false; M=null; view="find"; show(); }
 function closeSheet(){
   sheetOpen=false; sheet.classList.remove("open"); scrim.classList.remove("open"); sheet.setAttribute("aria-hidden","true");
-  document.body.style.overflow="";
-  if(lastFocus&&lastFocus.focus) lastFocus.focus();
+  document.body.style.overflow=""; if(lastFocus&&lastFocus.focus) lastFocus.focus();
 }
 scrim.addEventListener("click",closeSheet);
 $("#closeBtn").addEventListener("click",closeSheet);
-$("#backBtn").addEventListener("click",function(){ if(sent){ sent=false; step=3; } else if(step>0) step--; renderStep(); });
+var BACK={date:"svc",where:"date",details:"where",deposit:"details",done:"deposit",manage:"find",resched:"manage",reschedDone:"manage"};
+$("#backBtn").addEventListener("click",function(){
+  err="";
+  if(view==="deposit"&&B.id){ if(M){ view="manage"; } else return; }
+  else if(view==="deposit"&&M){ view="manage"; }
+  else if(BACK[view]) view=BACK[view];
+  renderStep();
+});
 document.addEventListener("keydown",function(e){
   if(!sheetOpen) return;
   if(e.key==="Escape") closeSheet();
-  if(e.key==="Tab"){ var f=$$('button:not([disabled]):not([hidden]),a[href]:not([hidden]),input,textarea',sheet).filter(function(x){return x.offsetParent!==null;}); if(!f.length) return; var first=f[0],last=f[f.length-1];
+  if(e.key==="Tab"){ var f=$$('button:not([disabled]):not([hidden]),a[href]:not([hidden]),input,textarea,label[tabindex]',sheet).filter(function(x){return x.offsetParent!==null;}); if(!f.length) return; var first=f[0],last=f[f.length-1];
     if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();} else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();} }
 });
 
-var TITLES=[["Pilih servis","Choose a service"],["Tarikh & masa","Date & time"],["Lokasi rawatan","Where?"],["Butiran anda","Your details"]];
-function canNext(){
-  if(step===0) return !!B.svc;
-  if(step===1) return !!(B.date&&B.slot!==null);
-  if(step===2) return B.mode==="in"||B.area.trim().length>2;
-  if(step===3) return B.name.trim().length>1;
-  return false;
+/* rendering */
+var TITLES={svc:["Pilih servis","Choose a service"],date:["Tarikh & masa","Date & time"],where:["Lokasi rawatan","Where?"],details:["Butiran anda","Your details"],
+  deposit:["Bayar deposit","Pay the deposit"],done:["Hampir siap","Almost done"],find:["Semak tempahan","Find your booking"],manage:["Tempahan anda","Your booking"],
+  resched:["Tukar tarikh & masa","Change date & time"],reschedDone:["Tarikh ditukar","Date changed"]};
+var STEPN={svc:1,date:2,where:3,details:4,deposit:5};
+function statusPill(s){
+  var map={"Menunggu deposit":["#FBF0DC","#8A5A10",t("Menunggu deposit","Awaiting deposit")],"Resit diterima":["#FCE9D9","#8A4B12",t("Resit sedang disemak","Receipt being checked")],
+    "Disahkan":["#E5F3EA","#1E6B3D",t("Disahkan","Confirmed")],"Selesai":["#EEEAE5","#5E5046",t("Selesai","Completed")],"Batal":["#F8E4E1","#A33A2B",t("Dibatalkan","Cancelled")]};
+  var m=map[s]||["#EEEAE5","#5E5046",s||"-"];
+  return '<span class="statuspill" style="background:'+m[0]+';color:'+m[1]+'">'+esc(m[2])+'</span>';
+}
+function dateSlotPicker(selDate,selSlot,min,ex){
+  var ds=days(), h="";
+  h+='<span class="lbl">'+t("Tarikh","Date")+'</span><div class="dates">'+ds.map(function(d,i){ return '<button type="button" class="date" data-di="'+i+'" aria-pressed="'+sameDay(d,selDate)+'" aria-label="'+esc(fmtDate(d,true))+'"><small>'+(i===0?t("Hari ini","Today"):DAYS[lang][d.getDay()])+'</small><b>'+d.getDate()+'</b><small>'+MON[lang][d.getMonth()]+'</small></button>'; }).join("")+'</div>';
+  var a=API?AV[avKey(selDate,min,ex)]:null, loading=API&&(!a||a.loading);
+  h+='<span class="lbl">'+t("Masa mula","Start time")+(loading?' <span class="muted">· '+t("menyemak slot…","checking slots…")+'</span>':'')+'</span><div class="slots'+(loading?' loading':'')+'">'+SLOTS.map(function(x,i){
+    var st=slotState(selDate,i,min,ex), dis=(st==="past"||st==="full");
+    return '<button type="button" class="slot" data-si="'+i+'" aria-pressed="'+(selSlot===i)+'"'+(dis?' disabled':'')+'>'+esc(x[lang])+(st==="full"?'<small>'+t("Penuh","Taken")+'</small>':'')+'</button>'; }).join("")+'</div>';
+  if(a&&a.full) h+='<p class="err">'+t("Hari ini sudah penuh (maks. 5 pelanggan). Sila pilih tarikh lain.","This day is fully booked (max 5 clients). Please pick another date.")+'</p>';
+  return h;
 }
 function renderStep(){
-  var s=svcById(B.svc);
-  $("#backBtn").hidden=(step===0&&!sent);
-  $$("#progress i").forEach(function(el,i){ el.classList.toggle("on",i<=step||sent); });
-  $("#stepLabel").textContent=sent?t("Hampir siap","Almost done"):t("Langkah ","Step ")+(step+1)+t(" daripada 4"," of 4");
-  $("#sheetTitle").textContent=sent?t("Mesej sudah sedia","Message ready"):t(TITLES[step][0],TITLES[step][1]);
+  var s=svcById(B.svc), n=STEPN[view];
+  $("#backBtn").hidden=(view==="svc"||view==="find"||(view==="deposit"&&B.id&&!M));
+  $("#progress").style.display=(n||view==="done")?"":"none";
+  $$("#progress i").forEach(function(el,i){ el.classList.toggle("on",view==="done"||i<(n||0)); });
+  $("#stepLabel").textContent=n?(t("Langkah ","Step ")+n+t(" daripada 5"," of 5")):(view==="done"?t("Tempahan dihantar","Booking sent"):t("Tempahan saya","My booking"));
+  $("#sheetTitle").textContent=(view==="deposit"&&s)?t("Bayar deposit RM","Pay RM")+s.dep+t(""," deposit"):t(TITLES[view][0],TITLES[view][1]);
   var h="";
-  if(sent){ h=doneHTML(); }
-  else if(step===0){
-    h=SVC.map(function(x){ return '<button type="button" class="opt" role="radio" aria-checked="'+(B.svc===x.id)+'" data-svc="'+x.id+'"><span class="radio"></span><span class="txt"><b>'+esc(x[lang])+'</b><span>'+x.min+' min · '+esc(catName(x.cat))+'</span></span><span class="pr">RM'+x.rm+'</span></button>'; }).join("");
-    h='<div role="radiogroup" aria-label="'+t("Servis","Service")+'">'+h+'</div>';
-  } else if(step===1){
-    var ds=days();
-    if(!B.date) B.date=ds[0];
-    h='<span class="lbl">'+t("Tarikh","Date")+'</span><div class="dates">'+ds.map(function(d,i){ return '<button type="button" class="date" data-di="'+i+'" aria-pressed="'+sameDay(d,B.date)+'" aria-label="'+esc(fmtDate(d,true))+'"><small>'+(i===0?t("Hari ini","Today"):DAYS[lang][d.getDay()])+'</small><b>'+d.getDate()+'</b><small>'+MON[lang][d.getMonth()]+'</small></button>'; }).join("")+'</div>';
-    if(B.slot!==null&&slotPast(B.date,SLOTS[B.slot])) B.slot=null;
-    h+='<span class="lbl">'+t("Masa mula","Start time")+'</span><div class="slots">'+SLOTS.map(function(x,i){ var past=slotPast(B.date,x); return '<button type="button" class="slot" data-si="'+i+'" aria-pressed="'+(B.slot===i)+'"'+(past?' disabled':'')+'>'+esc(x[lang])+'</button>'; }).join("")+'</div>';
-    h+='<p class="hint"><svg><use href="#i-info"/></svg><span>'+t("Masa pilihan ialah permintaan. Sam akan sahkan ketersediaan di WhatsApp (maks. 5 pelanggan sehari).","Your chosen time is a request. Sam confirms availability on WhatsApp (max 5 clients a day).")+'</span></p>';
-  } else if(step===2){
+  if(view==="svc"){
+    h='<div role="radiogroup" aria-label="'+t("Servis","Service")+'">'+SVC.map(function(x){ return '<button type="button" class="opt" role="radio" aria-checked="'+(B.svc===x.id)+'" data-svc="'+x.id+'"><span class="radio"></span><span class="txt"><b>'+esc(x[lang])+'</b><span>'+x.min+' min · '+t("deposit","deposit")+' RM'+x.dep+'</span></span><span class="pr">RM'+x.rm+'</span></button>'; }).join("")+'</div>';
+  } else if(view==="date"){
+    if(!B.date) B.date=days()[0];
+    loadAvail(B.date,s.min,"");
+    if(B.slot!==null&&slotState(B.date,B.slot,s.min,"")!=="free"&&slotState(B.date,B.slot,s.min,"")!=="loading") B.slot=null;
+    h=dateSlotPicker(B.date,B.slot,s.min,"");
+    h+='<p class="hint"><svg><use href="#i-info"/></svg><span>'+(API?t("Slot yang sudah diambil ditanda Penuh. Sam ambil maksimum 5 pelanggan sehari.","Taken slots show as Taken. Sam sees at most 5 clients a day."):t("Masa pilihan ialah permintaan. Sam akan sahkan ketersediaan di WhatsApp (maks. 5 pelanggan sehari).","Your chosen time is a request. Sam confirms availability on WhatsApp (max 5 clients a day)."))+'</span></p>';
+  } else if(view==="where"){
     h='<div role="radiogroup" aria-label="In-Call / Out-Call">'+
       '<button type="button" class="opt" role="radio" aria-checked="'+(B.mode==="in")+'" data-mode="in"><span class="radio"></span><span class="txt"><b>In-Call</b><span>'+t("Datang ke premis Sam di Chendering","Come to Sam's premises in Chendering")+'</span></span><svg width="22" height="22" style="color:var(--bronze)"><use href="#i-home"/></svg></button>'+
       '<button type="button" class="opt" role="radio" aria-checked="'+(B.mode==="out")+'" data-mode="out"><span class="radio"></span><span class="txt"><b>Out-Call</b><span>'+t("Sam datang ke rumah / hotel anda","Sam comes to your home / hotel")+'</span></span><svg width="22" height="22" style="color:var(--bronze)"><use href="#i-car"/></svg></button></div>';
     if(B.mode==="out"){
       h+='<div class="field" style="margin-top:8px"><label for="fArea">'+t("Kawasan / alamat","Area / address")+'</label><input class="input" id="fArea" autocomplete="street-address" placeholder="'+t("cth. Taman Seri Kolam, Kuala Nerus","e.g. Taman Seri Kolam, Kuala Nerus")+'" value="'+esc(B.area)+'"></div>';
-      h+='<p class="hint"><svg><use href="#i-info"/></svg><span>'+t("Caj perjalanan (jika ada) akan disahkan oleh Sam sebelum anda bayar deposit.","Any travel charge is confirmed by Sam before you pay the deposit.")+'</span></p>';
+      h+='<p class="hint"><svg><use href="#i-info"/></svg><span>'+t("Caj perjalanan (jika ada) akan dimaklumkan oleh Sam di WhatsApp.","Any travel charge will be confirmed by Sam on WhatsApp.")+'</span></p>';
     }
-  } else if(step===3){
+  } else if(view==="details"){
     h='<div class="field"><label for="fName">'+t("Nama","Name")+'</label><input class="input" id="fName" autocomplete="name" placeholder="'+t("Nama anda","Your name")+'" value="'+esc(B.name)+'"></div>'+
-      '<div class="field"><label for="fPhone">'+t("No. telefon","Phone")+' <span>('+t("pilihan","optional")+')</span></label><input class="input" id="fPhone" type="tel" inputmode="tel" autocomplete="tel" placeholder="01X-XXX XXXX" value="'+esc(B.phone)+'"></div>'+
+      '<div class="field"><label for="fPhone">'+t("No. telefon (WhatsApp)","Phone (WhatsApp)")+'</label><input class="input" id="fPhone" type="tel" inputmode="tel" autocomplete="tel" placeholder="01X-XXX XXXX" value="'+esc(B.phone)+'"></div>'+
       '<div class="field"><span class="lbl" style="margin:0">'+t("Pertama kali dengan Sam?","First time with Sam?")+'</span><div class="seg"><button type="button" data-first="1" aria-pressed="'+(B.first===true)+'">'+t("Ya","Yes")+'</button><button type="button" data-first="0" aria-pressed="'+(B.first===false)+'">'+t("Tidak","No")+'</button></div></div>'+
       '<div class="field"><label for="fNote">'+t("Nota untuk Sam","Note for Sam")+' <span>('+t("pilihan","optional")+')</span></label><textarea class="textarea" id="fNote" placeholder="'+t("cth. sakit belakang, tekanan sederhana, elak bahu kiri","e.g. lower back pain, medium pressure, avoid left shoulder")+'">'+esc(B.note)+'</textarea></div>'+
-      summaryHTML();
+      '<input type="text" id="fWeb" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px">'+
+      summaryHTML()+(err?'<p class="err" role="alert">'+esc(err)+'</p>':'');
+  } else if(view==="deposit"){
+    h=depositHTML();
+  } else if(view==="done"){
+    h=doneHTML();
+  } else if(view==="find"){
+    if(!API){
+      h='<p class="lead" style="font-size:15px">'+t("Untuk semak atau tukar tarikh tempahan, mesej Sam terus di WhatsApp. Sertakan nama dan tarikh tempahan anda.","To check or change your booking, message Sam on WhatsApp with your name and booking date.")+'</p>';
+    } else {
+      h='<p class="lead" style="font-size:15px;margin-bottom:16px">'+t("Masukkan ID tempahan (cth. SAM-4K7QX) dan nombor telefon yang digunakan semasa tempah.","Enter your booking ID (e.g. SAM-4K7QX) and the phone number you booked with.")+'</p>'+
+        '<div class="field"><label for="mId">'+t("ID tempahan","Booking ID")+'</label><input class="input" id="mId" autocapitalize="characters" placeholder="SAM-XXXXX" value="'+esc(F.id)+'"></div>'+
+        '<div class="field"><label for="mPhone">'+t("No. telefon","Phone")+'</label><input class="input" id="mPhone" type="tel" inputmode="tel" autocomplete="tel" placeholder="01X-XXX XXXX" value="'+esc(F.phone)+'"></div>'+
+        (err?'<p class="err" role="alert">'+esc(err)+'</p>':'');
+    }
+  } else if(view==="manage"){
+    var ms=svcById(M.service), md=parseYmd(M.date), mi=slotIdx(M.time);
+    h='<div class="idbox"><span><small>'+t("ID tempahan","Booking ID")+'</small><b>'+esc(M.id)+'</b></span>'+statusPill(M.status)+'</div>'+
+      '<div class="summary" style="margin-top:0"><dl>'+
+      '<dt>'+t("Servis","Service")+'</dt><dd>'+esc(ms?ms[lang]:M.serviceName)+' · '+M.min+' min</dd>'+
+      '<dt>'+t("Tarikh","Date")+'</dt><dd>'+esc(fmtDate(md))+'</dd>'+
+      '<dt>'+t("Masa","Time")+'</dt><dd>'+esc(mi!==null?SLOTS[mi][lang]:M.time)+'</dd>'+
+      '<dt>'+t("Lokasi","Where")+'</dt><dd>'+(M.mode==="in"?"In-Call (Chendering)":"Out-Call")+'</dd>'+
+      '<dt>'+t("Deposit","Deposit")+'</dt><dd>RM'+M.deposit+' · '+(M.receipt?t("resit diterima","receipt received"):t("belum dibayar","not paid yet"))+'</dd></dl></div>'+
+      '<div style="display:grid;gap:10px;margin-top:16px">'+
+      ((M.status!=="Selesai"&&M.status!=="Batal")?'<button type="button" class="btn btn-outline" id="goResched"><svg><use href="#i-cal"/></svg><span>'+t("Tukar tarikh / masa","Change date / time")+'</span></button>':'')+
+      ((!M.receipt&&M.status==="Menunggu deposit")?'<button type="button" class="btn btn-primary" id="goPay" style="padding-right:22px"><span>'+t("Bayar deposit & muat naik resit","Pay deposit & upload receipt")+'</span></button>':'')+
+      '</div>';
+  } else if(view==="resched"){
+    var rs=svcById(M.service), rmin=M.min||(rs?rs.min:60);
+    if(!R.date) R.date=parseYmd(M.date)<days()[0]?days()[0]:parseYmd(M.date);
+    loadAvail(R.date,rmin,M.id);
+    if(R.slot!==null&&slotState(R.date,R.slot,rmin,M.id)!=="free"&&slotState(R.date,R.slot,rmin,M.id)!=="loading") R.slot=null;
+    h='<p class="hint" style="margin:0 0 14px"><svg><use href="#i-info"/></svg><span>'+t("Sekarang: ","Now: ")+esc(fmtDate(parseYmd(M.date)))+', '+esc(slotIdx(M.time)!==null?SLOTS[slotIdx(M.time)][lang]:M.time)+'</span></p>'+dateSlotPicker(R.date,R.slot,rmin,M.id)+(err?'<p class="err" role="alert">'+esc(err)+'</p>':'');
+  } else if(view==="reschedDone"){
+    h='<div class="done"><div class="big"><svg><use href="#i-check"/></svg></div><h3>'+t("Tarikh telah ditukar","Your date is changed")+'</h3><p>'+esc(fmtDate(parseYmd(M.date),true))+', '+esc(SLOTS[slotIdx(M.time)][lang])+'</p>'+
+      '<p style="margin-top:10px">'+t("Sam telah dimaklumkan melalui emel dan kalendarnya dikemas kini. Anda juga boleh maklumkan Sam di WhatsApp.","Sam has been notified by email and his calendar is updated. You can also let him know on WhatsApp.")+'</p></div>';
   }
   body.innerHTML=h; body.scrollTop=0;
-  bindStep();
-  updateFoot();
+  bindStep(); updateFoot();
 }
 function summaryHTML(){
   var s=svcById(B.svc);
@@ -786,84 +924,182 @@ function summaryHTML(){
     '<dt>'+t("Tarikh","Date")+'</dt><dd>'+esc(fmtDate(B.date))+'</dd>'+
     '<dt>'+t("Masa","Time")+'</dt><dd>'+esc(SLOTS[B.slot][lang])+'</dd>'+
     '<dt>'+t("Lokasi","Where")+'</dt><dd>'+(B.mode==="in"?"In-Call (Chendering)":"Out-Call")+'</dd></dl>'+
-    '<div class="tot"><span>'+t("Harga","Price")+' · '+t("deposit","deposit")+' RM'+s.dep+'</span><b>RM'+s.rm+'</b></div></div>';
+    '<div class="tot"><span>'+t("Harga","Price")+' · '+t("deposit sekarang","deposit now")+' RM'+s.dep+'</span><b>RM'+s.rm+'</b></div></div>';
+}
+function depositHTML(){
+  var s=svcById(B.svc), ref=B.id||B.name.trim().split(" ")[0]||"SAM";
+  var h='';
+  if(B.id) h+='<div class="idbox"><span><small>'+t("ID tempahan anda — simpan untuk semak/tukar","Your booking ID — keep it to check/change")+'</small><b>'+esc(B.id)+'</b></span><button type="button" class="copybtn light" data-copy="'+esc(B.id)+'">'+t("Salin","Copy")+'</button></div>';
+  else if(B.offline) h+='<p class="hint" style="margin:0 0 14px"><svg><use href="#i-info"/></svg><span>'+t("Sistem tempahan tidak dapat dihubungi. Teruskan bayar deposit dan hantar butiran melalui WhatsApp — Sam akan rekodkan secara manual.","The booking system couldn't be reached. Pay the deposit and send your details via WhatsApp — Sam will record it manually.")+'</span></p>';
+  h+='<ol class="paysteps">';
+  h+='<li><i>1</i><div style="flex:1;min-width:0"><b>'+t("Bayar deposit","Pay the deposit")+' RM'+s.dep+'</b><div class="pay">'+
+    '<div class="qrwrap"><a href="'+BANK.qr+'" download="SAM-DuitNow-QR.jpg" aria-label="'+t("Muat turun QR DuitNow","Download DuitNow QR")+'"><img src="'+BANK.qr+'" alt="QR DuitNow Maybank — Muhammad Aiman Syafiq" width="300" height="300"></a>'+
+    '<div class="bankrows"><div><span>Bank</span><b>'+BANK.bank+'</b></div><div><span>'+t("No. akaun","Account no.")+'</span><b>'+BANK.acc+'</b></div>'+
+    '<div><span>'+t("Nama","Name")+'</span><b style="text-align:right">'+BANK.holder+'</b></div><div><span>'+t("Rujukan","Reference")+'</span><b>'+esc(ref)+'</b></div>'+
+    '<button type="button" class="copybtn" data-copy="'+BANK.acc.replace(/\s/g,"")+'">'+t("Salin no. akaun","Copy account no.")+'</button></div></div>'+
+    '<p class="tiny">'+t("Di telefon? Tekan lama QR untuk simpan, kemudian imbas dari galeri dalam app bank (MAE / DuitNow). Atau pindahan terus ke no. akaun di atas.","On your phone? Long-press the QR to save it, then scan it from your gallery in your banking app (MAE / DuitNow). Or transfer to the account number above.")+'</p></div></div></li>';
+  if(API&&B.id){
+    var st=upload.state;
+    h+='<li><i>2</i><div style="flex:1;min-width:0"><b>'+t("Muat naik resit","Upload the receipt")+'</b>'+
+      (st==="done"?'<div class="upload ok"><svg width="26" height="26" style="color:var(--wa);flex:none"><use href="#i-check"/></svg><span><b>'+t("Resit diterima","Receipt received")+'</b><br><small>'+t("Sam telah dimaklumkan melalui emel.","Sam has been notified by email.")+'</small></span></div>'
+      :'<label class="upload'+(st==="busy"?' loading':'')+'" for="fReceipt" tabindex="0"><svg width="26" height="26" style="color:var(--bronze);flex:none"><use href="#i-copy"/></svg><span><b>'+(st==="busy"?t("Memuat naik…","Uploading…"):t("Pilih gambar / PDF resit","Choose receipt photo / PDF"))+'</b><br><small>'+(upload.name?esc(upload.name):t("Tangkapan skrin bank juga boleh","A banking-app screenshot is fine"))+'</small></span></label><input type="file" id="fReceipt" accept="image/*,application/pdf" class="sr-only">')+
+      (err?'<p class="err" role="alert">'+esc(err)+'</p>':'')+'</div></li>';
+  }
+  h+='<li><i>'+(API&&B.id?3:2)+'</i><div style="flex:1;min-width:0"><b>'+t("Hantar ke WhatsApp Sam","Send to Sam on WhatsApp")+'</b><p class="tiny" style="margin-top:4px">'+t("Butiran tempahan sudah ditulis. Lampirkan gambar resit dalam chat sebelum hantar.","Your booking details are pre-written. Attach the receipt photo in the chat before sending.")+'</p></div></li>';
+  h+='</ol>';
+  return h;
 }
 function doneHTML(){
   return '<div class="done"><div class="big"><svg><use href="#i-check"/></svg></div><h3>'+t("Terima kasih, ","Thank you, ")+esc(B.name.split(" ")[0])+'!</h3>'+
-    '<p>'+t("Hantar mesej yang sudah disediakan di WhatsApp. Jika WhatsApp tidak terbuka, tekan butang di bawah atau salin mesej.","Send the prepared message in WhatsApp. If WhatsApp didn't open, use the button below or copy the message.")+'</p>'+
-    '<ol><li><i>1</i><span>'+t("Sam semak jadual dan sahkan slot anda.","Sam checks his schedule and confirms your slot.")+'</span></li>'+
-    '<li><i>2</i><span>'+t("Sam hantar butiran bayaran deposit.","Sam sends the deposit payment details.")+'</span></li>'+
-    '<li><i>3</i><span>'+t("Bayar deposit dan hantar resit dalam chat yang sama.","Pay the deposit and send the receipt in the same chat.")+'</span></li>'+
-    '<li><i>4</i><span>'+t("Tempahan disahkan — jumpa nanti!","Booking confirmed — see you soon!")+'</span></li></ol>'+
-    '<div class="copyrow"><button type="button" class="btn btn-outline" id="copyMsg"><svg><use href="#i-copy"/></svg><span>'+t("Salin mesej","Copy message")+'</span></button></div></div>';
+    (B.id?'<p>'+t("ID tempahan: ","Booking ID: ")+'<b>'+esc(B.id)+'</b></p>':'')+
+    '<ol><li><i>1</i><span>'+t("Sam semak resit deposit anda.","Sam checks your deposit receipt.")+'</span></li>'+
+    '<li><i>2</i><span>'+t("Sam sahkan tempahan di WhatsApp.","Sam confirms your booking on WhatsApp.")+'</span></li>'+
+    '<li><i>3</i><span>'+t("Perlu tukar tarikh? Gunakan “Semak / tukar tempahan”.","Need another date? Use “Check / change booking”.")+'</span></li></ol>'+
+    '<div class="copyrow"><button type="button" class="btn btn-outline" id="copyMsg"><svg><use href="#i-copy"/></svg><span>'+t("Salin mesej","Copy message")+'</span></button>'+
+    (API&&B.id?'<button type="button" class="btn btn-outline" data-manage><svg><use href="#i-cal"/></svg><span>'+t("Semak tempahan","Check booking")+'</span></button>':'')+'</div></div>';
 }
 function bindStep(){
   $$("[data-svc]",body).forEach(function(b){ b.addEventListener("click",function(){ B.svc=b.dataset.svc; $$("[data-svc]",body).forEach(function(x){x.setAttribute("aria-checked",String(x===b));}); updateFoot(); }); });
-  $$("[data-di]",body).forEach(function(b){ b.addEventListener("click",function(){ B.date=days()[+b.dataset.di]; renderStep(); var el=$('[data-di="'+b.dataset.di+'"]',body); if(el){ el.focus(); el.scrollIntoView({inline:"center",block:"nearest"}); } }); });
-  $$("[data-si]",body).forEach(function(b){ b.addEventListener("click",function(){ B.slot=+b.dataset.si; $$("[data-si]",body).forEach(function(x){x.setAttribute("aria-pressed",String(x===b));}); updateFoot(); }); });
+  $$("[data-di]",body).forEach(function(b){ b.addEventListener("click",function(){ var d=days()[+b.dataset.di]; if(view==="resched"){ R.date=d; } else B.date=d; err=""; renderStep(); var el=$('[data-di="'+b.dataset.di+'"]',body); if(el){ el.focus(); el.scrollIntoView({inline:"center",block:"nearest"}); } }); });
+  $$("[data-si]",body).forEach(function(b){ b.addEventListener("click",function(){ var i=+b.dataset.si; if(view==="resched") R.slot=i; else B.slot=i; $$("[data-si]",body).forEach(function(x){x.setAttribute("aria-pressed",String(x===b));}); updateFoot(); }); });
   $$("[data-mode]",body).forEach(function(b){ b.addEventListener("click",function(){ B.mode=b.dataset.mode; renderStep(); var f=$("#fArea"); if(f) f.focus(); }); });
   $$("[data-first]",body).forEach(function(b){ b.addEventListener("click",function(){ B.first=b.dataset.first==="1"; $$("[data-first]",body).forEach(function(x){x.setAttribute("aria-pressed",String(x===b));}); updateFoot(); }); });
-  var m={fArea:"area",fName:"name",fPhone:"phone",fNote:"note"};
-  Object.keys(m).forEach(function(id){ var el=document.getElementById(id); if(el) el.addEventListener("input",function(){ B[m[id]]=el.value; updateFoot(); }); });
-  var c=$("#copyMsg"); if(c) c.addEventListener("click",function(){ try{ navigator.clipboard.writeText(message()).then(function(){toast(t("Mesej disalin","Message copied"));},function(){toast(t("Tidak dapat menyalin","Couldn't copy"));}); }catch(e){ toast(t("Tidak dapat menyalin","Couldn't copy")); } });
-  // date strip: keep selected visible
+  var m={fArea:["area",B],fName:["name",B],fPhone:["phone",B],fNote:["note",B],mId:["id",F],mPhone:["phone",F]};
+  Object.keys(m).forEach(function(id){ var el=document.getElementById(id); if(el) el.addEventListener("input",function(){ m[id][1][m[id][0]]=el.value; updateFoot(); }); });
+  $$("[data-copy]",body).forEach(function(b){ b.addEventListener("click",function(){ copyText(b.dataset.copy,t("Disalin","Copied")); }); });
+  var c=$("#copyMsg"); if(c) c.addEventListener("click",function(){ copyText(message(),t("Mesej disalin","Message copied")); });
+  var fr=$("#fReceipt"); if(fr) fr.addEventListener("change",function(){ if(fr.files&&fr.files[0]) sendReceipt(fr.files[0]); });
+  var lb=$("label.upload",body); if(lb) lb.addEventListener("keydown",function(e){ if(e.key==="Enter"||e.key===" "){ e.preventDefault(); var f=$("#fReceipt"); if(f) f.click(); } });
+  var gr=$("#goResched"); if(gr) gr.addEventListener("click",function(){ R={date:null,slot:null}; err=""; view="resched"; renderStep(); });
+  var gp=$("#goPay"); if(gp) gp.addEventListener("click",function(){ B.svc=M.service||B.svc; B.id=M.id; B.name=M.name||B.name; B.phone=F.phone; B.date=parseYmd(M.date); B.slot=slotIdx(M.time); B.mode=M.mode; upload={state:"idle",name:""}; err=""; view="deposit"; renderStep(); });
   var sel=$('.date[aria-pressed="true"]',body); if(sel&&sel.scrollIntoView) sel.scrollIntoView({inline:"center",block:"nearest"});
 }
+function copyText(txt,okMsg){ try{ navigator.clipboard.writeText(txt).then(function(){toast(okMsg);},function(){toast(t("Tidak dapat menyalin","Couldn't copy"));}); }catch(e){ toast(t("Tidak dapat menyalin","Couldn't copy")); } }
+function phoneOk(p){ var d=String(p||"").replace(/\D/g,""); return d.length>=9&&d.length<=13; }
+function canNext(){
+  if(view==="svc") return !!B.svc;
+  if(view==="date") return !!(B.date&&B.slot!==null&&slotState(B.date,B.slot,svcById(B.svc).min,"")==="free");
+  if(view==="where") return B.mode==="in"||B.area.trim().length>2;
+  if(view==="details") return B.name.trim().length>1&&phoneOk(B.phone);
+  if(view==="find") return F.id.trim().length>=5&&phoneOk(F.phone);
+  if(view==="resched") return !!(R.date&&R.slot!==null&&slotState(R.date,R.slot,M.min,M.id)==="free");
+  return false;
+}
 function message(){
-  var s=svcById(B.svc); var L=[];
-  if(lang==="en"){
-    L.push("Hi Sam, I'd like to book a session:");
-    L.push("");
-    L.push("• Service: "+s.en+" ("+s.min+" min) – RM"+s.rm);
-    L.push("• Date: "+fmtDate(B.date,true));
-    L.push("• Time: "+SLOTS[B.slot].en);
-    L.push("• Where: "+(B.mode==="in"?"In-Call (Chendering)":"Out-Call – "+B.area.trim()));
-    L.push("• Name: "+B.name.trim());
-    if(B.phone.trim()) L.push("• Phone: "+B.phone.trim());
-    if(B.first!==null) L.push("• First time: "+(B.first?"Yes":"No"));
-    if(B.note.trim()) L.push("• Note: "+B.note.trim());
-    L.push(""); L.push("Deposit: RM"+s.dep+". Please confirm if this slot is available. Thank you!");
-  } else {
-    L.push("Assalamualaikum Sam, saya ingin membuat tempahan:");
-    L.push("");
-    L.push("• Servis: "+s.bm+" ("+s.min+" min) – RM"+s.rm);
-    L.push("• Tarikh: "+fmtDate(B.date,true));
-    L.push("• Masa: "+SLOTS[B.slot].bm);
-    L.push("• Lokasi: "+(B.mode==="in"?"In-Call (Chendering)":"Out-Call – "+B.area.trim()));
-    L.push("• Nama: "+B.name.trim());
-    if(B.phone.trim()) L.push("• No. telefon: "+B.phone.trim());
-    if(B.first!==null) L.push("• Pertama kali: "+(B.first?"Ya":"Tidak"));
-    if(B.note.trim()) L.push("• Nota: "+B.note.trim());
-    L.push(""); L.push("Deposit: RM"+s.dep+". Mohon sahkan jika slot ini masih kosong. Terima kasih!");
-  }
+  var s=svcById(B.svc), L=[], en=lang==="en";
+  L.push(en?"Hi Sam, I've made a booking:":"Assalamualaikum Sam, saya telah membuat tempahan:"); L.push("");
+  if(B.id) L.push("• ID: "+B.id);
+  L.push((en?"• Service: ":"• Servis: ")+s[lang]+" ("+s.min+" min) – RM"+s.rm);
+  L.push((en?"• Date: ":"• Tarikh: ")+fmtDate(B.date,true));
+  L.push((en?"• Time: ":"• Masa: ")+SLOTS[B.slot][lang]);
+  L.push((en?"• Where: ":"• Lokasi: ")+(B.mode==="in"?"In-Call (Chendering)":"Out-Call – "+B.area.trim()));
+  L.push((en?"• Name: ":"• Nama: ")+B.name.trim());
+  if(B.phone.trim()) L.push((en?"• Phone: ":"• No. telefon: ")+B.phone.trim());
+  if(B.first!==null) L.push((en?"• First time: ":"• Pertama kali: ")+(B.first?(en?"Yes":"Ya"):(en?"No":"Tidak")));
+  if(B.note.trim()) L.push((en?"• Note: ":"• Nota: ")+B.note.trim());
+  L.push("");
+  L.push(en?("Deposit RM"+s.dep+" paid to "+BANK.bank+" "+BANK.acc+". Receipt attached."):("Deposit RM"+s.dep+" telah dibayar ke "+BANK.bank+" "+BANK.acc+". Resit dilampirkan."));
+  if(upload.state==="done") L.push(en?"(Receipt also uploaded on the website.)":"(Resit juga telah dimuat naik di web app.)");
+  L.push(en?"Thank you!":"Terima kasih!");
   return L.join("\n");
 }
 function updateFoot(){
   var s=svcById(B.svc), next=$("#nextBtn"), send=$("#sendBtn"), sum=$("#sum");
-  if(s){ sum.innerHTML='<b>'+esc(s[lang])+'</b><span>'+s.min+' min · RM'+s.rm+(B.date&&B.slot!==null&&step>=1?' · '+B.date.getDate()+' '+MON[lang][B.date.getMonth()]+', '+esc(SLOTS[B.slot][lang]):'')+'</span>'; }
+  var foot=$("#sheetFoot"); foot.hidden=false;
+  if(view==="find"||view==="manage"||view==="resched"||view==="reschedDone"){
+    sum.innerHTML=M?'<b>'+esc(M.id)+'</b><span>'+esc(M.serviceName||"")+'</span>':'<b>'+t("Tempahan saya","My booking")+'</b><span>'+t("ID + no. telefon","ID + phone")+'</span>';
+  } else if(s){ sum.innerHTML='<b>'+esc(s[lang])+'</b><span>'+s.min+' min · RM'+s.rm+(B.date&&B.slot!==null&&view!=="svc"&&view!=="date"?' · '+B.date.getDate()+' '+MON[lang][B.date.getMonth()]+', '+esc(SLOTS[B.slot][lang]):'')+'</span>'; }
   else sum.innerHTML='<b>'+t("Belum pilih servis","No service yet")+'</b><span>'+t("Pilih satu untuk teruskan","Pick one to continue")+'</span>';
-  if(sent){
-    next.hidden=true; send.hidden=false; send.removeAttribute("aria-disabled");
-    send.querySelector("span").textContent=t("Buka WhatsApp","Open WhatsApp");
-    send.href=WA_LINK(message());
+  next.hidden=true; send.hidden=true;
+  var label=null;
+  if(view==="svc"||view==="date"||view==="where") label=t("Seterusnya","Next");
+  else if(view==="details") label=busy?t("Menempah…","Booking…"):t("Teruskan ke deposit","Continue to deposit");
+  else if(view==="find"&&API) label=busy?t("Mencari…","Searching…"):t("Semak","Find");
+  else if(view==="resched") label=busy?t("Menyimpan…","Saving…"):t("Sahkan tarikh baharu","Confirm new date");
+  if(label){
+    next.hidden=false; var ok=canNext()&&!busy;
+    next.innerHTML='<span>'+label+'</span><span class="disc"><svg><use href="#i-arrow"/></svg></span>';
+    next.disabled=!ok; next.style.opacity=ok?"":".45";
     return;
   }
-  if(step<3){
-    next.hidden=false; send.hidden=true;
-    next.innerHTML='<span>'+t("Seterusnya","Next")+'</span><span class="disc"><svg><use href="#i-arrow"/></svg></span>';
-    next.disabled=!canNext(); next.style.opacity=canNext()?"":".45";
-  } else {
-    next.hidden=true; send.hidden=false;
-    send.querySelector("span").textContent=t("Hantar via WhatsApp","Send via WhatsApp");
-    if(canNext()){ send.removeAttribute("aria-disabled"); send.href=WA_LINK(message()); }
-    else { send.setAttribute("aria-disabled","true"); send.href="#"; }
-  }
+  var waText=null, waLabel=t("Hantar ke WhatsApp","Send to WhatsApp");
+  if(view==="deposit"||view==="done"){ waText=message(); if(view==="done") waLabel=t("Buka WhatsApp","Open WhatsApp"); }
+  else if(view==="find"&&!API){ waText=t("Assalamualaikum Sam, saya ingin semak / tukar tempahan saya. Nama: ","Hi Sam, I'd like to check / change my booking. Name: ")+(B.name||""); waLabel=t("WhatsApp Sam","WhatsApp Sam"); }
+  else if(view==="manage"){ waText=t("Assalamualaikum Sam, berkenaan tempahan ","Hi Sam, about booking ")+M.id+": "; waLabel=t("WhatsApp Sam","WhatsApp Sam"); }
+  else if(view==="reschedDone"){ waText=t("Assalamualaikum Sam, saya telah tukar tempahan ","Hi Sam, I've changed booking ")+M.id+t(" ke "," to ")+fmtDate(parseYmd(M.date),true)+", "+SLOTS[slotIdx(M.time)][lang]+t(". Terima kasih!",". Thank you!"); waLabel=t("Maklumkan Sam","Tell Sam"); }
+  if(waText){ send.hidden=false; send.removeAttribute("aria-disabled"); send.querySelector("span").textContent=waLabel; send.href=WA_LINK(waText); }
 }
-$("#nextBtn").addEventListener("click",function(){ if(!canNext()) return; step++; renderStep(); });
+$("#nextBtn").addEventListener("click",function(){
+  if(!canNext()||busy) return;
+  err="";
+  if(view==="svc"){ view="date"; renderStep(); return; }
+  if(view==="date"){ view="where"; renderStep(); return; }
+  if(view==="where"){ view="details"; renderStep(); return; }
+  if(view==="details"){ submitBooking(); return; }
+  if(view==="find"){ findBooking(); return; }
+  if(view==="resched"){ submitResched(); return; }
+});
+function submitBooking(){
+  var s=svcById(B.svc);
+  var hp=$("#fWeb"); var honey=hp?hp.value:"";
+  if(!API){ saveLast(); view="deposit"; renderStep(); return; }
+  busy=true; updateFoot();
+  api("POST",{action:"book",service:B.svc,date:ymd(B.date),time:SLOTS[B.slot].v,mode:B.mode,area:B.area.trim(),name:B.name.trim(),phone:B.phone.trim(),first:B.first,note:B.note.trim(),lang:lang,website:honey})
+  .then(function(r){
+    busy=false;
+    if(r&&r.ok){ B.id=r.id; B.status=r.status; saveLast(); view="deposit"; renderStep(); return; }
+    var code=r&&r.error;
+    if(code==="slot_taken"||code==="too_soon"){ AV={}; B.slot=null; view="date"; renderStep(); toast(errText(code)); return; }
+    err=errText(code); renderStep();
+  },function(){ busy=false; B.offline=true; saveLast(); view="deposit"; renderStep(); });
+}
+function findBooking(){
+  busy=true; updateFoot();
+  api("GET",{action:"lookup",id:F.id.trim().toUpperCase(),phone:F.phone.trim()}).then(function(r){
+    busy=false;
+    if(r&&r.ok){ M=r; try{ localStorage.setItem("sam-last",JSON.stringify({id:r.id,phone:F.phone.trim()})); }catch(e){} view="manage"; renderStep(); return; }
+    err=errText(r&&r.error); renderStep();
+  },function(){ busy=false; err=errText(); renderStep(); });
+}
+function submitResched(){
+  busy=true; updateFoot();
+  var nd=ymd(R.date), nt=SLOTS[R.slot].v;
+  api("POST",{action:"reschedule",id:M.id,phone:F.phone.trim(),date:nd,time:nt}).then(function(r){
+    busy=false;
+    if(r&&r.ok){ M.date=nd; M.time=nt; AV={}; view="reschedDone"; renderStep(); return; }
+    if(r&&(r.error==="slot_taken"||r.error==="too_soon")){ AV={}; R.slot=null; }
+    err=errText(r&&r.error); renderStep();
+  },function(){ busy=false; err=errText(); renderStep(); });
+}
+function fileToPayload(file){
+  return new Promise(function(resolve,reject){
+    function asB64(blob,mime){ var fr=new FileReader(); fr.onload=function(){ resolve({mime:mime,data:String(fr.result).split(",")[1]}); }; fr.onerror=reject; fr.readAsDataURL(blob); }
+    if(file.type==="application/pdf"||!/^image\//.test(file.type)){ asB64(file,file.type||"application/pdf"); return; }
+    var url=URL.createObjectURL(file), img=new Image();
+    img.onload=function(){
+      var max=1600, w=img.naturalWidth, h=img.naturalHeight, k=Math.min(1,max/Math.max(w,h));
+      var cv=document.createElement("canvas"); cv.width=Math.round(w*k); cv.height=Math.round(h*k);
+      cv.getContext("2d").drawImage(img,0,0,cv.width,cv.height); URL.revokeObjectURL(url);
+      cv.toBlob(function(b){ if(b) asB64(b,"image/jpeg"); else asB64(file,file.type); },"image/jpeg",0.82);
+    };
+    img.onerror=function(){ URL.revokeObjectURL(url); asB64(file,file.type); };
+    img.src=url;
+  });
+}
+function sendReceipt(file){
+  if(file.size>15*1024*1024){ err=errText("file_too_big"); renderStep(); return; }
+  upload={state:"busy",name:file.name}; err=""; renderStep();
+  fileToPayload(file).then(function(p){
+    return api("POST",{action:"receipt",id:B.id,phone:B.phone.trim(),mime:p.mime,data:p.data});
+  }).then(function(r){
+    if(r&&r.ok){ upload={state:"done",name:file.name}; B.receipt=true; if(M) M.receipt=true; toast(t("Resit dihantar kepada Sam","Receipt sent to Sam")); }
+    else { upload={state:"idle",name:""}; err=errText(r&&r.error); }
+    renderStep();
+  },function(){ upload={state:"idle",name:""}; err=errText(); renderStep(); });
+}
 $("#sendBtn").addEventListener("click",function(e){
   if(this.getAttribute("aria-disabled")==="true"){ e.preventDefault(); return; }
-  try{ localStorage.setItem("sam-me",JSON.stringify({name:B.name.trim(),phone:B.phone.trim()})); }catch(err){}
-  if(!sent){ setTimeout(function(){ sent=true; renderStep(); },350); }
+  if(view==="deposit"){ saveLast(); setTimeout(function(){ view="done"; renderStep(); },350); }
 });
 
 function toast(msg){ var el=$("#toast"); el.textContent=msg; el.classList.add("show"); clearTimeout(toast._t); toast._t=setTimeout(function(){el.classList.remove("show");},2200); }
