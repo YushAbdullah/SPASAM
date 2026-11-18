@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SAM — Syafiq Aura Massage</title>
+<meta name="description" content="Khas untuk lelaki. Urutan, bekam dan lulur tradisional Melayu oleh Sam di Chendering, Kuala Terengganu. In-Call & Out-Call. Tempah terus melalui WhatsApp.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Syafiq Aura Massage (SAM) logo"%3E%3Ctitle%3ESyafiq Aura Massage (SAM) logo%3C/title%3E%3Ccircle cx="60" cy="60" r="60" fill="%2386663F"/%3E%3Cg transform="translate(60 60) scale(1.5) translate(-50 -50)"%3E%3Cg fill="%23FFFFFF"%3E%3Cpath transform="translate(50 50) rotate(45)" d="M0 -5 C -9.5 -12 -9.5 -25 0 -31 C 9.5 -25 9.5 -12 0 -5 Z"/%3E%3Cpath transform="translate(50 50) rotate(135)" d="M0 -5 C -9.5 -12 -9.5 -25 0 -31 C 9.5 -25 9.5 -12 0 -5 Z"/%3E%3Cpath transform="translate(50 50) rotate(225)" d="M0 -5 C -9.5 -12 -9.5 -25 0 -31 C 9.5 -25 9.5 -12 0 -5 Z"/%3E%3Cpath transform="translate(50 50) rotate(315)" d="M0 -5 C -9.5 -12 -9.5 -25 0 -31 C 9.5 -25 9.5 -12 0 -5 Z"/%3E%3Cpath transform="translate(50 50) rotate(0)" d="M0 -7 C -4.2 -10.5 -4.2 -16.5 0 -21 C 4.2 -16.5 4.2 -10.5 0 -7 Z"/%3E%3Cpath transform="translate(50 50) rotate(90)" d="M0 -7 C -4.2 -10.5 -4.2 -16.5 0 -21 C 4.2 -16.5 4.2 -10.5 0 -7 Z"/%3E%3Cpath transform="translate(50 50) rotate(180)" d="M0 -7 C -4.2 -10.5 -4.2 -16.5 0 -21 C 4.2 -16.5 4.2 -10.5 0 -7 Z"/%3E%3Cpath transform="translate(50 50) rotate(270)" d="M0 -7 C -4.2 -10.5 -4.2 -16.5 0 -21 C 4.2 -16.5 4.2 -10.5 0 -7 Z"/%3E%3Ccircle cx="50" cy="50" r="3.2"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#FBF6F1; --paper:#F5ECE0; --sand:#E9DCCB; --white:#FFFFFF;
+  --ink:#241A14; --muted:#65574B; --line:#E6D9C8;
+  --bronze:#86663F; --bronze-d:#6E5235; --accent:#A07D57;
+  --kayu:#2A1D14; --kayu-2:#3A291D; --on-kayu:#F5EBDD; --on-kayu-m:#D8C6AE; --gold:#D9B97A;
+  --wa:#1E7E45; --wa-d:#17663A;
+  --serif:"Cardo", Georgia, "Times New Roman", serif;
+  --sans:"Inter", "Helvetica Neue", Arial, sans-serif;
+  --r-sm:8px; --r-md:12px; --r-lg:16px; --r-xl:24px;
+  --ease:cubic-bezier(0.22,1,0.36,1);
+  --songket:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='14' viewBox='0 0 28 14'%3E%3Cpath d='M0 14 L7 2 L14 14 Z' fill='none' stroke='%23D9B97A' stroke-width='1.2'/%3E%3Cpath d='M4.5 14 L7 9 L9.5 14 Z' fill='%23D9B97A'/%3E%3Cpath d='M21 1.5 L24.5 5 L21 8.5 L17.5 5 Z' fill='%23D9B97A'/%3E%3C/svg%3E");
+  --tenun:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='36' viewBox='0 0 36 36'%3E%3Cg fill='none' stroke='%23D9B97A' stroke-width='0.8' opacity='0.5'%3E%3Cpath d='M18 4 L32 18 L18 32 L4 18 Z'/%3E%3Cpath d='M18 11 L25 18 L18 25 L11 18 Z'/%3E%3C/g%3E%3Ccircle cx='18' cy='18' r='1.6' fill='%23D9B97A' opacity='0.6'/%3E%3C/svg%3E");
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;font-family:var(--sans);font-size:16px;line-height:1.5;color:var(--ink);background:var(--cream);-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:var(--bronze)}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--ink);outline-offset:2px;border-radius:6px}
+.dark :focus-visible,.sheet :focus-visible{outline-color:var(--bronze)}
+.dark :focus-visible{outline-color:var(--gold)}
+.wrap{width:100%;max-width:1180px;margin:0 auto;padding:0 20px}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.serif{font-family:var(--serif)}
+h1,h2,h3{font-family:var(--serif);font-weight:400;margin:0;letter-spacing:-0.005em}
+h2{font-size:clamp(30px,5vw,44px);line-height:1.15}
+h2 em,h1 em{font-style:italic;color:var(--bronze)}
+.dark h1 em,.dark h2 em{color:var(--gold)}
+p{margin:0}
+.lead{color:var(--muted);font-size:16px;max-width:58ch}
+.dark .lead{color:var(--on-kayu-m)}
+
+/* ornament + eyebrow */
+.orn{display:flex;align-items:center;gap:10px;color:var(--accent);margin-bottom:14px}
+.orn svg{width:84px;height:16px}
+.eyebrow{font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--bronze)}
+.dark .eyebrow,.dark .orn{color:var(--gold)}
+.sec{padding:72px 0}
+.sec-head{display:grid;gap:14px;margin-bottom:36px}
+.sec-head.center{text-align:center;justify-items:center}
+.sec-head.center .orn{justify-content:center}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 22px;border-radius:999px;border:1px solid transparent;font-weight:500;font-size:15px;text-decoration:none;cursor:pointer;transition:background .12s var(--ease),transform .12s var(--ease),border-color .12s;white-space:nowrap}
+.btn-primary{background:var(--bronze);color:#fff;padding-right:8px}
+.btn-primary:hover{background:var(--bronze-d)}
+.btn-primary .disc{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.16);display:grid;place-items:center;transition:transform .12s var(--ease)}
+.btn-primary:hover .disc{transform:translate(2px,-2px)}
+.btn-outline{background:transparent;border-color:var(--bronze);color:var(--bronze)}
+.btn-outline:hover{background:rgba(134,102,63,.08)}
+.btn-wa{background:var(--wa);color:#fff}
+.btn-wa:hover{background:var(--wa-d)}
+.btn-light{background:#fff;color:var(--ink)}
+.btn-ghost-light{border-color:rgba(245,235,221,.5);color:var(--on-kayu);background:transparent}
+.btn-ghost-light:hover{background:rgba(245,235,221,.08)}
+.btn svg{width:18px;height:18px;flex:none}
+.btn[aria-disabled="true"]{opacity:.45;pointer-events:none}
+
+/* header */
+.topbar{position:sticky;top:0;z-index:40;background:rgba(251,246,241,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.topbar .wrap{display:flex;align-items:center;gap:16px;height:64px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);margin-right:auto}
+.brand svg{width:30px;height:46px}
+.brand .wm{font-family:var(--serif);font-weight:700;font-size:24px;letter-spacing:.14em;line-height:1}
+.brand .tag{display:block;font-size:12px;letter-spacing:.14em;color:var(--bronze);text-transform:uppercase;margin-top:3px;font-weight:500}
+.nav{display:none;gap:26px}
+.nav a{color:var(--ink);text-decoration:none;font-size:14px;font-weight:500;padding:8px 0;position:relative}
+.nav a::after{content:"";position:absolute;left:0;right:0;bottom:2px;height:1px;background:var(--bronze);transform:scaleX(0);transition:transform .2s var(--ease)}
+.nav a:hover::after{transform:scaleX(1)}
+.lang{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:3px;background:#fff}
+.lang button{border:0;background:transparent;font-size:12px;font-weight:600;letter-spacing:.06em;padding:0 10px;min-height:32px;min-width:40px;border-radius:999px;cursor:pointer;color:var(--muted)}
+.lang button[aria-pressed="true"]{background:var(--kayu);color:var(--on-kayu)}
+.topbar .btn{display:none;min-height:42px}
+
+/* hero */
+.hero{position:relative;background:radial-gradient(120% 90% at 78% 30%,#4a3322 0%,var(--kayu) 55%,#1d140e 100%);color:var(--on-kayu);overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:var(--tenun);opacity:.16;pointer-events:none}
+.hero .wrap{position:relative;display:grid;gap:36px;padding-top:36px;padding-bottom:56px}
+.arch{position:relative;width:min(64vw,300px);margin:0 auto;aspect-ratio:72/100}
+.arch .frame{position:absolute;inset:0;clip-path:url(#archClip);background:#000}
+.arch img{width:100%;height:100%;object-fit:cover;object-position:50% 20%}
+.arch .outline{position:absolute;inset:-12px;width:calc(100% + 24px);height:calc(100% + 24px);pointer-events:none}
+.arch .badge{position:absolute;right:-6px;bottom:22px;background:var(--cream);color:var(--ink);border-radius:var(--r-lg);padding:12px 14px;display:flex;gap:10px;align-items:center;box-shadow:0 12px 32px rgba(0,0,0,.28);max-width:220px}
+.arch .badge b{font-family:var(--serif);font-size:20px;font-weight:700;display:block;line-height:1.1}
+.arch .badge span{font-size:12px;color:var(--muted)}
+.arch .badge .ic{width:40px;height:40px;border-radius:50%;background:var(--bronze);display:grid;place-items:center;flex:none}
+.hero-copy{display:grid;gap:18px;align-content:center}
+.pill{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(217,185,122,.45);border-radius:999px;padding:6px 14px;font-size:12px;letter-spacing:.06em;color:var(--gold);justify-self:start;max-width:100%;line-height:1.35}
+.pill svg{flex:none}
+.hero .wrap > *{min-width:0}
+.hero h1{font-size:clamp(38px,7vw,64px);line-height:1.06}
+.hero .lead{font-size:17px;color:var(--on-kayu-m)}
+.hero h1 em{color:var(--gold)}
+.hero :focus-visible{outline-color:var(--gold)}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:6px}
+.hero-facts{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:8px;font-size:13px;color:var(--on-kayu-m)}
+.hero-facts span{display:inline-flex;align-items:center;gap:7px}
+.hero-facts svg{width:16px;height:16px;color:var(--gold)}
+.songket{height:14px;background:var(--kayu) var(--songket) repeat-x left center;border-top:1px solid #4a3322;border-bottom:1px solid #4a3322;padding:12px 0;background-origin:content-box;background-clip:border-box}
+
+/* trust strip */
+.trust{background:var(--paper);border-bottom:1px solid var(--line)}
+.trust .wrap{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.trust .t{display:flex;gap:12px;align-items:center;padding:18px 8px}
+.trust .t .ic{width:40px;height:40px;border-radius:50%;background:#fff;border:1px solid var(--line);display:grid;place-items:center;color:var(--bronze);flex:none}
+.trust .t .ic svg{width:18px;height:18px}
+.trust b{display:block;font-size:14px;font-weight:600}
+.trust small{display:block;font-size:12px;color:var(--muted)}
+
+/* services */
+.filters{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;margin:-8px 0 24px;scrollbar-width:none}
+.filters::-webkit-scrollbar{display:none}
+.chip{border:1px solid var(--line);background:#fff;border-radius:999px;min-height:40px;padding:0 16px;font-size:14px;font-weight:500;cursor:pointer;white-space:nowrap;transition:background .2s,color .2s,border-color .2s}
+.chip[aria-pressed="true"]{background:var(--kayu);border-color:var(--kayu);color:var(--on-kayu)}
+.grid{display:grid;gap:20px}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--r-xl);overflow:hidden;display:flex;flex-direction:column;transition:transform .32s var(--ease),box-shadow .32s var(--ease)}
+.card:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(60,40,20,.10)}
+.card .media{position:relative;aspect-ratio:5/4;background:var(--kayu);overflow:hidden}
+.card .media img{width:100%;height:100%;object-fit:cover}
+.card .media.motif{background:radial-gradient(90% 90% at 50% 40%,#4a3322,var(--kayu));display:grid;place-items:center}
+.card .media.motif::before{content:"";position:absolute;inset:0;background:var(--tenun);opacity:.35}
+.card .media.motif svg{position:relative;height:62%;width:auto}
+.card .tag{position:absolute;left:14px;top:14px;background:rgba(251,246,241,.94);color:var(--ink);font-size:12px;font-weight:600;letter-spacing:.04em;border-radius:999px;padding:5px 11px}
+.card .body{padding:20px 20px 22px;display:flex;flex-direction:column;gap:10px;flex:1}
+.card h3{font-size:24px;line-height:1.2}
+.card p{color:var(--muted);font-size:14px;line-height:1.5}
+.card .meta{display:flex;align-items:center;justify-content:space-between;gap:12px;border-top:1px solid var(--line);padding-top:14px;margin-top:auto}
+.card .dur{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--muted)}
+.card .dur svg{width:16px;height:16px}
+.price{font-family:var(--serif);font-size:26px;font-weight:700;color:var(--ink);font-variant-numeric:tabular-nums}
+.price small{font-family:var(--sans);font-size:12px;font-weight:500;color:var(--muted);margin-right:2px}
+.card .btn{width:100%;margin-top:4px}
+.note{margin-top:22px;font-size:13px;color:var(--muted);display:flex;gap:8px;align-items:flex-start}
+.note svg{width:16px;height:16px;flex:none;margin-top:2px;color:var(--bronze)}
+
+/* steps (dark) */
+.dark{background:var(--kayu);color:var(--on-kayu);position:relative}
+.dark::before{content:"";position:absolute;inset:0;background:var(--tenun);opacity:.08;pointer-events:none}
+.dark .wrap{position:relative}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:14px;counter-reset:s}
+.step{display:grid;grid-template-columns:52px 1fr;gap:16px;align-items:start;background:var(--kayu-2);border:1px solid #4d3726;border-radius:var(--r-xl);padding:20px}
+.step .num{width:52px;height:52px;border-radius:50%;border:1px solid var(--gold);display:grid;place-items:center;font-family:var(--serif);font-size:22px;color:var(--gold)}
+.step h3{font-size:22px;margin-bottom:4px}
+.step p{font-size:14px;color:var(--on-kayu-m)}
+.step .wa-ic{color:#7fd3a0}
+.steps-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px;justify-content:center}
+
+/* about */
+.about{display:grid;gap:36px;align-items:center}
+.about .photo{position:relative;border-radius:var(--r-xl);overflow:hidden;aspect-ratio:4/3}
+.about .photo img{width:100%;height:100%;object-fit:cover;object-position:50% 22%}
+.about .photo figcaption{position:absolute;left:14px;bottom:14px;background:rgba(251,246,241,.94);border-radius:999px;padding:6px 14px;font-size:12px;font-weight:500}
+.values{display:grid;gap:12px;margin:22px 0}
+.value{display:flex;gap:12px;align-items:center;font-size:15px}
+.value .ic{width:40px;height:40px;border-radius:50%;background:var(--bronze);color:#fff;display:grid;place-items:center;flex:none}
+.value .ic svg{width:18px;height:18px}
+.training{background:var(--paper);border:1px solid var(--line);border-radius:var(--r-xl);padding:22px}
+.training h3{font-size:22px;margin-bottom:4px}
+.training > p{font-size:13px;color:var(--muted);margin-bottom:14px}
+.tl{list-style:none;margin:0;padding:0;display:grid;gap:0}
+.tl li{display:grid;grid-template-columns:16px 1fr;gap:12px;padding:10px 0;border-top:1px solid var(--line)}
+.tl li:first-child{border-top:0}
+.tl .dot{width:10px;height:10px;transform:rotate(45deg);background:var(--bronze);margin-top:6px}
+.tl b{font-weight:600;font-size:15px}
+.tl span{display:block;font-size:13px;color:var(--muted)}
+
+/* gallery */
+.gallery{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 20px 10px;margin:0 -20px;scrollbar-width:thin}
+.gallery figure{margin:0;flex:0 0 72%;scroll-snap-align:start;border-radius:var(--r-lg);overflow:hidden;aspect-ratio:3/4;position:relative;background:var(--sand)}
+.gallery img{width:100%;height:100%;object-fit:cover}
+.gallery figcaption{position:absolute;left:0;right:0;bottom:0;padding:40px 14px 12px;background:linear-gradient(transparent,rgba(20,14,8,.72));color:#fff;font-size:13px;font-weight:500}
+
+/* faq */
+.faq{display:grid;gap:10px;max-width:820px;margin:0 auto}
+.faq details{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden}
+.faq summary{list-style:none;cursor:pointer;padding:18px 56px 18px 20px;font-weight:500;position:relative;min-height:56px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"";position:absolute;right:20px;top:50%;width:10px;height:10px;border-right:1.6px solid var(--bronze);border-bottom:1.6px solid var(--bronze);transform:translateY(-70%) rotate(45deg);transition:transform .2s var(--ease)}
+.faq details[open] summary::after{transform:translateY(-30%) rotate(-135deg)}
+.faq .a{padding:0 20px 18px;color:var(--muted);font-size:15px}
+
+/* contact */
+.contact{display:grid;gap:20px}
+.info{background:#fff;border:1px solid var(--line);border-radius:var(--r-xl);padding:24px;display:grid;gap:18px}
+.info .row{display:flex;gap:14px;align-items:flex-start}
+.info .ic{width:40px;height:40px;border-radius:50%;background:var(--paper);color:var(--bronze);display:grid;place-items:center;flex:none;border:1px solid var(--line)}
+.info .ic svg{width:18px;height:18px}
+.info b{display:block;font-size:15px}
+.info span{font-size:14px;color:var(--muted)}
+.wa-card{background:var(--kayu);color:var(--on-kayu);border-radius:var(--r-xl);padding:28px;position:relative;overflow:hidden;display:grid;gap:14px;align-content:center}
+.wa-card::before{content:"";position:absolute;inset:0;background:var(--tenun);opacity:.12}
+.wa-card > *{position:relative}
+.wa-card .num{font-family:var(--serif);font-size:34px;font-weight:700;letter-spacing:.02em;color:#fff}
+.wa-card p{color:var(--on-kayu-m);font-size:14px}
+.wa-card .cta-row{margin-top:4px}
+
+/* footer */
+footer{background:#1d140e;color:var(--on-kayu-m);padding:48px 0 120px;font-size:14px}
+footer .wrap{display:grid;gap:22px;justify-items:center;text-align:center}
+footer .logo{width:min(320px,80vw);height:auto}
+footer .disc{max-width:640px;font-size:12px;line-height:1.6;color:#a8957d}
+footer nav{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:center}
+footer nav a{color:var(--on-kayu);text-decoration:none;font-size:14px;padding:6px 0}
+
+/* mobile action bar */
+.actionbar{position:fixed;left:0;right:0;bottom:0;z-index:45;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:rgba(251,246,241,.96);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid var(--line);display:flex;gap:10px;transform:translateY(110%);transition:transform .32s var(--ease)}
+.actionbar.show{transform:none}
+.actionbar .btn{flex:1}
+.actionbar .btn-wa{flex:0 0 auto;width:52px;padding:0}
+
+/* booking sheet */
+.scrim{position:fixed;inset:0;background:rgba(20,14,8,.55);z-index:60;opacity:0;pointer-events:none;transition:opacity .32s var(--ease)}
+.scrim.open{opacity:1;pointer-events:auto}
+.sheet{position:fixed;left:0;right:0;bottom:0;z-index:61;background:var(--cream);border-radius:24px 24px 0 0;max-height:94dvh;display:flex;flex-direction:column;transform:translateY(102%);visibility:hidden;transition:transform .48s var(--ease),visibility 0s linear .48s;box-shadow:0 -12px 40px rgba(0,0,0,.2)}
+.sheet.open{transform:none;visibility:visible;transition-delay:0s}
+.sheet-head{padding:10px 18px 12px;border-bottom:1px solid var(--line);position:relative}
+.grab{width:42px;height:4px;border-radius:4px;background:#d8c8b4;margin:0 auto 10px}
+.sheet-top{display:flex;align-items:center;gap:10px}
+.iconbtn{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:#fff;display:grid;place-items:center;cursor:pointer;flex:none}
+.iconbtn svg{width:18px;height:18px}
+.iconbtn[hidden]{display:none}
+.sheet-title{flex:1;min-width:0}
+.sheet-title small{display:block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--bronze);font-weight:600}
+.sheet-title h2{font-size:24px;line-height:1.2}
+.progress{display:flex;gap:6px;margin-top:12px}
+.progress i{flex:1;height:4px;border-radius:4px;background:var(--line);transition:background .3s}
+.progress i.on{background:var(--bronze)}
+.sheet-body{overflow-y:auto;padding:18px;flex:1;overscroll-behavior:contain}
+.sheet-foot{border-top:1px solid var(--line);padding:12px 18px calc(12px + env(safe-area-inset-bottom));display:flex;gap:12px;align-items:center;background:#fff;border-radius:0}
+.sheet-foot .sum{flex:1;min-width:0;font-size:13px;color:var(--muted);line-height:1.3}
+.sheet-foot .sum b{display:block;color:var(--ink);font-size:15px}
+.sheet-foot .sum b,.sheet-foot .sum span{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.opt{display:flex;gap:14px;align-items:center;width:100%;text-align:left;background:#fff;border:1.5px solid var(--line);border-radius:var(--r-lg);padding:14px 16px;cursor:pointer;margin-bottom:10px;min-height:64px;transition:border-color .2s,background .2s}
+.opt:hover{border-color:#d3c0a8}
+.opt[aria-checked="true"]{border-color:var(--bronze);background:#fdf9f4;box-shadow:0 0 0 3px rgba(134,102,63,.12)}
+.opt .radio{width:22px;height:22px;border-radius:50%;border:1.5px solid #c9b59b;flex:none;display:grid;place-items:center}
+.opt[aria-checked="true"] .radio{border-color:var(--bronze)}
+.opt[aria-checked="true"] .radio::after{content:"";width:12px;height:12px;border-radius:50%;background:var(--bronze)}
+.opt .txt{flex:1;min-width:0}
+.opt .txt b{display:block;font-weight:600;font-size:15px}
+.opt .txt span{font-size:13px;color:var(--muted)}
+.opt .pr{font-family:var(--serif);font-weight:700;font-size:20px;font-variant-numeric:tabular-nums}
+.lbl{display:block;font-size:13px;font-weight:600;margin:4px 0 10px;color:var(--ink)}
+.dates{display:flex;gap:8px;overflow-x:auto;padding:2px 2px 10px;margin:0 -18px 14px;padding-left:18px;padding-right:18px;scrollbar-width:none}
+.dates::-webkit-scrollbar{display:none}
+.date{flex:0 0 auto;width:66px;border:1.5px solid var(--line);background:#fff;border-radius:var(--r-lg);padding:10px 4px;text-align:center;cursor:pointer;transition:all .2s}
+.date small{display:block;font-size:12px;color:var(--muted);font-weight:500}
+.date b{display:block;font-family:var(--serif);font-size:24px;line-height:1.1}
+.date[aria-pressed="true"]{background:var(--kayu);border-color:var(--kayu);color:var(--on-kayu)}
+.date[aria-pressed="true"] small{color:var(--on-kayu-m)}
+.slots{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:8px}
+.slot{border:1.5px solid var(--line);background:#fff;border-radius:999px;min-height:48px;font-weight:500;font-size:14px;cursor:pointer;transition:all .2s}
+.slot[aria-pressed="true"]{background:var(--bronze);border-color:var(--bronze);color:#fff}
+.slot:disabled{opacity:.4;cursor:not-allowed;text-decoration:line-through}
+.hint{font-size:13px;color:var(--muted);background:var(--paper);border-radius:var(--r-md);padding:12px 14px;margin-top:14px;display:flex;gap:10px}
+.hint svg{width:16px;height:16px;flex:none;margin-top:2px;color:var(--bronze)}
+.field{display:grid;gap:6px;margin-bottom:14px}
+.field label{font-size:13px;font-weight:600}
+.field label span{font-weight:400;color:var(--muted)}
+.input,.textarea{width:100%;border:1.5px solid var(--line);background:#fff;border-radius:var(--r-md);padding:0 16px;min-height:52px;font:inherit;font-size:16px;color:var(--ink)}
+.textarea{padding:14px 16px;min-height:92px;resize:vertical;border-radius:var(--r-lg)}
+.input::placeholder,.textarea::placeholder{color:#8a7a6b}
+.input:focus,.textarea:focus{outline:none;border-color:var(--bronze);box-shadow:0 0 0 3px rgba(134,102,63,.15)}
+.seg{display:flex;gap:8px}
+.seg button{flex:1;border:1.5px solid var(--line);background:#fff;border-radius:999px;min-height:46px;font-weight:500;cursor:pointer}
+.seg button[aria-pressed="true"]{border-color:var(--bronze);background:#fdf9f4;color:var(--bronze);box-shadow:0 0 0 3px rgba(134,102,63,.12)}
+.summary{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:16px;margin-top:6px}
+.summary h4{margin:0 0 10px;font-family:var(--serif);font-weight:400;font-size:20px}
+.summary dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:6px 14px;font-size:14px}
+.summary dt{color:var(--muted)}
+.summary dd{margin:0;text-align:right;font-weight:500}
+.summary .tot{border-top:1px dashed var(--line);margin-top:10px;padding-top:10px;display:flex;justify-content:space-between;font-size:14px}
+.summary .tot b{font-family:var(--serif);font-size:20px}
+.done{text-align:center;padding:10px 4px}
+.done .big{width:72px;height:72px;border-radius:50%;background:var(--wa);color:#fff;display:grid;place-items:center;margin:6px auto 16px}
+.done .big svg{width:34px;height:34px}
+.done h3{font-size:26px;margin-bottom:8px}
+.done p{color:var(--muted);font-size:15px}
+.done ol{text-align:left;margin:20px 0 4px;padding:0;list-style:none;display:grid;gap:10px}
+.done li{display:flex;gap:12px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:var(--r-md);padding:12px 14px;font-size:14px}
+.done li i{font-style:normal;width:26px;height:26px;border-radius:50%;background:var(--bronze);color:#fff;display:grid;place-items:center;font-size:13px;font-weight:600;flex:none}
+.copyrow{display:flex;gap:8px;justify-content:center;margin-top:14px;flex-wrap:wrap}
+.toast{position:fixed;left:50%;bottom:96px;transform:translate(-50%,20px);background:var(--kayu);color:var(--on-kayu);padding:10px 16px;border-radius:999px;font-size:14px;z-index:80;opacity:0;transition:all .32s var(--ease);pointer-events:none}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+/* hero entrance */
+@keyframes hin{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.hin{animation:hin .8s var(--ease) both}
+.hero-copy .hin:nth-child(2){animation-delay:.08s}.hero-copy .hin:nth-child(3){animation-delay:.16s}.hero-copy .hin:nth-child(4){animation-delay:.24s}.hero-copy .hin:nth-child(5){animation-delay:.32s}
+/* reveal */
+.rv{opacity:0;transform:translateY(18px);transition:opacity .48s var(--ease),transform .48s var(--ease)}
+.rv.in{opacity:1;transform:none}
+
+@media (min-width:640px){
+  .wrap{padding:0 32px}
+  .trust .wrap{grid-template-columns:repeat(4,1fr)}
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .gallery figure{flex-basis:42%}
+  .gallery{margin:0 -32px;padding-left:32px;padding-right:32px}
+  .contact{grid-template-columns:1.1fr 1fr}
+  .sheet{left:50%;right:auto;bottom:50%;width:min(560px,94vw);border-radius:24px;transform:translate(-50%,calc(50% + 30px));opacity:0;pointer-events:none;transition:transform .48s var(--ease),opacity .32s var(--ease),visibility 0s linear .48s;max-height:88vh}
+  .sheet.open{transform:translate(-50%,50%);opacity:1;pointer-events:auto;transition-delay:0s}
+  .sheet-foot{border-radius:0 0 24px 24px}
+  .grab{display:none}
+  .dates{margin:0 0 14px;padding-left:2px;padding-right:2px}
+}
+@media (min-width:1024px){
+  .wrap{padding:0 48px}
+  .nav{display:flex}
+  .topbar .btn{display:inline-flex}
+  .topbar .wrap{height:76px}
+  .hero .wrap{grid-template-columns:1.1fr .9fr;padding-top:72px;padding-bottom:88px;gap:56px}
+  .hero-copy{order:-1}
+  .arch{width:min(100%,400px)}
+  .sec{padding:112px 0}
+  .sec-head.split{grid-template-columns:1fr 1fr;align-items:end;gap:48px}
+  .grid{grid-template-columns:repeat(3,1fr);gap:24px}
+  .steps{grid-template-columns:repeat(4,1fr)}
+  .step{grid-template-columns:1fr;gap:18px;padding:26px}
+  .about{grid-template-columns:1fr 1fr;gap:64px}
+  .about .photo{aspect-ratio:4/5}
+  .gallery{display:grid;grid-template-columns:repeat(5,1fr);overflow:visible;margin:0;padding:0}
+  .gallery figure{flex:none}
+  .actionbar{display:none}
+  footer{padding-bottom:56px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{transition:none!important;animation:none!important;scroll-behavior:auto!important}
+  .rv{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <clipPath id="archClip" clipPathUnits="objectBoundingBox">
+      <path d="M0.5 0 C0.6 0.11 0.9 0.17 1 0.35 L1 0.9 Q1 1 0.88 1 L0.12 1 Q0 1 0 0.9 L0 0.35 C0.1 0.17 0.4 0.11 0.5 0 Z"/>
+    </clipPath>
+    <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.84 9.84 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.25-8.23 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.7 8.23-8.24 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.44.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.44-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.29Z"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M7 17 17 7M9 7h8v8"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></g></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></g></symbol>
+    <symbol id="i-home" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-5h4v5"/></g></symbol>
+    <symbol id="i-car" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 16h14v-4l-2-5H7l-2 5v4Z"/><path d="M5 16v2M19 16v2M5 12h14"/><circle cx="8" cy="14" r=".6"/><circle cx="16" cy="14" r=".6"/></g></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.4 3.4-5 6.5-5s5.7 1.6 6.5 5"/><path d="M16 4.5a3.5 3.5 0 0 1 0 7M18 15c2 .6 3.2 2.2 3.5 5"/></g></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 5 6v5.5c0 4.4 3 7.9 7 9.5 4-1.6 7-5.1 7-9.5V6l-7-3Z"/><path d="m9 12 2.2 2.2L15.5 10"/></g></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" d="M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.3a4.3 4.3 0 0 1 7.5 2.5C19.5 15.4 12 20 12 20Z"/></symbol>
+    <symbol id="i-leaf" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19c0-8 5-13 15-14-1 10-6 15-14 15"/><path d="M5 19 13 11"/></g></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" d="M4 5h16v11H9l-5 4V5Z"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></g></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M6 6l12 12M18 6 6 18"/></symbol>
+    <symbol id="i-back" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M15 5l-7 7 7 7"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+    <symbol id="i-cal" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><rect x="4" y="5" width="16" height="15" rx="3"/><path d="M4 10h16M9 3v4M15 3v4"/></g></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"/></g></symbol>
+    <symbol id="orn" viewBox="0 0 84 16"><g fill="currentColor"><rect x="0" y="7.4" width="26" height="1.2"/><rect x="58" y="7.4" width="26" height="1.2"/><path d="M30 8 33 5 36 8 33 11Z"/><path d="M48 8 51 5 54 8 51 11Z"/><g transform="translate(42 8)"><path d="M0-1.5C-2.6-3.5-2.6-6.6 0-8C2.6-6.6 2.6-3.5 0-1.5Z" transform="rotate(45)"/><path d="M0-1.5C-2.6-3.5-2.6-6.6 0-8C2.6-6.6 2.6-3.5 0-1.5Z" transform="rotate(135)"/><path d="M0-1.5C-2.6-3.5-2.6-6.6 0-8C2.6-6.6 2.6-3.5 0-1.5Z" transform="rotate(225)"/><path d="M0-1.5C-2.6-3.5-2.6-6.6 0-8C2.6-6.6 2.6-3.5 0-1.5Z" transform="rotate(315)"/><circle r="1"/></g></g></symbol>
+    <symbol id="markGold" viewBox="14 4 72 112"><path d="M50 4 C 57 15 79 21 86 39 L 86 103 Q 86 116 73 116 L 27 116 Q 14 116 14 103 L 14 39 C 21 21 43 15 50 4 Z" fill="#D9B97A"/><g fill="#2A1D14"><path transform="translate(50 62) rotate(45)" d="M0 -5 C -9.5 -12 -9.5 -25 0 -31 C 9.5 -25 9.5 -12 0 -5 Z"/><path transform="translate(50 62) rotate(135)" d="M0 -5 C -9.5 -12 -9.5 -25 0 -31 C 9.5 -25 9.5 -12 0 -5 Z"/><path transform="translate(50 62) rotate(225)" d="M0 -5 C -9.5 -12 -9.5 -25 0 -31 C 9.5 -25 9.5 -12 0 -5 Z"/><path transform="translate(50 62) rotate(315)" d="M0 -5 C -9.5 -12 -9.5 -25 0 -31 C 9.5 -25 9.5 -12 0 -5 Z"/><path transform="translate(50 62) rotate(0)" d="M0 -7 C -4.2 -10.5 -4.2 -16.5 0 -21 C 4.2 -16.5 4.2 -10.5 0 -7 Z"/><path transform="translate(50 62) rotate(90)" d="M0 -7 C -4.2 -10.5 -4.2 -16.5 0 -21 C 4.2 -16.5 4.2 -10.5 0 -7 Z"/><path transform="translate(50 62) rotate(180)" d="M0 -7 C -4.2 -10.5 -4.2 -16.5 0 -21 C 4.2 -16.5 4.2 -10.5 0 -7 Z"/><path transform="translate(50 62) rotate(270)" d="M0 -7 C -4.2 -10.5 -4.2 -16.5 0 -21 C 4.2 -16.5 4.2 -10.5 0 -7 Z"/><circle cx="50" cy="62" r="3.2"/><path d="M38 96.4 L41.6 100 L38 103.6 L34.4 100 Z"/><path d="M50 96.4 L53.6 100 L50 103.6 L46.4 100 Z"/><path d="M62 96.4 L65.6 100 L62 103.6 L58.4 100 Z"/></g><path d="M50 12.5 C 56.5 21.5 74.5 26.5 80 41 L 80 102 Q 80 110 72 110 L 28 110 Q 20 110 20 102 L 20 41 C 25.5 26.5 43.5 21.5 50 12.5 Z" fill="none" stroke="#2A1D14" stroke-width="1.6"/></symbol>
+  </defs>
+</svg>
+
+<a class="sr-only" href="#servis">Langkau ke servis</a>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="SAM — Syafiq Aura Massage, laman utama">
+      <svg viewBox="14 4 72 112" aria-hidden="true"><path d="M50 4 C 57 15 79 21 86 39 L 86 103 Q 86 116 73 116 L 27 116 Q 14 116 14 103 L 14 39 C 21 21 43 15 50 4 Z" fill="#86663F"/><g fill="#FFFFFF"><path transform="translate(50 62) rotate(45)" d="M0 -5 C -9.5 -12 -9.5 -25 0 -31 C 9.5 -25 9.5 -12 0 -5 Z"/><path transform="translate(50 62) rotate(135)" d="M0 -5 C -9.5 -12 -9.5 -25 0 -31 C 9.5 -25 9.5 -12 0 -5 Z"/><path transform="translate(50 62) rotate(225)" d="M0 -5 C -9.5 -12 -9.5 -25 0 -31 C 9.5 -25 9.5 -12 0 -5 Z"/><path transform="translate(50 62) rotate(315)" d="M0 -5 C -9.5 -12 -9.5 -25 0 -31 C 9.5 -25 9.5 -12 0 -5 Z"/><path transform="translate(50 62) rotate(0)" d="M0 -7 C -4.2 -10.5 -4.2 -16.5 0 -21 C 4.2 -16.5 4.2 -10.5 0 -7 Z"/><path transform="translate(50 62) rotate(90)" d="M0 -7 C -4.2 -10.5 -4.2 -16.5 0 -21 C 4.2 -16.5 4.2 -10.5 0 -7 Z"/><path transform="translate(50 62) rotate(180)" d="M0 -7 C -4.2 -10.5 -4.2 -16.5 0 -21 C 4.2 -16.5 4.2 -10.5 0 -7 Z"/><path transform="translate(50 62) rotate(270)" d="M0 -7 C -4.2 -10.5 -4.2 -16.5 0 -21 C 4.2 -16.5 4.2 -10.5 0 -7 Z"/><circle cx="50" cy="62" r="3.2"/><path d="M38 96.4 L41.6 100 L38 103.6 L34.4 100 Z"/><path d="M50 96.4 L53.6 100 L50 103.6 L46.4 100 Z"/><path d="M62 96.4 L65.6 100 L62 103.6 L58.4 100 Z"/></g><path d="M50 12.5 C 56.5 21.5 74.5 26.5 80 41 L 80 102 Q 80 110 72 110 L 28 110 Q 20 110 20 102 L 20 41 C 25.5 26.5 43.5 21.5 50 12.5 Z" fill="none" stroke="#FFFFFF" stroke-width="1.6"/></svg>
+      <span><span class="wm">SAM</span><span class="tag">Syafiq Aura Massage</span></span>
+    </a>
+    <nav class="nav" aria-label="Utama">
+      <a href="#servis" data-en="Services">Servis</a>
+      <a href="#cara-tempah" data-en="How to book">Cara Tempah</a>
+      <a href="#kenali-sam" data-en="Meet Sam">Kenali Sam</a>
+      <a href="#soalan" data-en="FAQ">Soalan</a>
+      <a href="#hubungi" data-en="Contact">Hubungi</a>
+    </nav>
+    <div class="lang" role="group" aria-label="Bahasa / Language">
+      <button type="button" data-lang="bm" aria-pressed="true">BM</button>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+    <button class="btn btn-primary" type="button" data-book><span data-en="Book now">Tempah</span><span class="disc"><svg><use href="#i-arrow"/></svg></span></button>
+  </div>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <section class="hero" aria-labelledby="h-hero">
+    <div class="wrap">
+      <div class="arch hin">
+        <svg class="outline" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M50 1 C60 12 89 17.5 99 35.5 L99 90 Q99 99 89 99 L11 99 Q1 99 1 90 L1 35.5 C11 17.5 40 12 50 1 Z" fill="none" stroke="#D9B97A" stroke-width="0.5" vector-effect="non-scaling-stroke"/></svg>
+        <div class="frame"><img src="img/sam-portrait.jpg" alt="Sam, pengamal urutan Syafiq Aura Massage, berbaju Melayu biru gelap di ruang rawatan" data-en-alt="Sam, the Syafiq Aura Massage therapist, in a dark blue Malay-collar top in the treatment room" width="800" height="956" fetchpriority="high"></div>
+        <div class="badge">
+          <span class="ic"><svg width="18" height="18" style="color:#fff"><use href="#i-users"/></svg></span>
+          <span><b data-en="Max 5 / day">Maks. 5 / hari</b><span data-en="Unhurried sessions">Sesi tanpa tergesa-gesa</span></span>
+        </div>
+      </div>
+      <div class="hero-copy">
+        <span class="pill hin"><svg width="14" height="14"><use href="#i-leaf"/></svg><span data-en="For men · Traditional Malay massage · Kuala Terengganu">Khas Lelaki · Urutan Tradisional Melayu · K. Terengganu</span></span>
+        <h1 id="h-hero" class="hin" data-en="Rest your body, <em>calm your soul.</em>">Rehatkan badan, <em>tenangkan jiwa.</em></h1>
+        <p class="lead hin" data-en="Traditional massage, bekam (wet cupping) and body scrub for men, by Sam in Chendering. Come to us or have Sam come to you — book in a minute through WhatsApp.">Urutan, bekam dan lulur tradisional khas untuk lelaki, oleh Sam di Chendering. Datang ke premis atau Sam datang ke rumah anda — tempah dalam seminit melalui WhatsApp.</p>
+        <div class="cta-row hin">
+          <button class="btn btn-primary" type="button" data-book><span data-en="Book a session">Tempah Sesi</span><span class="disc"><svg><use href="#i-arrow"/></svg></span></button>
+          <a class="btn btn-ghost-light" href="#servis"><span data-en="View services &amp; prices">Lihat servis &amp; harga</span></a>
+        </div>
+        <div class="hero-facts hin">
+          <span><svg><use href="#i-clock"/></svg><span data-en="10 AM – 10 PM">10 pagi – 10 malam</span></span>
+          <span><svg><use href="#i-home"/></svg>In-Call &amp; Out-Call</span>
+          <span><svg><use href="#i-wa"/></svg>011-6979 6259</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="songket" aria-hidden="true"></div>
+
+  <!-- TRUST -->
+  <section class="trust" aria-label="Ringkasan">
+    <div class="wrap">
+      <div class="t"><span class="ic"><svg><use href="#i-users"/></svg></span><span><b data-en="Men only">Khas lelaki</b><small data-en="Chendering, K. Terengganu">Chendering, K. Terengganu</small></span></div>
+      <div class="t"><span class="ic"><svg><use href="#i-car"/></svg></span><span><b>In-Call / Out-Call</b><small data-en="Premises or your home">Premis atau rumah anda</small></span></div>
+      <div class="t"><span class="ic"><svg><use href="#i-wa"/></svg></span><span><b data-en="Book via WhatsApp">Tempah via WhatsApp</b><small data-en="Sam replies personally">Sam balas sendiri</small></span></div>
+      <div class="t"><span class="ic"><svg><use href="#i-shield"/></svg></span><span><b data-en="Deposit from RM10">Deposit dari RM10</b><small data-en="Only after Sam confirms">Selepas Sam sahkan</small></span></div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="sec" id="servis" aria-labelledby="h-servis">
+    <div class="wrap">
+      <div class="sec-head split">
+        <div>
+          <div class="orn"><svg><use href="#orn"/></svg></div>
+          <p class="eyebrow" data-en="Services &amp; prices">Servis &amp; harga</p>
+          <h2 id="h-servis" style="margin-top:10px" data-en="Choose your <em>treatment</em>">Pilih <em>rawatan</em> anda</h2>
+        </div>
+        <p class="lead" data-en="Fixed prices, clear durations. Tap <b>Book</b> on any service and your WhatsApp message is written for you.">Harga tetap, tempoh yang jelas. Tekan <b>Tempah</b> pada mana-mana servis dan mesej WhatsApp anda akan disediakan secara automatik.</p>
+      </div>
+      <div class="filters" role="group" aria-label="Tapis servis" id="filters"></div>
+      <div class="grid" id="svcGrid"></div>
+      <p class="note"><svg><use href="#i-info"/></svg><span data-en="Deposit: RM10 for single services, RM20 for packages — paid only after Sam confirms your slot. Package contents are confirmed by Sam when you book.">Deposit: RM10 untuk servis individu, RM20 untuk pakej — dibayar hanya selepas Sam sahkan slot anda. Kandungan pakej disahkan oleh Sam semasa tempahan.</span></p>
+    </div>
+  </section>
+
+  <!-- HOW TO BOOK -->
+  <section class="sec dark" id="cara-tempah" aria-labelledby="h-cara">
+    <div class="wrap">
+      <div class="sec-head center">
+        <div class="orn"><svg><use href="#orn"/></svg></div>
+        <p class="eyebrow" data-en="How to book">Cara tempah</p>
+        <h2 id="h-cara" data-en="Four steps, <em>no fuss</em>">Empat langkah, <em>tanpa leceh</em></h2>
+        <p class="lead" data-en="No account, no forms to print. Everything happens in WhatsApp with Sam himself.">Tiada akaun, tiada borang. Semuanya berlaku di WhatsApp bersama Sam sendiri.</p>
+      </div>
+      <ol class="steps">
+        <li class="step rv"><span class="num">1</span><div><h3 data-en="Choose">Pilih</h3><p data-en="Pick a service, date, time and In-Call or Out-Call on this site.">Pilih servis, tarikh, masa dan In-Call atau Out-Call di laman ini.</p></div></li>
+        <li class="step rv"><span class="num">2</span><div><h3 data-en="Send">Hantar</h3><p data-en="Tap <b>Send via WhatsApp</b> — your booking message is already written.">Tekan <b>Hantar via WhatsApp</b> — mesej tempahan sudah siap ditulis.</p></div></li>
+        <li class="step rv"><span class="num">3</span><div><h3 data-en="Confirm">Sahkan</h3><p data-en="Sam checks his schedule, confirms your slot and sends the deposit details.">Sam semak jadual, sahkan slot anda dan hantar butiran deposit.</p></div></li>
+        <li class="step rv"><span class="num">4</span><div><h3 data-en="Relax">Rehat</h3><p data-en="Pay the deposit, send the receipt in the same chat — your session is locked in.">Bayar deposit, hantar resit dalam chat yang sama — sesi anda disahkan.</p></div></li>
+      </ol>
+      <div class="steps-cta">
+        <button class="btn btn-primary" type="button" data-book><span data-en="Start booking">Mula tempah</span><span class="disc"><svg><use href="#i-arrow"/></svg></span></button>
+        <a class="btn btn-ghost-light" data-wa-general href="#" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg><span data-en="Just ask a question">Tanya dulu</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- MEET SAM -->
+  <section class="sec" id="kenali-sam" aria-labelledby="h-sam">
+    <div class="wrap about">
+      <figure class="photo rv" style="margin:0">
+        <img src="img/sam-reception.jpg" alt="Sam di kaunter penyambut tetamu Spa SAM, Syafiq Aura Massage" data-en-alt="Sam at the Spa SAM reception counter, Syafiq Aura Massage" width="795" height="896" loading="lazy">
+        <figcaption>Spa SAM · Chendering</figcaption>
+      </figure>
+      <div>
+        <div class="orn"><svg><use href="#orn"/></svg></div>
+        <p class="eyebrow" data-en="Meet Sam">Kenali Sam</p>
+        <h2 id="h-sam" style="margin:10px 0 14px" data-en="Patient hands, <em>a sincere touch</em>">Tangan yang sabar, <em>sentuhan yang tulus</em></h2>
+        <p class="lead" data-en="Muhammad Aiman Syafiq — Sam to his clients — offers traditional massage, bekam and body care for men in Kuala Terengganu, with a personal approach and respectful, plain-spoken communication.">Muhammad Aiman Syafiq — atau Sam — menawarkan urutan tradisional, bekam dan penjagaan badan khas untuk lelaki di Kuala Terengganu, dengan pendekatan peribadi dan komunikasi yang beradab.</p>
+        <div class="values">
+          <div class="value"><span class="ic"><svg><use href="#i-heart"/></svg></span><span data-en="A personal, one-to-one approach">Pendekatan peribadi, seorang demi seorang</span></div>
+          <div class="value"><span class="ic"><svg><use href="#i-info"/></svg></span><span data-en="Clear service information and prices">Maklumat servis dan harga yang jelas</span></div>
+          <div class="value"><span class="ic"><svg><use href="#i-chat"/></svg></span><span data-en="Respectful, discreet communication">Komunikasi yang sopan dan berhemah</span></div>
+        </div>
+        <div class="training rv">
+          <h3 data-en="Training &amp; courses">Latihan &amp; kursus</h3>
+          <p data-en="Course participation records — not a licence or statutory accreditation.">Rekod penyertaan kursus — bukan lesen atau akreditasi berkanun.</p>
+          <ul class="tl">
+            <li><span class="dot"></span><span><b data-en="Therapeutic Massage 2 — Orthopaedic Disorders">Terapi Urutan Terapeutik 2 — Gangguan Ortopedik</b><span>24–25 Okt 2026 · Pusat Terapi Irfan Hakim, Shah Alam</span></span></li>
+            <li><span class="dot"></span><span><b data-en="Basic Wet Cupping (Bekam Basah)">Kursus Asas Bekam Basah</b><span>13 Sep 2026 · Raha Bekam, Gangsa, Melaka</span></span></li>
+            <li><span class="dot"></span><span><b data-en="Therapeutic Massage">Terapi Urutan Terapeutik</b><span>20 Jun 2026 · Pusat Terapi Irfan Hakim, Shah Alam</span></span></li>
+            <li><span class="dot"></span><span><b data-en="Basic Acupuncture Class">Kelas Asas Akupuntur</b><span>1 Mac 2026 · Shifa Sphere Academy, Parit, Perak</span></span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="sec" style="padding-top:0" aria-labelledby="h-gal">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow" id="h-gal" data-en="Inside the treatment room">Di ruang rawatan</p>
+      </div>
+      <div class="gallery">
+        <figure class="rv"><img src="img/n-full.jpg" alt="Sam mengurut belakang pelanggan lelaki" data-en-alt="Sam massaging a male client&#39;s back" loading="lazy" style="object-position:35% 50%"><figcaption data-en="Full body massage">Urutan badan penuh</figcaption></figure>
+        <figure class="rv"><img src="img/n-scrub.jpg" alt="Sam mengurut bahu dan leher pelanggan lelaki" data-en-alt="Sam working on a male client&#39;s neck and shoulders" loading="lazy" style="object-position:70% 50%"><figcaption data-en="Neck &amp; shoulder work">Urutan bahu &amp; leher</figcaption></figure>
+        <figure class="rv"><img src="img/n-bekam.jpg" alt="Sam menjalankan bekam 14 cawan pada pelanggan lelaki" data-en-alt="Sam performing 14-cup cupping on a male client" loading="lazy" style="object-position:40% 50%"><figcaption data-en="Bekam (cupping)">Bekam</figcaption></figure>
+        <figure class="rv"><img src="img/n-first.jpg" alt="Sam menerangkan pakej kepada pelanggan lelaki baharu" data-en-alt="Sam explaining the package to a new male client" loading="lazy" style="object-position:60% 50%"><figcaption data-en="First-time welcome">Sesi perkenalan</figcaption></figure>
+        <figure class="rv"><img src="img/n-combo3.jpg" alt="Sam bersama dulang tuam herba dan minyak urut" data-en-alt="Sam with a tray of herbal compress and massage oil" loading="lazy" style="object-position:45% 50%"><figcaption data-en="Herbal compress &amp; oils">Tuam herba &amp; minyak</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="sec" id="soalan" style="background:var(--paper);border-top:1px solid var(--line)" aria-labelledby="h-faq">
+    <div class="wrap">
+      <div class="sec-head center">
+        <div class="orn"><svg><use href="#orn"/></svg></div>
+        <p class="eyebrow" data-en="Good to know">Perlu tahu</p>
+        <h2 id="h-faq" data-en="Common <em>questions</em>">Soalan <em>lazim</em></h2>
+      </div>
+      <div class="faq">
+        <details class="rv"><summary data-en="Who are the services for?">Servis ini untuk siapa?</summary><p class="a" data-en="Syafiq Aura Massage is for men only. All treatments are done one-to-one by Sam, professionally and discreetly.">Syafiq Aura Massage khas untuk pelanggan lelaki sahaja. Semua rawatan dijalankan seorang demi seorang oleh Sam, secara profesional dan berhemah.</p></details>
+        <details class="rv"><summary data-en="Do I need to book in advance?">Perlu tempah awal ke?</summary><p class="a" data-en="Yes — sessions are by appointment. The time you choose is a request; Sam confirms availability personally. He takes at most five clients a day so nobody is rushed, so booking early gives you the best choice of times.">Ya — sesi mengikut temujanji. Masa yang anda pilih ialah permintaan; Sam akan sahkan sendiri. Sam ambil maksimum lima pelanggan sehari supaya tiada yang tergesa-gesa, jadi tempah awal untuk pilihan masa yang lebih baik.</p></details>
+        <details class="rv"><summary data-en="How does the deposit work?">Bagaimana dengan deposit?</summary><p class="a" data-en="RM10 for single services and RM20 for packages. You only pay after Sam confirms your slot in WhatsApp — he will send the payment details, then you reply with the receipt. The balance is paid at the session.">RM10 untuk servis individu dan RM20 untuk pakej. Anda hanya bayar selepas Sam sahkan slot di WhatsApp — Sam akan hantar butiran bayaran, kemudian anda balas dengan resit. Baki dibayar semasa sesi.</p></details>
+        <details class="rv"><summary data-en="In-Call or Out-Call — what's the difference?">In-Call atau Out-Call — apa bezanya?</summary><p class="a" data-en="In-Call: you come to Sam's premises in Chendering. Out-Call: Sam comes to your home or hotel. For Out-Call, share your area when booking; any travel charge is confirmed by Sam before you pay.">In-Call: anda datang ke premis Sam di Chendering. Out-Call: Sam datang ke rumah atau hotel anda. Untuk Out-Call, kongsikan kawasan anda semasa tempah; sebarang caj perjalanan akan disahkan oleh Sam sebelum anda bayar.</p></details>
+        <details class="rv"><summary data-en="What if I need to reschedule?">Bagaimana jika saya perlu tukar masa?</summary><p class="a" data-en="Message Sam on WhatsApp as early as you can and he will help you find a new slot. Rescheduling and refund terms are confirmed with Sam directly.">Mesej Sam di WhatsApp seawal mungkin dan Sam akan bantu cari slot baharu. Terma tukar masa dan pemulangan wang disahkan terus dengan Sam.</p></details>
+        <details class="rv"><summary data-en="What should I prepare before a session?">Apa perlu saya sediakan sebelum sesi?</summary><p class="a" data-en="Eat lightly at least an hour before, tell Sam about any injuries, health conditions or areas to avoid, and arrive a few minutes early to settle in.">Makan ringan sekurang-kurangnya sejam sebelum, maklumkan kepada Sam tentang kecederaan, keadaan kesihatan atau bahagian yang perlu dielakkan, dan datang beberapa minit awal untuk berehat.</p></details>
+        <details class="rv"><summary data-en="What do the certificates mean?">Apa maksud sijil-sijil tersebut?</summary><p class="a" data-en="They show Sam took part in the named courses. They are not a medical licence, and the services here are for relaxation and wellbeing, not medical treatment.">Ia menunjukkan Sam telah menyertai kursus yang dinyatakan. Ia bukan lesen perubatan, dan servis di sini adalah untuk relaksasi dan kesejahteraan, bukan rawatan perubatan.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="sec" id="hubungi" aria-labelledby="h-hub">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="orn"><svg><use href="#orn"/></svg></div>
+        <p class="eyebrow" data-en="Visit or message">Kunjungi atau mesej</p>
+        <h2 id="h-hub" data-en="Find <em>Sam</em>">Cari <em>Sam</em></h2>
+      </div>
+      <div class="contact">
+        <div class="info rv">
+          <div class="row"><span class="ic"><svg><use href="#i-pin"/></svg></span><span><b data-en="Location">Lokasi</b><span data-en="Chendering, Kuala Terengganu. Exact address is shared when your booking is confirmed.">Chendering, Kuala Terengganu. Alamat penuh dikongsi selepas tempahan disahkan.</span></span></div>
+          <div class="row"><span class="ic"><svg><use href="#i-clock"/></svg></span><span><b data-en="Hours">Waktu operasi</b><span data-en="10 AM – 10 PM · by appointment">10 pagi – 10 malam · ikut temujanji</span></span></div>
+          <div class="row"><span class="ic"><svg><use href="#i-cal"/></svg></span><span><b data-en="Session start times">Masa mula sesi</b><span data-en="10:00 AM · 12:00 PM · 2:30 PM · 5:00 PM · 8:00 PM">10:00 pagi · 12:00 tgh · 2:30 ptg · 5:00 ptg · 8:00 mlm</span></span></div>
+          <div class="row"><span class="ic"><svg><use href="#i-car"/></svg></span><span><b>In-Call / Out-Call</b><span data-en="Out-Call travel charge confirmed by Sam.">Caj perjalanan Out-Call disahkan oleh Sam.</span></span></div>
+          <a class="btn btn-outline" href="https://www.google.com/maps/search/?api=1&amp;query=Chendering%2C+Kuala+Terengganu" target="_blank" rel="noopener"><svg><use href="#i-pin"/></svg><span data-en="Open in Google Maps">Buka di Google Maps</span></a>
+        </div>
+        <div class="wa-card rv">
+          <p class="eyebrow">WhatsApp</p>
+          <div class="num">011-6979 6259</div>
+          <p data-en="Sam answers personally. Bookings, questions and Out-Call requests all go through this number.">Sam balas sendiri. Tempahan, soalan dan permintaan Out-Call semuanya melalui nombor ini.</p>
+          <div class="cta-row">
+            <button class="btn btn-primary" type="button" data-book><span data-en="Book a session">Tempah Sesi</span><span class="disc"><svg><use href="#i-arrow"/></svg></span></button>
+            <a class="btn btn-wa" data-wa-general href="#" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg><span data-en="Chat on WhatsApp">Chat di WhatsApp</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="songket" aria-hidden="true" style="background-color:#1d140e;border-color:#3a291d"></div>
+<footer>
+  <div class="wrap">
+    <svg class="logo" viewBox="0 0 473 114" role="img" aria-label="SAM — Syafiq Aura Massage"><g transform="translate(-14.25 -4.071428571428571) scale(1.0178571428571428)"><path d="M50 4 C 57 15 79 21 86 39 L 86 103 Q 86 116 73 116 L 27 116 Q 14 116 14 103 L 14 39 C 21 21 43 15 50 4 Z" fill="#FFFFFF"/><g fill="#2A1D14"><path transform="translate(50 62) rotate(45)" d="M0 -5 C -9.5 -12 -9.5 -25 0 -31 C 9.5 -25 9.5 -12 0 -5 Z"/><path transform="translate(50 62) rotate(135)" d="M0 -5 C -9.5 -12 -9.5 -25 0 -31 C 9.5 -25 9.5 -12 0 -5 Z"/><path transform="translate(50 62) rotate(225)" d="M0 -5 C -9.5 -12 -9.5 -25 0 -31 C 9.5 -25 9.5 -12 0 -5 Z"/><path transform="translate(50 62) rotate(315)" d="M0 -5 C -9.5 -12 -9.5 -25 0 -31 C 9.5 -25 9.5 -12 0 -5 Z"/><path transform="translate(50 62) rotate(0)" d="M0 -7 C -4.2 -10.5 -4.2 -16.5 0 -21 C 4.2 -16.5 4.2 -10.5 0 -7 Z"/><path transform="translate(50 62) rotate(90)" d="M0 -7 C -4.2 -10.5 -4.2 -16.5 0 -21 C 4.2 -16.5 4.2 -10.5 0 -7 Z"/><path transform="translate(50 62) rotate(180)" d="M0 -7 C -4.2 -10.5 -4.2 -16.5 0 -21 C 4.2 -16.5 4.2 -10.5 0 -7 Z"/><path transform="translate(50 62) rotate(270)" d="M0 -7 C -4.2 -10.5 -4.2 -16.5 0 -21 C 4.2 -16.5 4.2 -10.5 0 -7 Z"/><circle cx="50" cy="62" r="3.2"/><path d="M38 96.4 L41.6 100 L38 103.6 L34.4 100 Z"/><path d="M50 96.4 L53.6 100 L50 103.6 L46.4 100 Z"/><path d="M62 96.4 L65.6 100 L62 103.6 L58.4 100 Z"/></g><path d="M50 12.5 C 56.5 21.5 74.5 26.5 80 41 L 80 102 Q 80 110 72 110 L 28 110 Q 20 110 20 102 L 20 41 C 25.5 26.5 43.5 21.5 50 12.5 Z" fill="none" stroke="#2A1D14" stroke-width="1.6"/></g><path fill="#FFFFFF" d="M181.35 58.85Q180.8 58.85 180.67 57.96Q180.21 53.96 179.95 51.74Q179.7 49.53 179.59 48.43Q179.48 47.32 179.46 47Q179.44 46.68 179.44 46.55Q179.44 46.09 179.87 45.53Q180.29 44.98 180.89 44.98Q181.31 44.98 181.8 45.49Q182.29 46 182.74 46.68Q183.18 47.36 183.5 48.04Q183.82 48.72 183.91 49.02Q185.01 51.36 186.31 52.96Q187.61 54.55 189.27 55.51Q190.93 56.47 193.01 56.89Q195.1 57.32 197.78 57.32Q202.33 57.32 204.87 55.15Q207.4 52.98 207.4 48.17Q207.4 45.4 206.18 43.15Q204.97 40.89 203.01 38.96Q201.06 37.02 198.55 35.28Q196.04 33.53 193.4 31.74Q190.76 29.96 188.25 28.02Q185.74 26.09 183.78 23.74Q181.82 21.4 180.61 18.55Q179.4 15.7 179.4 12.13Q179.4 9.96 180.18 8.09Q180.97 6.21 182.29 4.68Q183.61 3.15 185.38 1.94Q187.14 0.72 189.14 -0.11Q191.14 -0.94 193.21 -1.36Q195.27 -1.79 197.23 -1.79Q198.8 -1.79 200.4 -1.51Q201.99 -1.23 203.55 -0.85Q205.1 -0.47 206.67 -0.02Q208.25 0.43 209.78 0.81L212.59 0.55Q212.97 0.55 213.08 0.87Q213.18 1.19 213.23 1.45L214.46 11.45Q214.46 11.66 213.91 11.74Q213.35 11.83 213.06 11.83Q212.8 11.83 212.29 11.77Q211.78 11.7 211.7 11.62Q211.57 11.49 211.38 11.09Q211.18 10.68 210.97 10.19Q210.76 9.7 210.52 9.19Q210.29 8.68 210.04 8.3Q207.99 5.15 204.8 3.6Q201.61 2.04 197.78 2.04Q196.12 2.04 194.67 2.43Q193.23 2.81 192.16 3.64Q191.1 4.47 190.48 5.74Q189.87 7.02 189.87 8.81Q189.87 11.4 191.08 13.51Q192.29 15.62 194.27 17.47Q196.25 19.32 198.78 21.06Q201.31 22.81 203.93 24.62Q206.55 26.43 209.08 28.47Q211.61 30.51 213.59 32.98Q215.57 35.45 216.78 38.47Q217.99 41.49 217.99 45.28Q217.99 47.79 217.12 49.96Q216.25 52.13 214.76 53.89Q213.27 55.66 211.27 57.02Q209.27 58.38 206.99 59.3Q204.72 60.21 202.31 60.68Q199.91 61.15 197.61 61.15Q194.72 61.15 192.57 60.72Q190.42 60.3 188.87 59.77Q187.31 59.23 186.25 58.81Q185.18 58.38 184.46 58.38Q184.21 58.38 184.08 58.43Z M234.24 58Q234.24 57.66 234.58 57.66Q235.39 57.62 236.47 57.43Q237.56 57.23 238.68 56.62Q239.81 56 240.87 54.79Q241.94 53.57 242.66 51.45L259.77 1.83Q259.77 1.87 259.79 1.79Q259.81 1.7 259.81 1.62Q259.81 1.32 259.58 0.87Q259.34 0.43 259.34 0.21Q259.34 0 259.51 0H271.85Q271.94 0.04 272.09 0.09Q272.24 0.13 272.32 0.34L290.32 50.85Q290.75 52.04 291.13 52.89Q291.51 53.74 292.04 54.4Q292.58 55.06 293.39 55.6Q294.19 56.13 295.47 56.68Q296.07 56.98 297.09 57.32Q298.11 57.66 299.04 57.66Q299.26 57.66 299.32 57.79Q299.39 57.91 299.39 58.04V59.66Q299.39 59.74 299.32 59.87Q299.26 60 299.04 60H269.17Q268.96 60 268.9 59.87Q268.83 59.74 268.83 59.66V58Q268.83 57.91 268.9 57.79Q268.96 57.66 269.17 57.66Q269.34 57.66 269.51 57.64Q269.68 57.62 269.77 57.62Q270.24 57.57 271.11 57.53Q271.98 57.49 273 57.38Q274.02 57.28 275.07 57.04Q276.11 56.81 276.96 56.36Q277.81 55.91 278.36 55.19Q278.92 54.47 278.92 53.4Q278.92 53.15 278.83 52.81L273.26 37.45Q273.22 37.36 273.11 37.06Q273 36.77 272.77 36.45Q272.53 36.13 272.17 35.87Q271.81 35.62 271.3 35.62H255.94Q255.39 35.62 255 35.87Q254.62 36.13 254.36 36.43Q254.11 36.72 253.96 37.02Q253.81 37.32 253.81 37.36Q252.45 41.36 251.51 44.11Q250.58 46.85 249.96 48.64Q249.34 50.43 249 51.4Q248.66 52.38 248.51 52.83Q248.36 53.28 248.34 53.38Q248.32 53.49 248.32 53.49Q248.32 53.62 248.36 53.77Q248.41 53.91 248.45 54.04Q248.79 55.11 249.7 55.81Q250.62 56.51 251.81 56.91Q253 57.32 254.26 57.49Q255.51 57.66 256.49 57.66H257.6Q257.81 57.66 257.87 57.79Q257.94 57.91 257.94 58V59.66Q257.94 59.74 257.87 59.87Q257.81 60 257.6 60H234.58Q234.24 60 234.24 59.66ZM256.53 29.49Q256.45 29.7 256.41 29.91Q256.36 30.13 256.36 30.34Q256.36 30.6 256.49 30.74Q256.62 30.89 257 30.89H269.77Q270.24 30.89 270.39 30.7Q270.53 30.51 270.53 30.26Q270.53 30.04 270.49 29.87Q270.45 29.7 270.36 29.49L264.7 13.96Q264.49 13.36 264.07 13.09Q263.64 12.81 263.3 12.81Q262.96 12.81 262.53 13.13Q262.11 13.45 261.9 14Z M312.91 57.79Q312.91 57.7 312.97 57.57Q313.03 57.45 313.25 57.45Q316.05 57.45 317.61 56.79Q319.16 56.13 319.91 54.96Q320.65 53.79 320.82 52.17Q320.99 50.55 321.08 48.68Q321.33 43.19 321.69 38.02Q322.05 32.85 322.39 27.85Q322.74 22.85 322.99 17.96Q323.25 13.06 323.25 8.13V6.55Q323.25 5.57 322.61 4.83Q321.97 4.09 321.1 3.57Q320.22 3.06 319.33 2.81Q318.44 2.55 317.93 2.55Q317.59 2.55 317.59 2.21V0.34Q317.59 0.26 317.63 0.13Q317.67 0 317.93 0H332.99Q333.46 0.09 333.76 0.32Q334.05 0.55 334.31 0.94L352.82 42.21Q353.12 42.94 353.59 42.94Q354.05 42.94 354.27 42.72Q354.48 42.51 354.61 42.17L372.91 1.7Q373.33 0.89 373.76 0.45Q374.18 0 374.61 0H389.59Q389.84 0 389.88 0.13Q389.93 0.26 389.93 0.34V2.21Q389.93 2.3 389.86 2.43Q389.8 2.55 389.59 2.55Q389.5 2.55 388.59 2.72Q387.67 2.89 386.59 3.38Q385.5 3.87 384.61 4.79Q383.71 5.7 383.71 7.19L386.18 52.51Q386.22 53.74 386.84 54.6Q387.46 55.45 388.35 56Q389.25 56.55 390.25 56.83Q391.25 57.11 392.12 57.26Q392.99 57.4 393.61 57.43Q394.22 57.45 394.27 57.45Q394.48 57.45 394.54 57.57Q394.61 57.7 394.61 57.79V59.66Q394.61 59.74 394.54 59.87Q394.48 60 394.27 60H366.27Q365.93 60 365.93 59.66V57.79Q365.93 57.45 366.27 57.45Q367.29 57.45 368.59 57.34Q369.88 57.23 371.08 56.85Q372.27 56.47 373.08 55.72Q373.88 54.98 373.88 53.74L371.93 18.98Q371.88 18.55 371.71 18.55Q371.54 18.55 371.37 18.94L352.74 59.28Q352.52 59.74 352.16 59.87Q351.8 60 350.91 60Q349.37 60 348.63 59.91Q347.88 59.83 347.63 59.23L329.5 19.28Q329.37 18.98 329.31 18.83Q329.25 18.68 329.08 18.68Q328.78 18.68 328.78 19.23Q328.78 20.51 328.65 22.98Q328.52 25.45 328.31 28.53Q328.1 31.62 327.88 35.06Q327.67 38.51 327.46 41.74Q327.25 44.98 327.12 47.77Q326.99 50.55 326.99 52.34V54.09Q327.16 54.89 327.84 55.53Q328.52 56.17 329.54 56.6Q330.56 57.02 331.8 57.23Q333.03 57.45 334.39 57.45Q334.61 57.45 334.63 57.57Q334.65 57.7 334.65 57.79V59.66Q334.65 60 334.39 60H313.25Q312.91 60 312.91 59.66Z"/><g fill="#E8D3B0"><rect x="98.48571428571428" y="77.4" width="181.49535319148933" height="1.2"/><rect x="291.9810674772036" y="77.4" width="181.49535319148933" height="1.2"/><path d="M285.9810674772036 74.5 L289.4810674772036 78.0 L285.9810674772036 81.5 L282.4810674772036 78.0 Z"/></g><path fill="#E8D3B0" d="M108.18 90.14Q108.3 90.14 108.3 90.39L108.6 92.84Q108.64 93.07 108.64 93.13Q108.64 93.19 108.46 93.19Q108.29 93.19 108.24 93.15Q108.19 93.1 108.15 92.99Q108.1 92.88 108.04 92.75Q107.98 92.61 107.91 92.47Q107.67 91.94 107.15 91.42Q105.88 90.21 104.3 90.21Q103.35 90.21 102.5 90.83Q101.65 91.45 101.65 92.29Q101.65 93.14 101.96 93.76Q102.28 94.38 102.79 94.91Q103.31 95.43 103.98 95.92Q104.64 96.4 105.33 96.89Q107.16 98.17 107.93 99.08Q109.14 100.48 109.24 102.22Q109.24 104.18 107.74 105.34Q106.24 106.51 104.25 106.51Q102.98 106.51 102.23 106.25Q101.47 105.99 101.19 105.88Q100.9 105.76 100.77 105.76Q100.63 105.76 100.6 105.77L100.04 105.89Q99.89 105.89 99.85 105.65Q99.52 102.8 99.52 102.62Q99.52 102.44 99.55 102.38Q99.58 102.32 99.7 102.32Q100.03 102.32 100.29 103.24Q101.5 105.82 104.3 105.82Q105.59 105.82 106.5 105.04Q107.41 104.26 107.41 103.01Q107.41 101.01 105.02 99.28Q104.35 98.8 103.07 97.94Q101.79 97.08 101.04 96.22Q99.85 94.88 99.85 93.25Q99.85 91.61 101.16 90.56Q102.46 89.52 104.15 89.52Q105.02 89.52 106.07 89.82Q107.13 90.11 107.54 90.22Z M121.49 106.2Q121.1 106.2 121.1 105.97V105.86Q121.1 105.67 121.44 105.63Q121.78 105.59 121.88 105.58Q122.76 105.49 123.11 105.15Q123.47 104.81 123.47 104.13V100.33Q123.47 100.25 123.44 100.16L118.74 92.67Q117.63 90.91 116.55 90.64Q116.5 90.63 116.35 90.6Q116.2 90.56 115.68 90.48Q115.5 90.45 115.5 90.22Q115.5 90 115.67 90H122.24Q122.44 90 122.44 90.23Q122.44 90.46 122.24 90.46Q121.47 90.54 121.22 90.62Q120.64 90.83 120.64 91.36Q120.64 91.63 120.78 91.85L124.66 98.05Q124.79 98.24 124.82 98.29Q124.85 98.34 124.95 98.34Q125.04 98.34 125.25 98.01L128.35 92.73Q128.49 92.46 128.67 92.14Q128.85 91.83 128.85 91.49Q128.85 90.65 127.7 90.51Q127.28 90.45 127.25 90.38Q127.22 90.31 127.22 90.21Q127.22 90 127.41 90H132.78Q132.94 90 132.94 90.16Q132.94 90.32 132.89 90.38Q132.83 90.44 132.75 90.47Q132.66 90.49 132.56 90.51Q132.45 90.53 132.11 90.61Q131.31 90.8 130.36 91.88Q130.26 92.01 130.25 92.03L125.71 99.85V104.13Q125.71 104.75 126.06 105.11Q126.41 105.46 127.24 105.57Q128.08 105.68 128.08 105.84V105.97Q128.08 106.2 127.69 106.2Z M144.28 106.11Q144.28 106.2 144.19 106.2H138.32Q138.23 106.2 138.23 106.11V105.83Q138.23 105.74 138.38 105.74Q139.95 105.67 140.5 104.06L145.19 90.49Q145.2 90.47 145.2 90.44L145.08 90.06Q145.08 90 145.12 90H147.42Q147.44 90.01 147.48 90.02Q147.52 90.03 147.55 90.09L152.41 103.73Q152.57 104.04 152.67 104.29Q152.76 104.55 152.89 104.75Q153.16 105.22 153.8 105.48Q154.33 105.74 154.76 105.74Q154.85 105.74 154.85 105.84V106.11Q154.85 106.2 154.76 106.2H147.73Q147.64 106.2 147.64 106.11V105.83Q147.64 105.74 148.06 105.72Q148.49 105.69 148.76 105.67Q150.36 105.5 150.36 104.59Q150.36 104.52 150.34 104.43L148.6 99.54Q148.59 99.51 148.56 99.43Q148.42 99.04 148.08 99.04H144Q143.65 99.04 143.46 99.42Q143.42 99.5 143.42 99.51L141.7 104.56V104.66Q141.7 104.96 142.01 105.2Q142.71 105.74 143.89 105.74H144.19Q144.28 105.74 144.28 105.83ZM147.68 97.77Q147.89 97.77 147.89 97.59Q147.89 97.5 147.85 97.39L146.13 92.68Q146.02 92.37 145.96 92.37Q145.9 92.37 145.78 92.69L144.17 97.39Q144.12 97.5 144.12 97.63Q144.12 97.77 144.3 97.77Z M169.95 96.91Q171.49 96.91 171.49 95.4Q171.49 95.31 171.58 95.31H171.85Q171.95 95.31 171.95 95.4V99.67Q171.95 99.77 171.85 99.77H171.58Q171.49 99.77 171.49 99.67Q171.49 98.62 170.89 98.21Q170.57 98 169.97 98H165.44Q165.17 98 165.17 98.31V104.21Q165.17 104.99 166.1 105.37Q167.04 105.74 167.29 105.74Q167.53 105.74 167.53 105.83V106.11Q167.53 106.2 167.44 106.2H161.17Q161.08 106.2 161.08 106.11V105.83Q161.08 105.74 161.27 105.74Q161.47 105.74 161.88 105.56Q162.29 105.37 162.61 105.01Q162.93 104.65 162.93 104.13V91.72Q162.93 90.98 162.13 90.65Q161.67 90.46 161.23 90.46H161.18Q161.09 90.46 161.09 90.37V90.09Q161.09 90 161.18 90H172.01Q172.15 90.02 172.22 90.06Q172.29 90.1 172.29 90.26V93.04Q172.29 93.18 172.25 93.22Q172.21 93.25 172.11 93.25H171.97Q171.95 93.24 171.81 92.63Q171.68 92.01 171.41 91.68Q170.93 91.17 170.34 91.11Q170.1 91.09 169.75 91.09H165.4Q165.17 91.09 165.17 91.32V96.64Q165.17 96.91 165.44 96.91Z M181.57 91.84Q181.57 90.46 179.98 90.46Q179.73 90.46 179.73 90.37V90.09Q179.73 90 179.82 90H185.58Q185.67 90 185.67 90.09V90.37Q185.67 90.46 185.16 90.46Q184.66 90.46 184.23 90.78Q183.81 91.1 183.81 92.1V104.36Q183.81 105.74 185.41 105.74Q185.65 105.74 185.65 105.83V106.11Q185.65 106.2 185.55 106.2H179.8Q179.71 106.2 179.71 106.11V105.83Q179.71 105.74 180.21 105.74Q180.72 105.74 181.14 105.42Q181.57 105.1 181.57 104.1Z M201.26 106.45Q199.44 106.29 197.91 105.52Q196.38 104.74 195.35 103.65Q193.14 101.32 193.14 98.08Q193.14 94.34 195.7 91.94Q198.26 89.54 202.07 89.54Q205.89 89.54 208.4 91.91Q210.91 94.27 210.91 97.96Q210.91 102.35 206.44 105.32Q206.33 105.38 205.56 105.76Q204.78 106.14 204.78 106.19Q204.78 106.25 205.5 106.73Q206.22 107.22 208.55 109.11Q209.95 110.23 210.72 110.39Q211.49 110.54 211.49 110.69Q211.49 110.98 211.13 111.05Q210.76 111.12 210.01 111.12Q208.71 111.12 207.14 110.27Q204.37 108.44 203.42 107.53Q202.46 106.63 201.74 106.51Q201.52 106.48 201.26 106.45ZM195.55 97.38Q195.57 99.64 196.45 101.51Q197.34 103.37 198.93 104.52Q200.52 105.66 202.61 105.66Q205.17 105.66 206.87 103.66Q208.57 101.65 208.57 98.4Q208.57 95.15 206.91 92.94Q205.06 90.51 201.74 90.31Q198.96 90.31 197.2 92.48Q196.4 93.47 195.96 94.8Q195.53 96.12 195.55 97.38Z  M234.97 106.11Q234.97 106.2 234.88 106.2H229Q228.91 106.2 228.91 106.11V105.83Q228.91 105.74 229.06 105.74Q230.64 105.67 231.19 104.06L235.87 90.49Q235.89 90.47 235.89 90.44L235.76 90.06Q235.76 90 235.81 90H238.1Q238.13 90.01 238.17 90.02Q238.21 90.03 238.23 90.09L243.09 103.73Q243.25 104.04 243.35 104.29Q243.45 104.55 243.57 104.75Q243.85 105.22 244.48 105.48Q245.01 105.74 245.45 105.74Q245.54 105.74 245.54 105.84V106.11Q245.54 106.2 245.45 106.2H238.41Q238.32 106.2 238.32 106.11V105.83Q238.32 105.74 238.75 105.72Q239.17 105.69 239.45 105.67Q241.04 105.5 241.04 104.59Q241.04 104.52 241.02 104.43L239.29 99.54Q239.28 99.51 239.24 99.43Q239.1 99.04 238.76 99.04H234.68Q234.34 99.04 234.14 99.42Q234.11 99.5 234.11 99.51L232.38 104.56V104.66Q232.38 104.96 232.69 105.2Q233.39 105.74 234.58 105.74H234.88Q234.97 105.74 234.97 105.83ZM238.37 97.77Q238.57 97.77 238.57 97.59Q238.57 97.5 238.53 97.39L236.82 92.68Q236.7 92.37 236.64 92.37Q236.59 92.37 236.46 92.69L234.85 97.39Q234.81 97.5 234.81 97.63Q234.81 97.77 234.98 97.77Z M257.37 90.46Q255.44 90.46 255.44 92V100.23Q255.44 102.5 256.94 103.94Q258.45 105.38 260.8 105.38Q263.25 105.38 264.82 104.07Q266.39 102.75 266.39 100.42V93.11Q266.39 92.02 266.19 91.6Q265.7 90.46 263.96 90.46Q263.87 90.46 263.87 90.37V90.09Q263.87 90 263.96 90H269.61Q269.71 90 269.71 90.09V90.37Q269.71 90.46 269.45 90.46Q267.95 90.46 267.61 91.63Q267.56 91.83 267.56 92V99.52Q267.56 104.57 263.7 106.02Q262.4 106.51 261.11 106.51Q256.5 106.51 254.32 104.1Q253.2 102.86 253.2 101.03V91.84Q253.2 90.86 252.01 90.55Q251.67 90.46 251.43 90.46Q251.18 90.46 251.18 90.37V90.09Q251.18 90 251.27 90H257.49Q257.58 90 257.58 90.09V90.37Q257.58 90.46 257.37 90.46Z M275.76 106.2Q275.66 106.2 275.66 105.97V105.83Q275.66 105.74 275.76 105.74Q275.82 105.74 275.97 105.72Q276.12 105.69 276.28 105.67Q276.44 105.65 276.58 105.62Q276.72 105.59 276.78 105.58Q277.95 105.32 277.95 104.25V92.11Q277.95 91.13 277.16 90.71Q276.69 90.46 276.15 90.46H275.71Q275.62 90.46 275.62 90.37V90.09Q275.62 90 275.76 90L282.06 89.83H283.22Q285.26 89.97 286.63 91.3Q288 92.64 288 94.6Q288 96.56 286.37 97.65Q285.87 97.99 285.28 98.25L288.76 103.94Q289.67 105.43 291.2 106.04Q291.32 106.07 291.32 106.2Q291.32 106.49 290.94 106.49Q288.36 106.49 286.83 104.52Q286.5 104.09 286.16 103.55L283.19 98.88L280.45 98.75H280.36Q280.19 98.75 280.19 98.92V104.21Q280.19 104.84 280.55 105.15Q280.9 105.46 281.78 105.58Q282.01 105.61 282.34 105.68Q282.67 105.74 282.79 105.74Q282.91 105.74 282.91 105.83V106.11Q282.91 106.2 282.82 106.2ZM280.19 90.64V97.61L280.21 97.95Q280.25 98.19 280.43 98.2L281.6 98.27Q284.83 98.27 285.5 95.97Q285.72 95.25 285.72 94.32Q285.72 92.5 284.59 91.46Q283.45 90.41 281.7 90.41Q281.53 90.41 281.4 90.42Q281.26 90.43 281.12 90.43Q280.98 90.44 280.83 90.44Q280.67 90.45 280.43 90.45Q280.19 90.46 280.19 90.64Z M302.75 106.11Q302.75 106.2 302.66 106.2H296.79Q296.7 106.2 296.7 106.11V105.83Q296.7 105.74 296.84 105.74Q298.42 105.67 298.97 104.06L303.66 90.49Q303.67 90.47 303.67 90.44L303.54 90.06Q303.54 90 303.59 90H305.89Q305.91 90.01 305.95 90.02Q305.99 90.03 306.01 90.09L310.87 103.73Q311.03 104.04 311.13 104.29Q311.23 104.55 311.36 104.75Q311.63 105.22 312.26 105.48Q312.79 105.74 313.23 105.74Q313.32 105.74 313.32 105.84V106.11Q313.32 106.2 313.23 106.2H306.2Q306.11 106.2 306.11 106.11V105.83Q306.11 105.74 306.53 105.72Q306.96 105.69 307.23 105.67Q308.83 105.5 308.83 104.59Q308.83 104.52 308.81 104.43L307.07 99.54Q307.06 99.51 307.02 99.43Q306.89 99.04 306.54 99.04H302.46Q302.12 99.04 301.92 99.42Q301.89 99.5 301.89 99.51L300.17 104.56V104.66Q300.17 104.96 300.48 105.2Q301.18 105.74 302.36 105.74H302.66Q302.75 105.74 302.75 105.83ZM306.15 97.77Q306.36 97.77 306.36 97.59Q306.36 97.5 306.31 97.39L304.6 92.68Q304.49 92.37 304.43 92.37Q304.37 92.37 304.24 92.69L302.64 97.39Q302.59 97.5 302.59 97.63Q302.59 97.77 302.76 97.77Z  M335.81 105.74Q335.88 105.74 335.88 105.83V106.11Q335.88 106.2 335.81 106.2H330.44Q330.35 106.2 330.35 106.11V105.83Q330.35 105.74 330.44 105.74Q332.33 105.74 332.49 104.12Q332.53 103.65 332.58 102.55Q332.64 101.45 332.89 97.83Q333.14 94.21 333.14 91.96V91.54Q333.14 91.08 332.62 90.77Q332.1 90.46 331.85 90.46Q331.61 90.46 331.61 90.37V90.09Q331.61 90 331.71 90H335.03Q335.24 90.03 335.38 90.25L340.77 102.26Q340.83 102.34 340.86 102.4Q340.9 102.45 341.03 102.45Q341.17 102.44 341.24 102.25L346.57 90.46Q346.81 90 347.01 90H350.35Q350.44 90 350.44 90.09V90.37Q350.44 90.46 350.39 90.46Q350.04 90.46 349.54 90.69Q348.77 91.03 348.77 91.71L349.46 104.41Q349.48 105.01 350.08 105.37Q350.67 105.74 351.64 105.74Q351.73 105.74 351.73 105.83V106.11Q351.73 106.2 351.64 106.2H345.11Q345.02 106.2 345.02 106.11V105.83Q345.02 105.74 345.11 105.74Q347.17 105.74 347.17 104.74L346.56 93.77Q346.55 93.65 346.5 93.65Q346.45 93.65 346.41 93.76L340.7 106.12Q340.66 106.2 340.44 106.2Q340.22 106.2 340.18 106.11L334.55 93.72Q334.49 93.56 334.42 93.56Q334.36 93.56 334.36 93.81Q334.36 94.34 334.08 98.8Q333.81 103.26 333.81 104.36V104.83Q333.95 105.49 335.11 105.68Q335.44 105.74 335.81 105.74Z M363.5 106.11Q363.5 106.2 363.41 106.2H357.54Q357.45 106.2 357.45 106.11V105.83Q357.45 105.74 357.6 105.74Q359.17 105.67 359.72 104.06L364.41 90.49Q364.42 90.47 364.42 90.44L364.3 90.06Q364.3 90 364.34 90H366.64Q366.66 90.01 366.7 90.02Q366.74 90.03 366.77 90.09L371.63 103.73Q371.79 104.04 371.88 104.29Q371.98 104.55 372.11 104.75Q372.38 105.22 373.02 105.48Q373.54 105.74 373.98 105.74Q374.07 105.74 374.07 105.84V106.11Q374.07 106.2 373.98 106.2H366.95Q366.86 106.2 366.86 106.11V105.83Q366.86 105.74 367.28 105.72Q367.71 105.69 367.98 105.67Q369.58 105.5 369.58 104.59Q369.58 104.52 369.56 104.43L367.82 99.54Q367.81 99.51 367.78 99.43Q367.64 99.04 367.29 99.04H363.22Q362.87 99.04 362.68 99.42Q362.64 99.5 362.64 99.51L360.92 104.56V104.66Q360.92 104.96 361.23 105.2Q361.93 105.74 363.11 105.74H363.41Q363.5 105.74 363.5 105.83ZM366.9 97.77Q367.11 97.77 367.11 97.59Q367.11 97.5 367.06 97.39L365.35 92.68Q365.24 92.37 365.18 92.37Q365.12 92.37 365 92.69L363.39 97.39Q363.34 97.5 363.34 97.63Q363.34 97.77 363.51 97.77Z M389 90.14Q389.12 90.14 389.12 90.39L389.42 92.84Q389.46 93.07 389.46 93.13Q389.46 93.19 389.29 93.19Q389.11 93.19 389.06 93.15Q389.02 93.1 388.97 92.99Q388.92 92.88 388.86 92.75Q388.8 92.61 388.73 92.47Q388.49 91.94 387.97 91.42Q386.71 90.21 385.12 90.21Q384.17 90.21 383.32 90.83Q382.47 91.45 382.47 92.29Q382.47 93.14 382.78 93.76Q383.1 94.38 383.62 94.91Q384.13 95.43 384.8 95.92Q385.47 96.4 386.15 96.89Q387.98 98.17 388.75 99.08Q389.96 100.48 390.06 102.22Q390.06 104.18 388.56 105.34Q387.06 106.51 385.07 106.51Q383.8 106.51 383.05 106.25Q382.29 105.99 382.01 105.88Q381.72 105.76 381.59 105.76Q381.46 105.76 381.42 105.77L380.86 105.89Q380.71 105.89 380.67 105.65Q380.34 102.8 380.34 102.62Q380.34 102.44 380.37 102.38Q380.4 102.32 380.52 102.32Q380.85 102.32 381.11 103.24Q382.32 105.82 385.12 105.82Q386.41 105.82 387.32 105.04Q388.23 104.26 388.23 103.01Q388.23 101.01 385.84 99.28Q385.17 98.8 383.89 97.94Q382.62 97.08 381.86 96.22Q380.67 94.88 380.67 93.25Q380.67 91.61 381.98 90.56Q383.28 89.52 384.97 89.52Q385.84 89.52 386.9 89.82Q387.95 90.11 388.36 90.22Z M405.97 90.14Q406.08 90.14 406.08 90.39L406.38 92.84Q406.43 93.07 406.43 93.13Q406.43 93.19 406.25 93.19Q406.07 93.19 406.03 93.15Q405.98 93.1 405.93 92.99Q405.89 92.88 405.82 92.75Q405.76 92.61 405.69 92.47Q405.45 91.94 404.93 91.42Q403.67 90.21 402.09 90.21Q401.13 90.21 400.28 90.83Q399.43 91.45 399.43 92.29Q399.43 93.14 399.75 93.76Q400.06 94.38 400.58 94.91Q401.1 95.43 401.76 95.92Q402.43 96.4 403.12 96.89Q404.95 98.17 405.72 99.08Q406.92 100.48 407.03 102.22Q407.03 104.18 405.53 105.34Q404.03 106.51 402.04 106.51Q400.76 106.51 400.01 106.25Q399.26 105.99 398.97 105.88Q398.68 105.76 398.55 105.76Q398.42 105.76 398.39 105.77L397.82 105.89Q397.67 105.89 397.64 105.65Q397.31 102.8 397.31 102.62Q397.31 102.44 397.33 102.38Q397.36 102.32 397.49 102.32Q397.81 102.32 398.08 103.24Q399.28 105.82 402.09 105.82Q403.37 105.82 404.29 105.04Q405.2 104.26 405.2 103.01Q405.2 101.01 402.81 99.28Q402.13 98.8 400.86 97.94Q399.58 97.08 398.82 96.22Q397.64 94.88 397.64 93.25Q397.64 91.61 398.94 90.56Q400.25 89.52 401.94 89.52Q402.81 89.52 403.86 89.82Q404.91 90.11 405.33 90.22Z M419.35 106.11Q419.35 106.2 419.26 106.2H413.39Q413.29 106.2 413.29 106.11V105.83Q413.29 105.74 413.44 105.74Q415.02 105.67 415.57 104.06L420.26 90.49Q420.27 90.47 420.27 90.44L420.14 90.06Q420.14 90 420.19 90H422.49Q422.51 90.01 422.55 90.02Q422.59 90.03 422.61 90.09L427.47 103.73Q427.63 104.04 427.73 104.29Q427.83 104.55 427.95 104.75Q428.23 105.22 428.86 105.48Q429.39 105.74 429.83 105.74Q429.92 105.74 429.92 105.84V106.11Q429.92 106.2 429.83 106.2H422.8Q422.7 106.2 422.7 106.11V105.83Q422.7 105.74 423.13 105.72Q423.55 105.69 423.83 105.67Q425.43 105.5 425.43 104.59Q425.43 104.52 425.4 104.43L423.67 99.54Q423.66 99.51 423.62 99.43Q423.48 99.04 423.14 99.04H419.06Q418.72 99.04 418.52 99.42Q418.49 99.5 418.49 99.51L416.76 104.56V104.66Q416.76 104.96 417.07 105.2Q417.77 105.74 418.96 105.74H419.26Q419.35 105.74 419.35 105.83ZM422.75 97.77Q422.96 97.77 422.96 97.59Q422.96 97.5 422.91 97.39L421.2 92.68Q421.08 92.37 421.03 92.37Q420.97 92.37 420.84 92.69L419.23 97.39Q419.19 97.5 419.19 97.63Q419.19 97.77 419.36 97.77Z M453.08 99.08Q453.2 99.08 453.2 99.25Q453.2 99.43 453.08 99.5Q452.77 99.63 452.44 99.72Q452.11 99.81 451.84 99.96Q451.2 100.31 451.2 101.08V104.81Q451.2 105.06 449.99 105.49Q448.78 105.91 448.02 106.11Q444.47 106.98 441.68 105.92Q438.47 104.69 437.14 101.52Q436.47 99.94 436.47 98.37Q436.47 96.8 436.78 95.73Q437.73 92.47 440.74 90.71Q442.7 89.56 444.87 89.56Q447.03 89.56 449.47 90.44Q449.92 90.6 449.97 90.6H450.11L450.57 90.48H450.86Q450.99 90.48 450.99 90.61V94.43Q450.99 94.65 450.73 94.65H450.69Q450.47 94.63 450.39 94.07Q450.36 93.95 450.35 93.89Q449.2 90.3 445.5 90.3Q442.54 90.3 440.78 92.54Q439.01 94.78 439.01 97.87Q439.01 100.96 440.79 103.33Q442.56 105.71 445.67 105.71Q447.26 105.71 448.3 105.21Q448.7 105.02 448.92 104.72V101.57Q448.92 100.5 448.31 100Q447.7 99.5 446.07 99.5Q445.94 99.5 445.94 99.29Q445.94 99.08 446.07 99.08Z M459.03 106.11V105.79Q459.03 105.69 459.13 105.69H459.38Q459.86 105.66 460.37 105.65Q460.87 105.65 461.29 105.53Q462.23 105.26 462.23 104.15V92.05Q462.23 90.91 460.88 90.6Q460.5 90.52 460.11 90.46H459.87Q459.78 90.46 459.78 90.37V90.09Q459.78 90 459.87 90H470.8Q471.01 90 471.1 90.07Q471.19 90.15 471.21 90.4L471.42 93.73Q471.42 93.85 471.25 93.85Q471.08 93.85 470.99 93.75Q470.93 93.63 470.82 92.91Q470.71 92.18 470.42 91.7Q470.13 91.22 469.41 91.09H464.62Q464.47 91.09 464.47 91.24V97.18Q464.47 97.3 464.58 97.3H468.56Q470.1 97.3 470.1 95.5Q470.1 95.41 470.19 95.41H470.47Q470.56 95.41 470.56 95.5V100.42Q470.56 100.51 470.47 100.51H470.19Q470.1 100.51 470.1 100.42Q470.1 98.72 469.11 98.46Q468.83 98.39 468.52 98.39H464.58Q464.47 98.39 464.47 98.5V104.1Q464.47 104.96 465.26 105.07Q465.49 105.11 465.74 105.11H469.57Q470.75 105.11 471.41 104.06Q471.88 103.32 471.98 102.35Q472.02 102.03 472.33 102.03Q472.47 102.03 472.47 102.18L472.09 106.04Q472.02 106.2 471.93 106.2H459.13Q459.03 106.2 459.03 106.11Z"/></svg>
+    <nav aria-label="Pautan bawah">
+      <a href="#servis" data-en="Services">Servis</a><a href="#cara-tempah" data-en="How to book">Cara Tempah</a><a href="#kenali-sam" data-en="Meet Sam">Kenali Sam</a><a href="#soalan" data-en="FAQ">Soalan</a><a href="#hubungi" data-en="Contact">Hubungi</a>
+    </nav>
+    <p class="disc" data-en="Services are for relaxation and wellbeing and are not a substitute for medical treatment. No cure or treatment outcome is claimed. Please tell Sam about any health conditions before your session.">Servis adalah untuk relaksasi dan kesejahteraan, dan bukan pengganti rawatan perubatan. Tiada tuntutan penyembuhan atau hasil rawatan. Sila maklumkan sebarang keadaan kesihatan kepada Sam sebelum sesi.</p>
+    <p style="font-size:12px">© 2026 Syafiq Aura Massage (SAM) · Chendering, Kuala Terengganu</p>
+  </div>
+</footer>
+
+<div class="actionbar" id="actionbar">
+  <a class="btn btn-wa" data-wa-general href="#" target="_blank" rel="noopener" aria-label="WhatsApp Sam"><svg style="width:22px;height:22px"><use href="#i-wa"/></svg></a>
+  <button class="btn btn-primary" type="button" data-book><span data-en="Book a session">Tempah Sesi</span><span class="disc"><svg><use href="#i-arrow"/></svg></span></button>
+</div>
+
+<!-- BOOKING SHEET -->
+<div class="scrim" id="scrim"></div>
+<div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle" aria-hidden="true">
+  <div class="sheet-head">
+    <div class="grab"></div>
+    <div class="sheet-top">
+      <button class="iconbtn" type="button" id="backBtn" aria-label="Kembali" hidden><svg><use href="#i-back"/></svg></button>
+      <div class="sheet-title"><small id="stepLabel"></small><h2 id="sheetTitle"></h2></div>
+      <button class="iconbtn" type="button" id="closeBtn" aria-label="Tutup"><svg><use href="#i-x"/></svg></button>
+    </div>
+    <div class="progress" id="progress" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+  </div>
+  <div class="sheet-body" id="sheetBody"></div>
+  <div class="sheet-foot" id="sheetFoot">
+    <div class="sum" id="sum"></div>
+    <button class="btn btn-primary" type="button" id="nextBtn"></button>
+    <a class="btn btn-wa" id="sendBtn" href="#" target="_blank" rel="noopener" hidden><svg><use href="#i-wa"/></svg><span></span></a>
+  </div>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+"use strict";
+var WA="601169796259";
+var lang="bm";
+try{ var sl=localStorage.getItem("sam-lang"); if(sl==="en"||sl==="bm") lang=sl; }catch(e){}
+function t(bm,en){ return lang==="en"?en:bm; }
+
+var CATS=[
+  {id:"all",bm:"Semua",en:"All"},
+  {id:"urut",bm:"Urutan",en:"Massage"},
+  {id:"bekam",bm:"Bekam",en:"Cupping"},
+  {id:"lulur",bm:"Lulur",en:"Scrub"},
+  {id:"pakej",bm:"Pakej",en:"Packages"}
+];
+var SVC=[
+  {id:"full",cat:"urut",min:60,rm:120,dep:10,img:"img/n-full.jpg",pos:"0%",
+   bm:"Urutan Badan Penuh",en:"Full Body Massage",
+   dbm:"Urutan tradisional Melayu seluruh badan untuk melegakan otot yang tegang dan lenguh.",
+   den:"A traditional Malay full-body massage to ease tight, aching muscles."},
+  {id:"manhood",cat:"urut",min:30,rm:65,dep:10,img:"img/n-manhood.jpg",pos:"0%",
+   bm:"Urutan Lelaki (Manhood)",en:"Men's Massage (Manhood)",
+   dbm:"Urutan tradisional khas untuk lelaki, dijalankan secara profesional, sopan dan sulit.",
+   den:"A traditional massage for men only, done professionally, respectfully and discreetly."},
+  {id:"scrub",cat:"lulur",min:45,rm:85,dep:10,img:"img/n-scrub.jpg",pos:"0%",
+   bm:"Lulur Badan Penuh",en:"Full Body Scrub",
+   dbm:"Lulur tradisional untuk mengangkat sel kulit mati — kulit terasa lembut dan segar.",
+   den:"A traditional body scrub that lifts dead skin, leaving it soft and fresh."},
+  {id:"bekam",cat:"bekam",min:60,rm:65,dep:10,img:"img/n-bekam.jpg",pos:"40%",
+   bm:"Bekam (14 Cawan)",en:"Bekam / Wet Cupping (14 cups)",
+   dbm:"Bekam basah 14 cawan mengikut amalan tradisional, dikendalikan dengan bersih dan teliti.",
+   den:"Traditional wet cupping with 14 cups, carried out cleanly and carefully."},
+  {id:"first",cat:"pakej",min:75,rm:100,dep:20,img:"img/n-first.jpg",pos:"30%",
+   bm:"Pakej Pertama Kali",en:"First-Time Combo",
+   dbm:"Pakej perkenalan untuk pelanggan baharu. Kandungan disahkan oleh Sam semasa tempahan.",
+   den:"An introductory package for new clients. Contents are confirmed by Sam when you book."},
+  {id:"combo3",cat:"pakej",min:120,rm:165,dep:20,img:"img/n-combo3.jpg",pos:"30%",
+   bm:"Pakej Istimewa 3-dalam-1",en:"Special 3-in-1 Combo",
+   dbm:"Tiga rawatan dalam satu sesi panjang yang menenangkan. Kandungan disahkan semasa tempahan.",
+   den:"Three treatments in one long, unhurried session. Contents are confirmed when you book."}
+];
+var SLOTS=[{h:10,m:0,bm:"10:00 pagi",en:"10:00 AM"},{h:12,m:0,bm:"12:00 tengah hari",en:"12:00 PM"},{h:14,m:30,bm:"2:30 petang",en:"2:30 PM"},{h:17,m:0,bm:"5:00 petang",en:"5:00 PM"},{h:20,m:0,bm:"8:00 malam",en:"8:00 PM"}];
+var DAYS={bm:["Ahad","Isnin","Selasa","Rabu","Khamis","Jumaat","Sabtu"],en:["Sun","Mon","Tue","Wed","Thu","Fri","Sat"]};
+var DAYS_L={bm:DAYS.bm,en:["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]};
+var MON={bm:["Jan","Feb","Mac","Apr","Mei","Jun","Jul","Ogo","Sep","Okt","Nov","Dis"],en:["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]};
+
+var $=function(s,r){return (r||document).querySelector(s);};
+var $$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s));};
+function esc(s){return String(s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];});}
+
+/* ---------- i18n for static text ---------- */
+$$("[data-en]").forEach(function(el){ el.dataset.bm=el.innerHTML; });
+$$("[data-en-alt]").forEach(function(el){ el.dataset.bmAlt=el.getAttribute("alt"); });
+function applyLang(){
+  document.documentElement.lang=lang==="en"?"en":"ms";
+  $$("[data-en]").forEach(function(el){ el.innerHTML=lang==="en"?el.dataset.en:el.dataset.bm; });
+  $$("[data-en-alt]").forEach(function(el){ el.setAttribute("alt",lang==="en"?el.dataset.enAlt:el.dataset.bmAlt); });
+  $$(".lang button").forEach(function(b){ b.setAttribute("aria-pressed",String(b.dataset.lang===lang)); });
+  $("#backBtn").setAttribute("aria-label",t("Kembali","Back"));
+  $("#closeBtn").setAttribute("aria-label",t("Tutup","Close"));
+  var gen=WA_LINK(t("Assalamualaikum Sam, saya ingin bertanya tentang servis Syafiq Aura Massage.","Hi Sam, I'd like to ask about Syafiq Aura Massage services."));
+  $$("[data-wa-general]").forEach(function(a){ a.href=gen; });
+  renderFilters(); renderServices();
+  if(sheetOpen) renderStep();
+}
+$$(".lang button").forEach(function(b){ b.addEventListener("click",function(){ lang=b.dataset.lang; try{localStorage.setItem("sam-lang",lang);}catch(e){} applyLang(); }); });
+function WA_LINK(text){ return "https://wa.me/"+WA+"?text="+encodeURIComponent(text); }
+
+/* ---------- services ---------- */
+var filter="all";
+function renderFilters(){
+  $("#filters").innerHTML=CATS.map(function(c){return '<button type="button" class="chip" data-cat="'+c.id+'" aria-pressed="'+(c.id===filter)+'">'+esc(c[lang])+'</button>';}).join("");
+  $$("#filters .chip").forEach(function(b){ b.addEventListener("click",function(){ filter=b.dataset.cat; renderFilters(); renderServices(); }); });
+}
+function catName(id){ for(var i=0;i<CATS.length;i++){ if(CATS[i].id===id) return CATS[i][lang]; } return ""; }
+function renderServices(){
+  var list=SVC.filter(function(s){return filter==="all"||s.cat===filter;});
+  $("#svcGrid").innerHTML=list.map(function(s){
+    var media=s.img?'<img src="'+s.img+'" alt="" loading="lazy" style="object-position:50% '+(s.pos||"50%")+'">':'<svg viewBox="14 4 72 112" aria-hidden="true"><use href="#markGold"/></svg>';
+    return '<article class="card"><div class="media'+(s.img?'':' motif')+'">'+media+'<span class="tag">'+esc(catName(s.cat))+'</span></div>'+
+      '<div class="body"><h3>'+esc(s[lang])+'</h3><p>'+esc(lang==="en"?s.den:s.dbm)+'</p>'+
+      '<div class="meta"><span class="dur"><svg><use href="#i-clock"/></svg>'+s.min+' min</span><span class="price"><small>RM</small>'+s.rm+'</span></div>'+
+      '<button type="button" class="btn btn-primary" data-book="'+s.id+'" aria-label="'+esc(t("Tempah ","Book ")+s[lang])+'"><span>'+t("Tempah sekarang","Book now")+'</span><span class="disc"><svg><use href="#i-arrow"/></svg></span></button></div></article>';
+  }).join("");
+}
+
+/* ---------- booking state ---------- */
+var B={svc:null,date:null,slot:null,mode:"in",area:"",name:"",phone:"",first:null,note:""};
+try{ var saved=JSON.parse(localStorage.getItem("sam-me")||"{}"); B.name=saved.name||""; B.phone=saved.phone||""; }catch(e){}
+var step=0, sheetOpen=false, sent=false, lastFocus=null;
+var sheet=$("#sheet"), scrim=$("#scrim"), body=$("#sheetBody");
+function svcById(id){ for(var i=0;i<SVC.length;i++){ if(SVC[i].id===id) return SVC[i]; } return null; }
+function days(){ var out=[],d=new Date(); d.setHours(0,0,0,0); for(var i=0;i<14;i++){ var x=new Date(d); x.setDate(d.getDate()+i); out.push(x);} return out; }
+function sameDay(a,b){ return a&&b&&a.toDateString()===b.toDateString(); }
+function slotPast(date,s){ var n=new Date(); if(!sameDay(date,n)) return false; return (s.h*60+s.m) <= (n.getHours()*60+n.getMinutes()+60); }
+function fmtDate(d,long){ var dn=long?DAYS_L[lang][d.getDay()]:DAYS[lang][d.getDay()]; return dn+", "+d.getDate()+" "+MON[lang][d.getMonth()]+" "+d.getFullYear(); }
+
+document.addEventListener("click",function(e){
+  var b=e.target.closest("[data-book]"); if(!b) return;
+  e.preventDefault(); openSheet(b.getAttribute("data-book")||null, b);
+});
+function openSheet(svcId, opener){
+  lastFocus=opener||document.activeElement;
+  sent=false;
+  if(svcId){ B.svc=svcId; step=1; } else { step=0; }
+  sheetOpen=true; renderStep();
+  sheet.classList.add("open"); scrim.classList.add("open"); sheet.setAttribute("aria-hidden","false");
+  document.body.style.overflow="hidden";
+  setTimeout(function(){ $("#closeBtn").focus(); },50);
+}
+function closeSheet(){
+  sheetOpen=false; sheet.classList.remove("open"); scrim.classList.remove("open"); sheet.setAttribute("aria-hidden","true");
+  document.body.style.overflow="";
+  if(lastFocus&&lastFocus.focus) lastFocus.focus();
+}
+scrim.addEventListener("click",closeSheet);
+$("#closeBtn").addEventListener("click",closeSheet);
+$("#backBtn").addEventListener("click",function(){ if(sent){ sent=false; step=3; } else if(step>0) step--; renderStep(); });
+document.addEventListener("keydown",function(e){
+  if(!sheetOpen) return;
+  if(e.key==="Escape") closeSheet();
+  if(e.key==="Tab"){ var f=$$('button:not([disabled]):not([hidden]),a[href]:not([hidden]),input,textarea',sheet).filter(function(x){return x.offsetParent!==null;}); if(!f.length) return; var first=f[0],last=f[f.length-1];
+    if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();} else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();} }
+});
+
+var TITLES=[["Pilih servis","Choose a service"],["Tarikh & masa","Date & time"],["Lokasi rawatan","Where?"],["Butiran anda","Your details"]];
+function canNext(){
+  if(step===0) return !!B.svc;
+  if(step===1) return !!(B.date&&B.slot!==null);
+  if(step===2) return B.mode==="in"||B.area.trim().length>2;
+  if(step===3) return B.name.trim().length>1;
+  return false;
+}
+function renderStep(){
+  var s=svcById(B.svc);
+  $("#backBtn").hidden=(step===0&&!sent);
+  $$("#progress i").forEach(function(el,i){ el.classList.toggle("on",i<=step||sent); });
+  $("#stepLabel").textContent=sent?t("Hampir siap","Almost done"):t("Langkah ","Step ")+(step+1)+t(" daripada 4"," of 4");
+  $("#sheetTitle").textContent=sent?t("Mesej sudah sedia","Message ready"):t(TITLES[step][0],TITLES[step][1]);
+  var h="";
+  if(sent){ h=doneHTML(); }
+  else if(step===0){
+    h=SVC.map(function(x){ return '<button type="button" class="opt" role="radio" aria-checked="'+(B.svc===x.id)+'" data-svc="'+x.id+'"><span class="radio"></span><span class="txt"><b>'+esc(x[lang])+'</b><span>'+x.min+' min · '+esc(catName(x.cat))+'</span></span><span class="pr">RM'+x.rm+'</span></button>'; }).join("");
+    h='<div role="radiogroup" aria-label="'+t("Servis","Service")+'">'+h+'</div>';
+  } else if(step===1){
+    var ds=days();
+    if(!B.date) B.date=ds[0];
+    h='<span class="lbl">'+t("Tarikh","Date")+'</span><div class="dates">'+ds.map(function(d,i){ return '<button type="button" class="date" data-di="'+i+'" aria-pressed="'+sameDay(d,B.date)+'" aria-label="'+esc(fmtDate(d,true))+'"><small>'+(i===0?t("Hari ini","Today"):DAYS[lang][d.getDay()])+'</small><b>'+d.getDate()+'</b><small>'+MON[lang][d.getMonth()]+'</small></button>'; }).join("")+'</div>';
+    if(B.slot!==null&&slotPast(B.date,SLOTS[B.slot])) B.slot=null;
+    h+='<span class="lbl">'+t("Masa mula","Start time")+'</span><div class="slots">'+SLOTS.map(function(x,i){ var past=slotPast(B.date,x); return '<button type="button" class="slot" data-si="'+i+'" aria-pressed="'+(B.slot===i)+'"'+(past?' disabled':'')+'>'+esc(x[lang])+'</button>'; }).join("")+'</div>';
+    h+='<p class="hint"><svg><use href="#i-info"/></svg><span>'+t("Masa pilihan ialah permintaan. Sam akan sahkan ketersediaan di WhatsApp (maks. 5 pelanggan sehari).","Your chosen time is a request. Sam confirms availability on WhatsApp (max 5 clients a day).")+'</span></p>';
+  } else if(step===2){
+    h='<div role="radiogroup" aria-label="In-Call / Out-Call">'+
+      '<button type="button" class="opt" role="radio" aria-checked="'+(B.mode==="in")+'" data-mode="in"><span class="radio"></span><span class="txt"><b>In-Call</b><span>'+t("Datang ke premis Sam di Chendering","Come to Sam's premises in Chendering")+'</span></span><svg width="22" height="22" style="color:var(--bronze)"><use href="#i-home"/></svg></button>'+
+      '<button type="button" class="opt" role="radio" aria-checked="'+(B.mode==="out")+'" data-mode="out"><span class="radio"></span><span class="txt"><b>Out-Call</b><span>'+t("Sam datang ke rumah / hotel anda","Sam comes to your home / hotel")+'</span></span><svg width="22" height="22" style="color:var(--bronze)"><use href="#i-car"/></svg></button></div>';
+    if(B.mode==="out"){
+      h+='<div class="field" style="margin-top:8px"><label for="fArea">'+t("Kawasan / alamat","Area / address")+'</label><input class="input" id="fArea" autocomplete="street-address" placeholder="'+t("cth. Taman Seri Kolam, Kuala Nerus","e.g. Taman Seri Kolam, Kuala Nerus")+'" value="'+esc(B.area)+'"></div>';
+      h+='<p class="hint"><svg><use href="#i-info"/></svg><span>'+t("Caj perjalanan (jika ada) akan disahkan oleh Sam sebelum anda bayar deposit.","Any travel charge is confirmed by Sam before you pay the deposit.")+'</span></p>';
+    }
+  } else if(step===3){
+    h='<div class="field"><label for="fName">'+t("Nama","Name")+'</label><input class="input" id="fName" autocomplete="name" placeholder="'+t("Nama anda","Your name")+'" value="'+esc(B.name)+'"></div>'+
+      '<div class="field"><label for="fPhone">'+t("No. telefon","Phone")+' <span>('+t("pilihan","optional")+')</span></label><input class="input" id="fPhone" type="tel" inputmode="tel" autocomplete="tel" placeholder="01X-XXX XXXX" value="'+esc(B.phone)+'"></div>'+
+      '<div class="field"><span class="lbl" style="margin:0">'+t("Pertama kali dengan Sam?","First time with Sam?")+'</span><div class="seg"><button type="button" data-first="1" aria-pressed="'+(B.first===true)+'">'+t("Ya","Yes")+'</button><button type="button" data-first="0" aria-pressed="'+(B.first===false)+'">'+t("Tidak","No")+'</button></div></div>'+
+      '<div class="field"><label for="fNote">'+t("Nota untuk Sam","Note for Sam")+' <span>('+t("pilihan","optional")+')</span></label><textarea class="textarea" id="fNote" placeholder="'+t("cth. sakit belakang, tekanan sederhana, elak bahu kiri","e.g. lower back pain, medium pressure, avoid left shoulder")+'">'+esc(B.note)+'</textarea></div>'+
+      summaryHTML();
+  }
+  body.innerHTML=h; body.scrollTop=0;
+  bindStep();
+  updateFoot();
+}
+function summaryHTML(){
+  var s=svcById(B.svc);
+  return '<div class="summary"><h4>'+t("Ringkasan tempahan","Booking summary")+'</h4><dl>'+
+    '<dt>'+t("Servis","Service")+'</dt><dd>'+esc(s[lang])+' · '+s.min+' min</dd>'+
+    '<dt>'+t("Tarikh","Date")+'</dt><dd>'+esc(fmtDate(B.date))+'</dd>'+
+    '<dt>'+t("Masa","Time")+'</dt><dd>'+esc(SLOTS[B.slot][lang])+'</dd>'+
+    '<dt>'+t("Lokasi","Where")+'</dt><dd>'+(B.mode==="in"?"In-Call (Chendering)":"Out-Call")+'</dd></dl>'+
+    '<div class="tot"><span>'+t("Harga","Price")+' · '+t("deposit","deposit")+' RM'+s.dep+'</span><b>RM'+s.rm+'</b></div></div>';
+}
+function doneHTML(){
+  return '<div class="done"><div class="big"><svg><use href="#i-check"/></svg></div><h3>'+t("Terima kasih, ","Thank you, ")+esc(B.name.split(" ")[0])+'!</h3>'+
+    '<p>'+t("Hantar mesej yang sudah disediakan di WhatsApp. Jika WhatsApp tidak terbuka, tekan butang di bawah atau salin mesej.","Send the prepared message in WhatsApp. If WhatsApp didn't open, use the button below or copy the message.")+'</p>'+
+    '<ol><li><i>1</i><span>'+t("Sam semak jadual dan sahkan slot anda.","Sam checks his schedule and confirms your slot.")+'</span></li>'+
+    '<li><i>2</i><span>'+t("Sam hantar butiran bayaran deposit.","Sam sends the deposit payment details.")+'</span></li>'+
+    '<li><i>3</i><span>'+t("Bayar deposit dan hantar resit dalam chat yang sama.","Pay the deposit and send the receipt in the same chat.")+'</span></li>'+
+    '<li><i>4</i><span>'+t("Tempahan disahkan — jumpa nanti!","Booking confirmed — see you soon!")+'</span></li></ol>'+
+    '<div class="copyrow"><button type="button" class="btn btn-outline" id="copyMsg"><svg><use href="#i-copy"/></svg><span>'+t("Salin mesej","Copy message")+'</span></button></div></div>';
+}
+function bindStep(){
+  $$("[data-svc]",body).forEach(function(b){ b.addEventListener("click",function(){ B.svc=b.dataset.svc; $$("[data-svc]",body).forEach(function(x){x.setAttribute("aria-checked",String(x===b));}); updateFoot(); }); });
+  $$("[data-di]",body).forEach(function(b){ b.addEventListener("click",function(){ B.date=days()[+b.dataset.di]; renderStep(); var el=$('[data-di="'+b.dataset.di+'"]',body); if(el){ el.focus(); el.scrollIntoView({inline:"center",block:"nearest"}); } }); });
+  $$("[data-si]",body).forEach(function(b){ b.addEventListener("click",function(){ B.slot=+b.dataset.si; $$("[data-si]",body).forEach(function(x){x.setAttribute("aria-pressed",String(x===b));}); updateFoot(); }); });
+  $$("[data-mode]",body).forEach(function(b){ b.addEventListener("click",function(){ B.mode=b.dataset.mode; renderStep(); var f=$("#fArea"); if(f) f.focus(); }); });
+  $$("[data-first]",body).forEach(function(b){ b.addEventListener("click",function(){ B.first=b.dataset.first==="1"; $$("[data-first]",body).forEach(function(x){x.setAttribute("aria-pressed",String(x===b));}); updateFoot(); }); });
+  var m={fArea:"area",fName:"name",fPhone:"phone",fNote:"note"};
+  Object.keys(m).forEach(function(id){ var el=document.getElementById(id); if(el) el.addEventListener("input",function(){ B[m[id]]=el.value; updateFoot(); }); });
+  var c=$("#copyMsg"); if(c) c.addEventListener("click",function(){ try{ navigator.clipboard.writeText(message()).then(function(){toast(t("Mesej disalin","Message copied"));},function(){toast(t("Tidak dapat menyalin","Couldn't copy"));}); }catch(e){ toast(t("Tidak dapat menyalin","Couldn't copy")); } });
+  // date strip: keep selected visible
+  var sel=$('.date[aria-pressed="true"]',body); if(sel&&sel.scrollIntoView) sel.scrollIntoView({inline:"center",block:"nearest"});
+}
+function message(){
+  var s=svcById(B.svc); var L=[];
+  if(lang==="en"){
+    L.push("Hi Sam, I'd like to book a session:");
+    L.push("");
+    L.push("• Service: "+s.en+" ("+s.min+" min) – RM"+s.rm);
+    L.push("• Date: "+fmtDate(B.date,true));
+    L.push("• Time: "+SLOTS[B.slot].en);
+    L.push("• Where: "+(B.mode==="in"?"In-Call (Chendering)":"Out-Call – "+B.area.trim()));
+    L.push("• Name: "+B.name.trim());
+    if(B.phone.trim()) L.push("• Phone: "+B.phone.trim());
+    if(B.first!==null) L.push("• First time: "+(B.first?"Yes":"No"));
+    if(B.note.trim()) L.push("• Note: "+B.note.trim());
+    L.push(""); L.push("Deposit: RM"+s.dep+". Please confirm if this slot is available. Thank you!");
+  } else {
+    L.push("Assalamualaikum Sam, saya ingin membuat tempahan:");
+    L.push("");
+    L.push("• Servis: "+s.bm+" ("+s.min+" min) – RM"+s.rm);
+    L.push("• Tarikh: "+fmtDate(B.date,true));
+    L.push("• Masa: "+SLOTS[B.slot].bm);
+    L.push("• Lokasi: "+(B.mode==="in"?"In-Call (Chendering)":"Out-Call – "+B.area.trim()));
+    L.push("• Nama: "+B.name.trim());
+    if(B.phone.trim()) L.push("• No. telefon: "+B.phone.trim());
+    if(B.first!==null) L.push("• Pertama kali: "+(B.first?"Ya":"Tidak"));
+    if(B.note.trim()) L.push("• Nota: "+B.note.trim());
+    L.push(""); L.push("Deposit: RM"+s.dep+". Mohon sahkan jika slot ini masih kosong. Terima kasih!");
+  }
+  return L.join("\n");
+}
+function updateFoot(){
+  var s=svcById(B.svc), next=$("#nextBtn"), send=$("#sendBtn"), sum=$("#sum");
+  if(s){ sum.innerHTML='<b>'+esc(s[lang])+'</b><span>'+s.min+' min · RM'+s.rm+(B.date&&B.slot!==null&&step>=1?' · '+B.date.getDate()+' '+MON[lang][B.date.getMonth()]+', '+esc(SLOTS[B.slot][lang]):'')+'</span>'; }
+  else sum.innerHTML='<b>'+t("Belum pilih servis","No service yet")+'</b><span>'+t("Pilih satu untuk teruskan","Pick one to continue")+'</span>';
+  if(sent){
+    next.hidden=true; send.hidden=false; send.removeAttribute("aria-disabled");
+    send.querySelector("span").textContent=t("Buka WhatsApp","Open WhatsApp");
+    send.href=WA_LINK(message());
+    return;
+  }
+  if(step<3){
+    next.hidden=false; send.hidden=true;
+    next.innerHTML='<span>'+t("Seterusnya","Next")+'</span><span class="disc"><svg><use href="#i-arrow"/></svg></span>';
+    next.disabled=!canNext(); next.style.opacity=canNext()?"":".45";
+  } else {
+    next.hidden=true; send.hidden=false;
+    send.querySelector("span").textContent=t("Hantar via WhatsApp","Send via WhatsApp");
+    if(canNext()){ send.removeAttribute("aria-disabled"); send.href=WA_LINK(message()); }
+    else { send.setAttribute("aria-disabled","true"); send.href="#"; }
+  }
+}
+$("#nextBtn").addEventListener("click",function(){ if(!canNext()) return; step++; renderStep(); });
+$("#sendBtn").addEventListener("click",function(e){
+  if(this.getAttribute("aria-disabled")==="true"){ e.preventDefault(); return; }
+  try{ localStorage.setItem("sam-me",JSON.stringify({name:B.name.trim(),phone:B.phone.trim()})); }catch(err){}
+  if(!sent){ setTimeout(function(){ sent=true; renderStep(); },350); }
+});
+
+function toast(msg){ var el=$("#toast"); el.textContent=msg; el.classList.add("show"); clearTimeout(toast._t); toast._t=setTimeout(function(){el.classList.remove("show");},2200); }
+
+/* ---------- action bar + reveal ---------- */
+var bar=$("#actionbar"), hero=$(".hero");
+setTimeout(function(){ bar.classList.add("show"); },500);
+if("IntersectionObserver" in window){
+  var io=new IntersectionObserver(function(es){ es.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add("in"); io.unobserve(en.target);} }); },{rootMargin:"0px 0px -8% 0px"});
+  $$(".rv").forEach(function(el,i){ el.style.transitionDelay=(Math.min(i%6,5)*80)+"ms"; io.observe(el); });
+} else { $$(".rv").forEach(function(el){el.classList.add("in");}); }
+
+applyLang();
+})();
+</script>
+</body>
+</html>
