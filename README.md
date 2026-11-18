@@ -2,7 +2,7 @@
 
 Website for **SAM Terapi (Syafiq Aura Massage)**: traditional Malay massage, bekam and body scrub for men in Chendering, Kuala Terengganu.
 
-**Live site:** https://yushabdullah.github.io/SPASAM/
+**Live site:** https://samtherapist.vercel.app (also https://yushabdullah.github.io/SPASAM/)
 
 ## What's here
 
@@ -27,4 +27,4 @@ See **[SETUP.md](SETUP.md)** to switch the automation on. Without `apiUrl` in `c
 
 ## Updating
 
-Edit `index.html` (prices and services are in the `SVC` list near the bottom of the file) and push to the `gh-pages` branch. GitHub Pages republishes in about a minute.
+Edit `index.html` (prices and services are in the `SVC` list near the bottom of the file) and push to both `main` (Vercel) and `gh-pages` (GitHub Pages). Both republish in about a minute.

@@ -28,7 +28,7 @@ var CONFIG = {
   SENDER_EMAIL: 'syafiqaurawellness@gmail.com', // address customers see (Gmail "Send mail as" alias)
   SENDER_NAME: 'SAM Terapi — Syafiq Aura Massage',
   EMAIL_CUSTOMERS: true,
-  SITE_URL: 'https://yushabdullah.github.io/SPASAM/',
+  SITE_URL: 'https://samtherapist.vercel.app/',
   BANK: 'Maybank 1630 4662 3774 (Muhammad Aiman Syafiq)',
   BUSINESS: 'SAM Terapi — Syafiq Aura Massage',
   SAM_WHATSAPP: '601169796259',
