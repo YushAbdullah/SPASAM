@@ -1,0 +1,9 @@
+# Netlify settings for the SAM Terapi website (static site, no build step)
+[build]
+  publish = "."
+  command = ""
+
+[[headers]]
+  for = "/img/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
