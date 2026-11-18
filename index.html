@@ -345,6 +345,8 @@ footer nav a{color:var(--on-kayu);text-decoration:none;font-size:14px;padding:6p
 .rev .who b{display:block;font-size:15px}
 .rev .who small{font-size:13px;color:var(--muted)}
 .stars{color:#B7791F;font-size:15px;letter-spacing:2px}
+.revshot{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--bronze);font-size:13px;font-weight:600;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:8px;min-height:44px}
+.revshot img{width:54px;height:54px;object-fit:cover;object-position:top;border-radius:8px;flex:none}
 .rev-empty{background:var(--kayu);color:var(--on-kayu);border-radius:var(--r-xl);padding:28px;display:grid;gap:12px;justify-items:start;position:relative;overflow:hidden}
 .rev-empty::before{content:"\201C";position:absolute;right:24px;top:-10px;font-family:var(--serif);font-size:180px;color:rgba(217,185,122,.18);line-height:1}
 .rev-empty h3{font-size:26px;color:#fff}
@@ -1257,7 +1259,9 @@ function renderReviews(){
     h='<div class="reviews">'+list.map(function(r){
       var n=Math.max(0,Math.min(5,Number(r.rating)||0));
       return '<figure class="rev" style="margin:0"><span class="q" aria-hidden="true">&ldquo;</span>'+(n?'<span class="stars" aria-label="'+n+' / 5">'+"★★★★★".slice(0,n)+'<span style="color:#ddd">'+"★★★★★".slice(0,5-n)+'</span> <span style="color:var(--ink);letter-spacing:0">'+n+'/5</span></span>':'')+
-        '<blockquote style="margin:0"><p>'+esc(r.text)+'</p></blockquote><figcaption class="who"><span class="av">'+esc(String(r.name).charAt(0).toUpperCase())+'</span><span><b>'+esc(r.name)+'</b><small>'+esc([r.service,r.date].filter(Boolean).join(" · "))+'</small></span></figcaption></figure>';
+        '<blockquote style="margin:0"><p>'+esc(r.text)+'</p></blockquote>'+
+        (r.image?'<a class="revshot" href="'+esc(r.image)+'" target="_blank" rel="noopener"><img src="'+esc(r.image)+'" alt="'+t("Tangkapan skrin ulasan asal","Original review screenshot")+'" loading="lazy"><span>'+t("Lihat mesej asal","See original message")+'</span></a>':'')+
+        '<figcaption class="who"><span class="av">'+esc(String(r.name).charAt(0).toUpperCase())+'</span><span><b>'+esc(r.name)+'</b><small>'+esc([r.service,r.source,r.date].filter(Boolean).join(" · "))+'</small></span></figcaption></figure>';
     }).join("")+'</div><p style="margin-top:14px"><a class="btn btn-outline" href="'+wa+'" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg><span>'+t("Tulis ulasan anda","Write your review")+'</span></a></p>';
   }
   $("#revWrap").innerHTML=h;
