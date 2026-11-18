@@ -76,6 +76,20 @@ Warna acara Calendar: **Kuning** = menunggu deposit · **Oren** = semak resit ·
 - Mahu tutup masa tertentu? Tambah acara dalam Google Calendar (cth. "Rehat") — slot itu jadi kelabu di website.
 - Cuti sehari? Tambah acara **sepanjang hari** — seluruh hari ditutup.
 
+## Kongsi maklumat pelanggan dengan rakan kongsi
+
+Tak perlu Google Forms — kongsi terus fail yang sistem ini guna:
+
+1. **Google Sheet "SAM Tempahan"** → butang **Share** (Kongsi) → masukkan emel rakan kongsi → pilih **Viewer** (lihat sahaja) atau **Editor** (boleh tukar status/tarikh) → **Send**. Mereka nampak semua tempahan secara langsung.
+2. **Google Calendar** → ⚙ **Settings** → pilih kalendar Sam → **Share with specific people** → **Add people** → emel rakan kongsi → **See all event details** (atau **Make changes to events**).
+3. **Emel notifikasi kepada lebih dari seorang:** dalam `Code.gs`, tukar baris
+   `NOTIFY_EMAIL: 'syafiqaurawellness@gmail.com',` kepada
+   `NOTIFY_EMAIL: 'syafiqaurawellness@gmail.com, rakan@gmail.com',`
+   kemudian **Deploy › Manage deployments › ✏️ › New version › Deploy**.
+4. **Folder Drive "SAM - Resit Deposit"** → Share → emel rakan kongsi (jika mereka perlu lihat resit).
+
+Mahu tarik balik akses? Buka Share yang sama dan buang emel tersebut.
+
 ## Tetapan pilihan (bahagian `CONFIG` dalam Code.gs)
 
 | Tetapan | Maksud |

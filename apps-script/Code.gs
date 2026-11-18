@@ -19,7 +19,7 @@
 
 // ===================== SETTINGS =====================
 var CONFIG = {
-  NOTIFY_EMAIL: 'syafiqaurawellness@gmail.com',
+  NOTIFY_EMAIL: 'syafiqaurawellness@gmail.com', // more people: 'a@gmail.com, b@gmail.com'
   BUSINESS: 'Spa SAM — Syafiq Aura Massage',
   SAM_WHATSAPP: '601169796259',
   TZ: 'Asia/Kuala_Lumpur',
