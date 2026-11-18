@@ -326,6 +326,28 @@ footer nav a{color:var(--on-kayu);text-decoration:none;font-size:14px;padding:6p
 .upload.ok{border-style:solid;border-color:var(--wa);background:#f1f8f3;cursor:default}
 .statuspill{display:inline-block;border-radius:999px;padding:5px 11px;font-size:12px;font-weight:600;white-space:nowrap}
 .linkbtn{background:none;border:0;padding:6px 0;color:var(--on-kayu-m);font-size:14px;text-decoration:underline;text-underline-offset:3px;cursor:pointer;justify-self:start;min-height:44px;text-align:left}
+/* hero moving photos / video */
+.arch .frame .kb,.arch .frame video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.4s ease}
+.arch .frame .kb.on,.arch .frame video{opacity:1}
+@keyframes kenburns{from{transform:scale(1.04) translate(0,0)}to{transform:scale(1.16) translate(-2%,-3%)}}
+.arch .frame .kb.on{animation:kenburns 7s ease-out both}
+@media (prefers-reduced-motion:reduce){.arch .frame .kb.on{animation:none}}
+/* testimonials */
+.reviews{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 20px 12px;margin:0 -20px;scrollbar-width:thin}
+.rev{flex:0 0 84%;scroll-snap-align:start;background:#fff;border:1px solid var(--line);border-radius:var(--r-xl);padding:22px;display:flex;flex-direction:column;gap:12px}
+.rev .q{font-family:var(--serif);font-size:56px;line-height:.6;color:var(--accent);height:24px}
+.rev p{font-size:16px;line-height:1.55;color:var(--ink)}
+.rev .who{display:flex;align-items:center;gap:12px;margin-top:auto;border-top:1px solid var(--line);padding-top:12px}
+.rev .av{width:42px;height:42px;border-radius:50%;background:var(--kayu);color:var(--gold);display:grid;place-items:center;font-family:var(--serif);font-size:20px;flex:none}
+.rev .who b{display:block;font-size:15px}
+.rev .who small{font-size:13px;color:var(--muted)}
+.stars{color:#B7791F;font-size:15px;letter-spacing:2px}
+.rev-empty{background:var(--kayu);color:var(--on-kayu);border-radius:var(--r-xl);padding:28px;display:grid;gap:12px;justify-items:start;position:relative;overflow:hidden}
+.rev-empty::before{content:"\201C";position:absolute;right:24px;top:-10px;font-family:var(--serif);font-size:180px;color:rgba(217,185,122,.18);line-height:1}
+.rev-empty h3{font-size:26px;color:#fff}
+.rev-empty p{color:var(--on-kayu-m);font-size:15px;max-width:52ch}
+@media (min-width:640px){.rev{flex-basis:46%}.reviews{margin:0 -32px;padding-left:32px;padding-right:32px}}
+@media (min-width:1024px){.rev{flex-basis:calc(33.333% - 11px)}.reviews{margin:0;padding:4px 0 12px}}
 /* hero hook + live */
 .kicker{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px}
 .chip-gold{background:var(--gold);color:var(--kayu);font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;border-radius:999px;padding:7px 14px;white-space:nowrap}
@@ -469,7 +491,7 @@ footer nav a{color:var(--on-kayu);text-decoration:none;font-size:14px;padding:6p
     <div class="wrap">
       <div class="arch hin">
         <svg class="outline" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M50 1 C60 12 89 17.5 99 35.5 L99 90 Q99 99 89 99 L11 99 Q1 99 1 90 L1 35.5 C11 17.5 40 12 50 1 Z" fill="none" stroke="#D9B97A" stroke-width="0.5" vector-effect="non-scaling-stroke"/></svg>
-        <div class="frame"><img src="img/sam-portrait.jpg" alt="Sam, pengamal urutan Syafiq Aura Massage, berbaju Melayu biru gelap di ruang rawatan" data-en-alt="Sam, the Syafiq Aura Massage therapist, in a dark blue Malay-collar top in the treatment room" width="800" height="956" fetchpriority="high"></div>
+        <div class="frame" id="heroFrame"><img class="kb on" src="img/sam-portrait.jpg" alt="Sam, pengamal urutan Syafiq Aura Massage" data-en-alt="Sam, the Syafiq Aura Massage therapist" width="800" height="956" fetchpriority="high"><img class="kb" src="img/sam-hands.jpg" alt="" aria-hidden="true" loading="lazy" style="object-position:50% 40%"><img class="kb" src="img/sam-a.jpg" alt="" aria-hidden="true" loading="lazy" style="object-position:50% 25%"></div>
         <button type="button" class="badge" id="liveBadge" data-book>
           <span class="livetag" id="liveTag"><i class="dot"></i><span id="liveTagTxt">SLOT TERHAD</span></span>
           <b id="liveBig">5 slot sehari</b>
@@ -628,6 +650,21 @@ footer nav a{color:var(--on-kayu);text-decoration:none;font-size:14px;padding:6p
     </div>
   </section>
 
+  <!-- TESTIMONIALS -->
+  <section class="sec" id="ulasan" aria-labelledby="h-rev" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head split">
+        <div>
+          <div class="orn"><svg><use href="#orn"/></svg></div>
+          <p class="eyebrow" data-en="Testimonials">Testimoni</p>
+          <h2 id="h-rev" style="margin-top:10px" data-en="What <em>clients</em> say">Kata <em>pelanggan</em></h2>
+        </div>
+        <p class="lead" data-en="Real words from Sam&#39;s clients, shared with their permission.">Kata-kata sebenar daripada pelanggan Sam, dikongsi dengan izin mereka.</p>
+      </div>
+      <div id="revWrap"></div>
+    </div>
+  </section>
+
   <!-- FAQ -->
   <section class="sec" id="soalan" style="background:var(--paper);border-top:1px solid var(--line)" aria-labelledby="h-faq">
     <div class="wrap">
@@ -783,7 +820,7 @@ function applyLang(){
   $("#closeBtn").setAttribute("aria-label",t("Tutup","Close"));
   var gen=WA_LINK(t("Assalamualaikum Sam, saya ingin bertanya tentang servis Syafiq Aura Massage.","Hi Sam, I'd like to ask about Syafiq Aura Massage services."));
   $$("[data-wa-general]").forEach(function(a){ a.href=gen; });
-  renderFilters(); renderServices(); if(typeof renderLive==="function") renderLive();
+  renderFilters(); renderServices(); if(typeof renderLive==="function") renderLive(); if(typeof renderReviews==="function") renderReviews();
   if(sheetOpen) renderStep();
 }
 $$(".lang button").forEach(function(b){ b.addEventListener("click",function(){ lang=b.dataset.lang; try{localStorage.setItem("sam-lang",lang);}catch(e){} applyLang(); }); });
@@ -1204,6 +1241,38 @@ $("#sendBtn").addEventListener("click",function(e){
     setTimeout(function(){ view="done"; renderStep(); },350);
   }
 });
+
+/* ---------- testimonials (real ones only, from config.js) ---------- */
+function renderReviews(){
+  var list=(CFG.testimonials||[]).filter(function(r){ return r&&r.text&&r.name; });
+  var wa=WA_LINK(t("Assalamualaikum Sam, ini ulasan saya untuk Spa SAM:\n\nServis: \nUlasan: \n\nSaya izinkan ulasan ini dipaparkan di laman web dengan nama: ","Hi Sam, here is my review of Spa SAM:\n\nService: \nReview: \n\nI allow this review to be shown on the website under the name: "));
+  var h;
+  if(!list.length){
+    h='<div class="rev-empty"><h3>'+t("Kongsi pengalaman anda","Share your experience")+'</h3><p>'+t("Pernah dirawat oleh Sam? Hantar ulasan ringkas di WhatsApp. Ulasan pelanggan sebenar akan dipaparkan di sini.","Been treated by Sam? Send a short review on WhatsApp. Real client reviews will appear here.")+'</p><a class="btn btn-wa" href="'+wa+'" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg><span>'+t("Tulis ulasan di WhatsApp","Write a review on WhatsApp")+'</span></a></div>';
+  } else {
+    h='<div class="reviews">'+list.map(function(r){
+      var n=Math.max(0,Math.min(5,Number(r.rating)||0));
+      return '<figure class="rev" style="margin:0"><span class="q" aria-hidden="true">&ldquo;</span>'+(n?'<span class="stars" aria-label="'+n+' / 5">'+"★★★★★".slice(0,n)+'<span style="color:#ddd">'+"★★★★★".slice(0,5-n)+'</span> <span style="color:var(--ink);letter-spacing:0">'+n+'/5</span></span>':'')+
+        '<blockquote style="margin:0"><p>'+esc(r.text)+'</p></blockquote><figcaption class="who"><span class="av">'+esc(String(r.name).charAt(0).toUpperCase())+'</span><span><b>'+esc(r.name)+'</b><small>'+esc([r.service,r.date].filter(Boolean).join(" · "))+'</small></span></figcaption></figure>';
+    }).join("")+'</div><p style="margin-top:14px"><a class="btn btn-outline" href="'+wa+'" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg><span>'+t("Tulis ulasan anda","Write your review")+'</span></a></p>';
+  }
+  $("#revWrap").innerHTML=h;
+}
+renderReviews();
+
+/* ---------- hero: moving photos, or a looping video if set in config.js ---------- */
+(function(){
+  var frame=$("#heroFrame"); if(!frame) return;
+  var vid=String(CFG.heroVideo||"").trim();
+  if(vid){
+    var v=document.createElement("video"); v.src=vid; v.muted=true; v.autoplay=true; v.loop=true; v.playsInline=true; v.setAttribute("playsinline",""); v.setAttribute("aria-label",t("Video Sam sedang merawat pelanggan","Video of Sam treating a client"));
+    v.poster="img/sam-portrait.jpg"; frame.appendChild(v); var pr=v.play(); if(pr&&pr.catch) pr.catch(function(){});
+    return;
+  }
+  if(window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  var imgs=$$(".kb",frame), i=0;
+  setInterval(function(){ imgs[i].classList.remove("on"); i=(i+1)%imgs.length; void imgs[i].offsetWidth; imgs[i].classList.add("on"); },6500);
+})();
 
 /* ---------- live availability badge ---------- */
 var LIVE={state:"static",free:5,when:"today"};
