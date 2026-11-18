@@ -1,4 +1,4 @@
-# Panduan setup automasi tempahan Spa SAM
+# Panduan setup automasi tempahan SAM Terapi
 
 Masa diperlukan: lebih kurang **15 minit**, sekali sahaja. Buat di **komputer / laptop** (lebih mudah daripada telefon).
 
@@ -40,7 +40,7 @@ Warna acara Calendar: **Kuning** = menunggu deposit · **Oren** = semak resit ·
 **B. Emel pelanggan keluar dari alamat Sam** (log masuk sebagai muhdyusry.abdullah@gmail.com):
 1. Gmail → ⚙ → **See all settings** → tab **Accounts and Import**.
 2. **Send mail as** → **Add another email address**.
-3. Name: `Spa SAM — Syafiq Aura Massage` · Email: `syafiqaurawellness@gmail.com` · biarkan "Treat as an alias" bertanda → **Next Step** → **Send Verification**.
+3. Name: `SAM Terapi — Syafiq Aura Massage` · Email: `syafiqaurawellness@gmail.com` · biarkan "Treat as an alias" bertanda → **Next Step** → **Send Verification**.
 4. Sam buka Gmail **syafiqaurawellness@gmail.com** → klik pautan pengesahan (atau salin kod dan masukkan).
 
 > Jika langkah B belum dibuat, sistem tetap hantar emel — dari muhdyusry.abdullah@gmail.com dengan "Reply-To" ke syafiqaurawellness@gmail.com.

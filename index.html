@@ -330,16 +330,17 @@ footer nav a{color:var(--on-kayu);text-decoration:none;font-size:14px;padding:6p
 .statuspill{display:inline-block;border-radius:999px;padding:5px 11px;font-size:12px;font-weight:600;white-space:nowrap}
 .linkbtn{background:none;border:0;padding:6px 0;color:var(--on-kayu-m);font-size:14px;text-decoration:underline;text-underline-offset:3px;cursor:pointer;justify-self:start;min-height:44px;text-align:left}
 /* SAM chat guide */
-.sambubble{position:fixed;right:16px;bottom:96px;z-index:50;width:64px;height:64px;border-radius:50%;padding:0;border:3px solid var(--gold);background:var(--kayu);cursor:pointer;box-shadow:0 10px 26px rgba(20,12,6,.35);transition:transform .2s var(--ease)}
+.sambubble{position:fixed;right:16px;bottom:96px;z-index:50;width:66px;height:66px;border-radius:50%;padding:3px;border:2px solid var(--gold);background:radial-gradient(circle at 50% 35%,#F4E2B0,#DEBC7A);cursor:grab;box-shadow:0 10px 26px rgba(20,12,6,.35);transition:transform .2s var(--ease);touch-action:none;user-select:none;-webkit-user-select:none}
+.sambubble.dragging{cursor:grabbing;transition:none;transform:scale(1.08)}
 .sambubble:hover{transform:scale(1.06)}
 .sambubble img{width:100%;height:100%;border-radius:50%;object-fit:cover;display:block}
 .sambubble .on,.schead .on{position:absolute;right:1px;bottom:3px;width:14px;height:14px;border-radius:50%;background:#2ECC71;border:2px solid #fff}
 .schead .on{position:static;display:inline-block;width:8px;height:8px;border:0;margin-right:6px;vertical-align:middle}
-.samtip{position:fixed;right:90px;bottom:108px;z-index:50;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:16px 16px 4px 16px;padding:10px 8px 10px 14px;font-size:14px;font-weight:500;box-shadow:0 10px 26px rgba(20,12,6,.18);display:flex;align-items:center;gap:6px;max-width:220px}
+.samtip{position:fixed;right:92px;bottom:110px;z-index:50;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:16px 16px 4px 16px;padding:10px 8px 10px 14px;font-size:14px;font-weight:500;box-shadow:0 10px 26px rgba(20,12,6,.18);display:flex;align-items:center;gap:6px;max-width:220px}
 .samtip button{border:0;background:none;font-size:20px;line-height:1;color:var(--muted);cursor:pointer;width:32px;height:32px}
 .samchat{position:fixed;left:10px;right:10px;bottom:10px;z-index:55;height:min(78dvh,640px);background:var(--cream);border-radius:22px;box-shadow:0 18px 50px rgba(20,12,6,.35);display:flex;flex-direction:column;overflow:hidden;border:1px solid var(--line)}
 .schead{display:flex;align-items:center;gap:12px;padding:12px 12px 12px 16px;background:var(--kayu);color:var(--on-kayu)}
-.schead img{width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid var(--gold)}
+.schead img{width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid var(--gold);background:#F4E2B0}
 .schead b{display:block;font-family:var(--serif);font-size:22px;letter-spacing:.12em;color:#fff;line-height:1.1}
 .schead small{font-size:12px;color:var(--on-kayu-m)}
 .scx{width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:transparent;color:#fff;display:grid;place-items:center;cursor:pointer}
@@ -627,7 +628,7 @@ footer nav a{color:var(--on-kayu);text-decoration:none;font-size:14px;padding:6p
         </a>
         <a class="soccard rv" id="fbCard" href="https://www.facebook.com/share/1KP1inG5e8/" target="_blank" rel="noopener">
           <span class="socic"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.4 3.4-5 6.5-5s5.7 1.6 6.5 5"/><path d="M16 4.5a3.5 3.5 0 0 1 0 7M18 15c2 .6 3.2 2.2 3.5 5"/></g></svg></span>
-          <span class="soctxt"><small>Facebook</small><b>Spa SAM</b><span data-en="Updates, promos and reviews">Berita, promosi &amp; ulasan</span></span>
+          <span class="soctxt"><small>Facebook</small><b>SAM Terapi</b><span data-en="Updates, promos and reviews">Berita, promosi &amp; ulasan</span></span>
           <span class="socgo" data-en="Follow">Ikuti</span>
         </a>
       </div>
@@ -637,7 +638,7 @@ footer nav a{color:var(--on-kayu);text-decoration:none;font-size:14px;padding:6p
       </a>
       <div class="feeds" id="feeds" hidden>
         <div class="feed" id="tkFeed" aria-label="TikTok @urutkt"></div>
-        <div class="feed" id="fbFeed" aria-label="Facebook Spa SAM"></div>
+        <div class="feed" id="fbFeed" aria-label="Facebook SAM Terapi"></div>
       </div>
     </div>
   </section>
@@ -646,8 +647,8 @@ footer nav a{color:var(--on-kayu);text-decoration:none;font-size:14px;padding:6p
   <section class="sec" id="kenali-sam" aria-labelledby="h-sam">
     <div class="wrap about">
       <figure class="photo rv" style="margin:0">
-        <img src="img/sam-reception.jpg" alt="Sam di kaunter penyambut tetamu Spa SAM, Syafiq Aura Massage" data-en-alt="Sam at the Spa SAM reception counter, Syafiq Aura Massage" width="795" height="896" loading="lazy">
-        <figcaption>Spa SAM · Chendering</figcaption>
+        <img src="img/sam-reception.jpg" alt="Sam di kaunter penyambut tetamu SAM Terapi, Syafiq Aura Massage" data-en-alt="Sam at the SAM Therapist reception counter, Syafiq Aura Massage" width="795" height="896" loading="lazy">
+        <figcaption>SAM Terapi · Chendering</figcaption>
       </figure>
       <div>
         <div class="orn"><svg><use href="#orn"/></svg></div>
@@ -786,7 +787,7 @@ footer nav a{color:var(--on-kayu);text-decoration:none;font-size:14px;padding:6p
 <div class="samchat" id="samChat" role="dialog" aria-modal="false" aria-labelledby="samChatTitle" hidden>
   <div class="schead">
     <img src="img/sam-avatar.jpg" alt="" width="44" height="44">
-    <div style="flex:1;min-width:0"><b id="samChatTitle">SAM</b><small><i class="on"></i><span data-en="Spa SAM guide · instant answers">Pembantu Spa SAM · jawapan segera</span></small></div>
+    <div style="flex:1;min-width:0"><b id="samChatTitle">SAM</b><small><i class="on"></i><span data-en="SAM Therapist guide · instant answers">Pembantu SAM Terapi · jawapan segera</span></small></div>
     <button type="button" class="scx" id="samClose" aria-label="Tutup chat"><svg width="18" height="18"><use href="#i-x"/></svg></button>
   </div>
   <div class="scbody" id="samBody" aria-live="polite"></div>
@@ -1302,7 +1303,7 @@ $("#sendBtn").addEventListener("click",function(e){
 /* ---------- testimonials (real ones only, from config.js) ---------- */
 function renderReviews(){
   var list=(CFG.testimonials||[]).filter(function(r){ return r&&r.text&&r.name; });
-  var wa=WA_LINK(t("Assalamualaikum Sam, ini ulasan saya untuk Spa SAM:\n\nServis: \nUlasan: \n\nSaya izinkan ulasan ini dipaparkan di laman web dengan nama: ","Hi Sam, here is my review of Spa SAM:\n\nService: \nReview: \n\nI allow this review to be shown on the website under the name: "));
+  var wa=WA_LINK(t("Assalamualaikum Sam, ini ulasan saya untuk SAM Terapi:\n\nServis: \nUlasan: \n\nSaya izinkan ulasan ini dipaparkan di laman web dengan nama: ","Hi Sam, here is my review of SAM Therapist:\n\nService: \nReview: \n\nI allow this review to be shown on the website under the name: "));
   var h;
   if(!list.length){
     h='<div class="rev-empty"><h3>'+t("Kongsi pengalaman anda","Share your experience")+'</h3><p>'+t("Pernah dirawat oleh Sam? Hantar ulasan ringkas di WhatsApp. Ulasan pelanggan sebenar akan dipaparkan di sini.","Been treated by Sam? Send a short review on WhatsApp. Real client reviews will appear here.")+'</p><a class="btn btn-wa" href="'+wa+'" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg><span>'+t("Tulis ulasan di WhatsApp","Write a review on WhatsApp")+'</span></a></div>';
@@ -1346,7 +1347,7 @@ renderReviews();
     prep:t("Persediaan sebelum sesi","Before your session"),human:t("Cakap dengan Sam","Talk to Sam"),menu:t("Menu utama","Main menu")}[k]; }
   function answer(k){
     if(k==="svc"){
-      return { text:t("Ini servis dan harga Spa SAM:","Here are Spa SAM's services and prices:")+"\n\n"+SVC.map(function(x){ return "• <b>"+esc(x[lang])+"</b> — "+x.min+" min · RM"+x.rm; }).join("\n")+
+      return { text:t("Ini servis dan harga SAM Terapi:","Here are SAM Therapist's services and prices:")+"\n\n"+SVC.map(function(x){ return "• <b>"+esc(x[lang])+"</b> — "+x.min+" min · RM"+x.rm; }).join("\n")+
         "\n\n"+t("Deposit RM10 (servis) / RM20 (pakej). Baki dibayar semasa sesi.","Deposit RM10 (single) / RM20 (package). Balance paid at the session."),
         acts: bookBtn()+'<a href="#servis" data-close>'+t("Lihat gambar servis","See service photos")+'</a>' };
     }
@@ -1378,7 +1379,7 @@ renderReviews();
         acts:waBtn(t("Assalamualaikum Sam, saya ingin tukar / batal tempahan saya. Nama: ","Hi Sam, I'd like to change / cancel my booking. Name: "),t("WhatsApp Sam","WhatsApp Sam"))+'<button type="button" data-manage>'+t("Tempahan saya","My booking")+'</button>' };
     }
     if(k==="men"){
-      return { text:t("Ya, Spa SAM <b>khas untuk pelanggan lelaki</b>. Semua sesi dijalankan seorang demi seorang oleh Sam, secara profesional dan berhemah.","Yes, Spa SAM is <b>for men only</b>. Every session is one-to-one with Sam, professional and discreet."), acts:bookBtn() };
+      return { text:t("Ya, SAM Terapi <b>khas untuk pelanggan lelaki</b>. Semua sesi dijalankan seorang demi seorang oleh Sam, secara profesional dan berhemah.","Yes, SAM Therapist is <b>for men only</b>. Every session is one-to-one with Sam, professional and discreet."), acts:bookBtn() };
     }
     if(k==="prep"){
       return { text:t("Sebelum sesi:\n\n• Makan ringan sekurang-kurangnya sejam sebelum\n• Maklumkan Sam tentang kecederaan atau keadaan kesihatan\n• Datang beberapa minit awal untuk berehat\n\nServis ini untuk relaksasi, bukan rawatan perubatan.","Before your session:\n\n• Eat lightly at least an hour before\n• Tell Sam about any injuries or health conditions\n• Arrive a few minutes early to settle in\n\nServices are for relaxation, not medical treatment."), acts:bookBtn() };
@@ -1410,13 +1411,26 @@ renderReviews();
   }
   function greet(){
     bodyEl.innerHTML="";
-    addMsg(t("Assalamualaikum! Saya <b>SAM</b>, pembantu Spa SAM.\nTekan soalan di bawah untuk jawapan segera.","Hi! I'm <b>SAM</b>, the Spa SAM guide.\nTap a question below for an instant answer."),"bot");
+    addMsg(t("Assalamualaikum! Saya <b>SAM</b>, pembantu SAM Terapi.\nTekan soalan di bawah untuk jawapan segera.","Hi! I'm <b>SAM</b>, the SAM Therapist guide.\nTap a question below for an instant answer."),"bot");
     showOpts(MENU);
   }
   function openChat(){ open=true; chat.hidden=false; bubble.setAttribute("aria-expanded","true"); tip.hidden=true; try{sessionStorage.setItem("sam-tip","1");}catch(e){}
     if(!bodyEl.children.length) greet(); setTimeout(function(){ var b=$("button",opts)||$("#samClose"); if(b) b.focus(); },60); }
   function closeChat(){ open=false; chat.hidden=true; bubble.setAttribute("aria-expanded","false"); bubble.focus(); }
-  bubble.addEventListener("click",function(){ open?closeChat():openChat(); });
+  // drag anywhere (left/right/up/down); a tap still opens the chat
+  var drag=null, moved=false;
+  function clamp(v,min,max){ return Math.max(min,Math.min(max,v)); }
+  function place(x,y){ var w=bubble.offsetWidth,h=bubble.offsetHeight; x=clamp(x,6,innerWidth-w-6); y=clamp(y,6,innerHeight-h-6);
+    bubble.style.left=x+"px"; bubble.style.top=y+"px"; bubble.style.right="auto"; bubble.style.bottom="auto"; return {x:x,y:y}; }
+  try{ var sp=JSON.parse(localStorage.getItem("sam-bubble")||"null"); if(sp) place(sp.x*innerWidth,sp.y*innerHeight); }catch(e){}
+  bubble.addEventListener("pointerdown",function(e){ var r=bubble.getBoundingClientRect(); drag={dx:e.clientX-r.left,dy:e.clientY-r.top,sx:e.clientX,sy:e.clientY}; moved=false; try{bubble.setPointerCapture(e.pointerId);}catch(x){} });
+  bubble.addEventListener("pointermove",function(e){ if(!drag) return; if(!moved&&Math.abs(e.clientX-drag.sx)+Math.abs(e.clientY-drag.sy)<8) return;
+    moved=true; bubble.classList.add("dragging"); tip.hidden=true; place(e.clientX-drag.dx,e.clientY-drag.dy); });
+  function endDrag(){ if(!drag) return; drag=null; bubble.classList.remove("dragging");
+    if(moved){ var r=bubble.getBoundingClientRect(); try{ localStorage.setItem("sam-bubble",JSON.stringify({x:r.left/innerWidth,y:r.top/innerHeight})); }catch(e){} } }
+  bubble.addEventListener("pointerup",endDrag); bubble.addEventListener("pointercancel",endDrag);
+  bubble.addEventListener("click",function(e){ if(moved){ e.preventDefault(); moved=false; return; } open?closeChat():openChat(); });
+  addEventListener("resize",function(){ if(bubble.style.left){ var r=bubble.getBoundingClientRect(); place(r.left,r.top); } });
   $("#samClose").addEventListener("click",closeChat);
   opts.addEventListener("click",function(e){ var b=e.target.closest("[data-q]"); if(!b) return; addMsg(esc(b.textContent),"me"); botSay(b.dataset.q); });
   bodyEl.addEventListener("click",function(e){
@@ -1475,7 +1489,7 @@ loadLive(); setInterval(loadLive,120000);
     if(/facebook\.com\/(?!share\/)/.test(fbPage)){
       var f=document.createElement("iframe");
       f.src="https://www.facebook.com/plugins/page.php?href="+encodeURIComponent(fbPage)+"&tabs=timeline&width=500&height=640&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false";
-      f.title="Facebook Spa SAM"; f.loading="lazy"; f.setAttribute("allow","encrypted-media"); $("#fbFeed").appendChild(f);
+      f.title="Facebook SAM Terapi"; f.loading="lazy"; f.setAttribute("allow","encrypted-media"); $("#fbFeed").appendChild(f);
     } else { $("#fbFeed").remove(); feeds.style.gridTemplateColumns="1fr"; }
   }
   if("IntersectionObserver" in window){ var io2=new IntersectionObserver(function(es){ if(es.some(function(e){return e.isIntersecting;})){ start(); io2.disconnect(); } },{rootMargin:"400px 0px"}); io2.observe($("#sosial")); }

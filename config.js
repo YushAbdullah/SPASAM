@@ -1,4 +1,4 @@
-/* Spa SAM website settings */
+/* SAM Terapi website settings */
 window.SAM_CONFIG = {
   // Google Apps Script "Web app" URL (ends with /exec). Leave "" for WhatsApp-only mode.
   apiUrl: "",
@@ -16,9 +16,9 @@ window.SAM_CONFIG = {
   // REAL client reviews only, shared with the client's permission. Example format:
   // { name: "Ahmad", service: "Urutan Badan Penuh", rating: 5, date: "Nov 2026", text: "..." },
   testimonials: [
-    { name: "Pelanggan Spa SAM", source: "WhatsApp · dikongsi di TikTok @urutkt", image: "img/review-1.jpg",
+    { name: "Pelanggan SAM Terapi", source: "WhatsApp · dikongsi di TikTok @urutkt", image: "img/review-1.jpg",
       text: "Alhamdulillah.. tdo lena smlm. Kena point² urut. Bleh repeat lg lps ni." },
-    { name: "Pelanggan Spa SAM", source: "WhatsApp · dikongsi di TikTok @urutkt", image: "img/review-2.jpg",
+    { name: "Pelanggan SAM Terapi", source: "WhatsApp · dikongsi di TikTok @urutkt", image: "img/review-2.jpg",
       text: "Tekanan masa ngurut memang on point. Segor rasa tubuh bangun pagi ni. Terbaik bro. Boleh repeat lagi." }
   ]
 };

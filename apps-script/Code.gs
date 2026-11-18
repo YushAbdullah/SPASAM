@@ -1,5 +1,5 @@
 /**
- * SPA SAM — Syafiq Aura Massage
+ * SAM TERAPI — Syafiq Aura Massage
  * Booking backend (Google Apps Script)
  *
  * What it does
@@ -26,11 +26,11 @@
 var CONFIG = {
   NOTIFY_EMAIL: 'syafiqaurawellness@gmail.com, muhdyusry.abdullah@gmail.com', // who gets booking alerts
   SENDER_EMAIL: 'syafiqaurawellness@gmail.com', // address customers see (Gmail "Send mail as" alias)
-  SENDER_NAME: 'Spa SAM — Syafiq Aura Massage',
+  SENDER_NAME: 'SAM Terapi — Syafiq Aura Massage',
   EMAIL_CUSTOMERS: true,
   SITE_URL: 'https://yushabdullah.github.io/SPASAM/',
   BANK: 'Maybank 1630 4662 3774 (Muhammad Aiman Syafiq)',
-  BUSINESS: 'Spa SAM — Syafiq Aura Massage',
+  BUSINESS: 'SAM Terapi — Syafiq Aura Massage',
   SAM_WHATSAPP: '601169796259',
   TZ: 'Asia/Kuala_Lumpur',
   SHEET_NAME: 'Tempahan',
@@ -389,7 +389,7 @@ function takenSlots_(date, min, excludeId) {
 
 // ===================== EMAIL =====================
 function notify_(subject, o, intro, attachments) {
-  var waText = 'Assalamualaikum ' + o['Nama'] + ', ini Sam dari Spa SAM. Tempahan anda ' + o['ID'] + ' (' + o['Servis'] +
+  var waText = 'Assalamualaikum ' + o['Nama'] + ', ini Sam dari SAM Terapi. Tempahan anda ' + o['ID'] + ' (' + o['Servis'] +
     ', ' + fmtWhen_(o['Tarikh'], o['Masa']) + ') telah DISAHKAN. Jumpa nanti!';
   var rows = [
     ['ID', o['ID']], ['Status', o['Status']], ['Servis', o['Servis'] + ' (' + o['Minit'] + ' min)'],
@@ -412,7 +412,7 @@ function notify_(subject, o, intro, attachments) {
     '<p style="font-size:12px;color:#8a7a6b">Tukar Status kepada "Disahkan" dalam Sheet selepas semak resit. Kalendar akan dikemas kini secara automatik.</p></div>';
   sendMail_(CONFIG.NOTIFY_EMAIL, '[SAM] ' + subject + ' — ' + o['ID'] + ' · ' + o['Nama'] + ' · ' + fmtWhen_(o['Tarikh'], o['Masa']),
     subject + '\n\n' + intro + '\n\n' + rows.map(function (r) { return r[0] + ': ' + String(r[1]).replace(/<[^>]+>/g, ''); }).join('\n'),
-    html, attachments, 'Spa SAM Booking');
+    html, attachments, 'SAM Terapi Booking');
 }
 
 // Send from Sam's address when the Gmail alias is set up; otherwise from this account with Reply-To Sam
@@ -467,7 +467,7 @@ function clientMail_(sh, r, kind) {
     '<b>' + T('Deposit RM', 'Deposit RM') + o['Deposit (RM)'] + '</b><br>' + esc_(CONFIG.BANK) + '<br>' +
     T('Atau imbas QR DuitNow di laman web. Hantar resit kepada Sam di WhatsApp untuk sahkan slot.', 'Or scan the DuitNow QR on the website. Send the receipt to Sam on WhatsApp to confirm your slot.') + '</div>' : '';
   var html = '<div style="font-family:Arial,sans-serif;max-width:560px;color:#241A14">' +
-    '<p style="font-size:12px;letter-spacing:2px;color:#86663F;margin:0 0 6px">SPA SAM · SYAFIQ AURA MASSAGE</p>' +
+    '<p style="font-size:12px;letter-spacing:2px;color:#86663F;margin:0 0 6px">SAM TERAPI · SYAFIQ AURA MASSAGE</p>' +
     '<h2 style="font-family:Georgia,serif;font-weight:normal;margin:0 0 8px">' + esc_(head[0]) + '</h2>' +
     '<p style="color:#5E5046;margin:0 0 16px">' + T('Salam ', 'Hi ') + esc_(o['Nama']) + ', ' + esc_(head[1]) + '</p>' +
     '<table style="border-collapse:collapse;width:100%;font-size:14px">' + rows.map(function (x) {
@@ -477,7 +477,7 @@ function clientMail_(sh, r, kind) {
     '" style="background:#1E7E45;color:#fff;padding:11px 18px;border-radius:999px;text-decoration:none;display:inline-block">WhatsApp Sam</a> ' +
     (kind !== 'cancelled' ? '<a href="' + CONFIG.SITE_URL + '" style="background:#86663F;color:#fff;padding:11px 18px;border-radius:999px;text-decoration:none;display:inline-block">' + T('Semak / tukar tempahan', 'Check / change booking') + '</a>' : '') + '</p>' +
     '<p style="font-size:12px;color:#8a7a6b">' + T('Untuk semak atau tukar tempahan, gunakan ID ', 'To check or change your booking, use ID ') + esc_(o['ID']) + T(' dan nombor telefon anda di laman web.', ' and your phone number on the website.') +
-    '<br>Spa SAM · Flat Cerung Binjai, Chendering, Kuala Terengganu · WhatsApp 011-6979 6259</p></div>';
+    '<br>SAM Terapi · Flat Cerung Binjai, Chendering, Kuala Terengganu · WhatsApp 011-6979 6259</p></div>';
   var plain = head[0] + '\n\n' + head[1] + '\n\n' + rows.map(function (x) { return x[0] + ': ' + x[1]; }).join('\n');
   try {
     sendMail_(to, head[0] + ' — ' + o['ID'] + ' · ' + fmtWhen_(o['Tarikh'], o['Masa']), plain, html, null, CONFIG.SENDER_NAME);

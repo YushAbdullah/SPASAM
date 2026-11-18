@@ -1,6 +1,6 @@
-# SPASAM — Syafiq Aura Massage
+# SPASAM — SAM Terapi (Syafiq Aura Massage)
 
-Website for **Spa SAM (Syafiq Aura Massage)**: traditional Malay massage, bekam and body scrub for men in Chendering, Kuala Terengganu.
+Website for **SAM Terapi (Syafiq Aura Massage)**: traditional Malay massage, bekam and body scrub for men in Chendering, Kuala Terengganu.
 
 **Live site:** https://yushabdullah.github.io/SPASAM/
 
