@@ -14,18 +14,28 @@
  *  - Tells the website which slots are taken: other bookings AND anything busy in Sam's
  *    Google Calendar (a timed event blocks overlapping slots; an all-day event closes the day)
  *
+ *  - Emails customers (if they gave an email) FROM syafiqaurawellness@gmail.com:
+ *      booking received, receipt received, confirmed, date changed, cancelled
+ *
+ * Runs on the backend account (muhdyusry.abdullah@gmail.com). Sam's calendar is shared
+ * to that account, and Sam's address is added in Gmail as a "Send mail as" alias.
  * Setup: see SETUP.md. Run setup() once, then Deploy > New deployment > Web app.
  */
 
 // ===================== SETTINGS =====================
 var CONFIG = {
-  NOTIFY_EMAIL: 'syafiqaurawellness@gmail.com', // more people: 'a@gmail.com, b@gmail.com'
+  NOTIFY_EMAIL: 'syafiqaurawellness@gmail.com, muhdyusry.abdullah@gmail.com', // who gets booking alerts
+  SENDER_EMAIL: 'syafiqaurawellness@gmail.com', // address customers see (Gmail "Send mail as" alias)
+  SENDER_NAME: 'Spa SAM — Syafiq Aura Massage',
+  EMAIL_CUSTOMERS: true,
+  SITE_URL: 'https://yushabdullah.github.io/SPASAM/',
+  BANK: 'Maybank 1630 4662 3774 (Muhammad Aiman Syafiq)',
   BUSINESS: 'Spa SAM — Syafiq Aura Massage',
   SAM_WHATSAPP: '601169796259',
   TZ: 'Asia/Kuala_Lumpur',
   SHEET_NAME: 'Tempahan',
   DRIVE_FOLDER: 'SAM - Resit Deposit',
-  CALENDAR_ID: '',            // '' = the account's main calendar
+  CALENDAR_ID: 'syafiqaurawellness@gmail.com', // Sam's calendar, shared to the backend account ('' = own calendar)
   SLOTS: ['10:00', '12:00', '14:30', '17:00', '20:00'],
   MAX_PER_DAY: 5,
   DAYS_AHEAD: 30,             // how far ahead customers can book
@@ -54,7 +64,7 @@ var STATUS = {
 
 var COLS = ['ID', 'Dibuat', 'Status', 'Servis', 'Minit', 'Harga (RM)', 'Deposit (RM)', 'Tarikh', 'Masa',
   'Jenis', 'Kawasan / alamat', 'Nama', 'Telefon', 'Pertama kali', 'Nota', 'Resit', 'Resit diterima',
-  'Event ID', 'Dikemaskini', 'Sumber', 'Cara deposit'];
+  'Event ID', 'Dikemaskini', 'Sumber', 'Cara deposit', 'Emel', 'Emel dihantar', 'Masa dimaklumkan'];
 var C = {}; COLS.forEach(function (n, i) { C[n] = i + 1; });
 
 // ===================== ONE-TIME SETUP =====================
@@ -80,6 +90,9 @@ function setup() {
   ScriptApp.newTrigger('onSheetEdit').forSpreadsheet(ss).onEdit().create();
   ScriptApp.newTrigger('syncFromCalendar').timeBased().everyMinutes(10).create();
 
+  var cal = CONFIG.CALENDAR_ID ? CalendarApp.getCalendarById(CONFIG.CALENDAR_ID) : CalendarApp.getDefaultCalendar();
+  Logger.log(cal ? ('Calendar OK: ' + cal.getName()) : ('CALENDAR NOT FOUND: ask ' + CONFIG.CALENDAR_ID + ' to share their calendar with this account ("Make changes to events").'));
+  Logger.log(hasAlias_() ? ('Sender alias OK: ' + CONFIG.SENDER_EMAIL) : ('Sender alias missing: emails will come from this account with Reply-To ' + CONFIG.SENDER_EMAIL + '. Add it in Gmail > Settings > Accounts > Send mail as.'));
   Logger.log('Setup complete. Sheet: ' + ss.getUrl());
 }
 
@@ -126,6 +139,8 @@ function book_(b) {
   checkSlot_(b.date, b.time);
   if (b.mode !== 'in' && b.mode !== 'out') throw new Error('bad_mode');
   var area = b.mode === 'out' ? clean_(b.area, 200) : '';
+  var email = clean_(b.email, 120).toLowerCase();
+  if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) throw new Error('bad_email');
   if (b.mode === 'out' && area.length < 3) throw new Error('bad_area');
   rateLimit_(phone);
 
@@ -142,7 +157,8 @@ function book_(b) {
       'Jenis': b.mode === 'in' ? 'In-Call' : 'Out-Call', 'Kawasan / alamat': area, 'Nama': name,
       'Telefon': phone, 'Pertama kali': b.first === true ? 'Ya' : (b.first === false ? 'Tidak' : ''),
       'Nota': clean_(b.note, 500), 'Resit': '', 'Resit diterima': '', 'Event ID': '',
-      'Dikemaskini': now, 'Sumber': 'Web app (' + (b.lang === 'en' ? 'EN' : 'BM') + ')', 'Cara deposit': 'Belum dipilih'
+      'Dikemaskini': now, 'Sumber': 'Web app (' + (b.lang === 'en' ? 'EN' : 'BM') + ')', 'Cara deposit': 'Belum dipilih',
+      'Emel': email, 'Emel dihantar': '', 'Masa dimaklumkan': b.date + ' ' + b.time
     };
     sh.appendRow(COLS.map(function (k) { return row[k]; }));
     var r = sh.getLastRow();
@@ -150,7 +166,8 @@ function book_(b) {
     sh.getRange(r, C['Event ID']).setValue(ev.getId());
 
     notify_('Tempahan baharu', rowObj_(sh, r), 'Tempahan baharu diterima dari web app. Pelanggan diminta bayar deposit dan muat naik resit.');
-    return { ok: true, id: id, deposit: svc.dep, status: STATUS.PENDING };
+    clientMail_(sh, r, 'received');
+    return { ok: true, id: id, deposit: svc.dep, status: STATUS.PENDING, emailed: !!email };
   } finally {
     lock.releaseLock();
   }
@@ -177,6 +194,7 @@ function receipt_(b) {
   var obj = rowObj_(sh, r);
   upsertEvent_(obj);
   notify_('Resit deposit diterima', obj, 'Pelanggan telah memuat naik resit deposit. Sila semak dan tukar Status kepada "Disahkan" dalam Sheet.', [blob]);
+  clientMail_(sh, r, 'receipt');
   return { ok: true, status: obj['Status'] };
 }
 
@@ -199,6 +217,7 @@ function reschedule_(b) {
     var obj = rowObj_(sh, r);
     upsertEvent_(obj);
     notify_('Tarikh tempahan ditukar', obj, 'Pelanggan menukar tarikh/masa melalui web app. Asal: ' + oldWhen + '.');
+    clientMail_(sh, r, 'rescheduled');
     return { ok: true, date: b.date, time: b.time, status: obj['Status'] };
   } finally {
     lock.releaseLock();
@@ -246,6 +265,7 @@ function onSheetEdit(e) {
       var ev = upsertEvent_(o);
       if (ev && ev.getId() !== o['Event ID']) sh.getRange(r, C['Event ID']).setValue(ev.getId());
       sh.getRange(r, C['Dikemaskini']).setValue(new Date());
+      clientAfterChange_(sh, r);
     }
   } catch (err) {
     Logger.log('onSheetEdit: ' + err);
@@ -282,6 +302,7 @@ function syncFromCalendar() {
       sh.getRange(r, C['Tarikh']).setValue(d);
       sh.getRange(r, C['Masa']).setValue(t);
       sh.getRange(r, C['Dikemaskini']).setValue(now);
+      clientAfterChange_(sh, r);
     }
   });
 }
@@ -389,10 +410,81 @@ function notify_(subject, o, intro, attachments) {
     '" style="background:#1E7E45;color:#fff;padding:11px 18px;border-radius:999px;text-decoration:none;display:inline-block">WhatsApp pelanggan (sahkan)</a> ' +
     '<a href="' + getSpreadsheet_().getUrl() + '" style="background:#86663F;color:#fff;padding:11px 18px;border-radius:999px;text-decoration:none;display:inline-block">Buka Google Sheet</a></p>' +
     '<p style="font-size:12px;color:#8a7a6b">Tukar Status kepada "Disahkan" dalam Sheet selepas semak resit. Kalendar akan dikemas kini secara automatik.</p></div>';
-  var opts = { htmlBody: html, name: 'Spa SAM Booking' };
+  sendMail_(CONFIG.NOTIFY_EMAIL, '[SAM] ' + subject + ' — ' + o['ID'] + ' · ' + o['Nama'] + ' · ' + fmtWhen_(o['Tarikh'], o['Masa']),
+    subject + '\n\n' + intro + '\n\n' + rows.map(function (r) { return r[0] + ': ' + String(r[1]).replace(/<[^>]+>/g, ''); }).join('\n'),
+    html, attachments, 'Spa SAM Booking');
+}
+
+// Send from Sam's address when the Gmail alias is set up; otherwise from this account with Reply-To Sam
+function sendMail_(to, subject, plain, html, attachments, name) {
+  var opts = { htmlBody: html, name: name || CONFIG.SENDER_NAME, replyTo: CONFIG.SENDER_EMAIL };
   if (attachments && attachments.length) opts.attachments = attachments;
-  MailApp.sendEmail(CONFIG.NOTIFY_EMAIL, '[SAM] ' + subject + ' — ' + o['ID'] + ' · ' + o['Nama'] + ' · ' + fmtWhen_(o['Tarikh'], o['Masa']),
-    subject + '\n\n' + intro + '\n\n' + rows.map(function (r) { return r[0] + ': ' + String(r[1]).replace(/<[^>]+>/g, ''); }).join('\n'), opts);
+  if (hasAlias_()) { opts.from = CONFIG.SENDER_EMAIL; GmailApp.sendEmail(to, subject, plain, opts); }
+  else MailApp.sendEmail(to, subject, plain, opts);
+}
+function hasAlias_() {
+  try {
+    var me = Session.getEffectiveUser().getEmail();
+    if (me && me.toLowerCase() === CONFIG.SENDER_EMAIL.toLowerCase()) return false; // already that account
+    return GmailApp.getAliases().map(function (a) { return a.toLowerCase(); }).indexOf(CONFIG.SENDER_EMAIL.toLowerCase()) >= 0;
+  } catch (e) { return false; }
+}
+
+// ===================== CUSTOMER EMAILS =====================
+function clientAfterChange_(sh, r) {
+  var o = rowObj_(sh, r);
+  if (!o['Emel']) return;
+  if (o['Status'] === STATUS.CONFIRMED) clientMail_(sh, r, 'confirmed');
+  if (o['Status'] === STATUS.CANCELLED) clientMail_(sh, r, 'cancelled');
+  var when = toDateStr_(o['Tarikh']) + ' ' + toTimeStr_(o['Masa']);
+  if (o['Status'] !== STATUS.CANCELLED && o['Status'] !== STATUS.DONE && o['Masa dimaklumkan'] && when !== String(o['Masa dimaklumkan'])) clientMail_(sh, r, 'rescheduled');
+}
+
+function clientMail_(sh, r, kind) {
+  if (!CONFIG.EMAIL_CUSTOMERS) return;
+  var o = rowObj_(sh, r), to = String(o['Emel'] || '').trim();
+  if (!to) return;
+  var sent = String(o['Emel dihantar'] || '').split(',').filter(String);
+  var when = toDateStr_(o['Tarikh']) + ' ' + toTimeStr_(o['Masa']);
+  if (kind === 'rescheduled') { if (when === String(o['Masa dimaklumkan'])) return; }
+  else if (sent.indexOf(kind) >= 0) return;
+  var en = /\(EN\)/.test(String(o['Sumber'])), T = function (bm, e) { return en ? e : bm; };
+  var head = {
+    received: [T('Tempahan diterima', 'Booking received'), T('Terima kasih! Tempahan anda telah diterima dan slot anda ditahan.', 'Thank you! Your booking is received and your slot is held.')],
+    receipt: [T('Resit deposit diterima', 'Deposit receipt received'), T('Kami telah menerima resit deposit anda. Sam akan semak dan sahkan tempahan anda.', 'We have your deposit receipt. Sam will check it and confirm your booking.')],
+    confirmed: [T('Tempahan DISAHKAN', 'Booking CONFIRMED'), T('Tempahan anda telah disahkan. Jumpa nanti!', 'Your booking is confirmed. See you soon!')],
+    rescheduled: [T('Tarikh tempahan dikemas kini', 'Booking date updated'), T('Tarikh atau masa tempahan anda telah dikemas kini seperti di bawah.', 'Your booking date or time has been updated as below.')],
+    cancelled: [T('Tempahan dibatalkan', 'Booking cancelled'), T('Tempahan anda telah dibatalkan. Hubungi Sam di WhatsApp jika ini satu kesilapan.', 'Your booking has been cancelled. Message Sam on WhatsApp if this is a mistake.')]
+  }[kind];
+  var rows = [
+    [T('ID tempahan', 'Booking ID'), o['ID']], [T('Servis', 'Service'), o['Servis'] + ' (' + o['Minit'] + ' min)'],
+    [T('Tarikh & masa', 'Date & time'), fmtWhen_(o['Tarikh'], o['Masa'])],
+    [T('Lokasi', 'Where'), o['Jenis'] === 'Out-Call' ? 'Out-Call — ' + o['Kawasan / alamat'] : 'In-Call · Chendering, Kuala Terengganu'],
+    [T('Harga', 'Price'), 'RM' + o['Harga (RM)'] + ' · ' + T('deposit', 'deposit') + ' RM' + o['Deposit (RM)']]
+  ];
+  var deposit = (kind === 'received' && !o['Resit']) ?
+    '<div style="background:#FBF6F1;border:1px solid #E9DCCB;border-radius:12px;padding:14px 16px;margin:16px 0">' +
+    '<b>' + T('Deposit RM', 'Deposit RM') + o['Deposit (RM)'] + '</b><br>' + esc_(CONFIG.BANK) + '<br>' +
+    T('Atau imbas QR DuitNow di laman web. Hantar resit kepada Sam di WhatsApp untuk sahkan slot.', 'Or scan the DuitNow QR on the website. Send the receipt to Sam on WhatsApp to confirm your slot.') + '</div>' : '';
+  var html = '<div style="font-family:Arial,sans-serif;max-width:560px;color:#241A14">' +
+    '<p style="font-size:12px;letter-spacing:2px;color:#86663F;margin:0 0 6px">SPA SAM · SYAFIQ AURA MASSAGE</p>' +
+    '<h2 style="font-family:Georgia,serif;font-weight:normal;margin:0 0 8px">' + esc_(head[0]) + '</h2>' +
+    '<p style="color:#5E5046;margin:0 0 16px">' + T('Salam ', 'Hi ') + esc_(o['Nama']) + ', ' + esc_(head[1]) + '</p>' +
+    '<table style="border-collapse:collapse;width:100%;font-size:14px">' + rows.map(function (x) {
+      return '<tr><td style="padding:7px 10px;border-bottom:1px solid #E9DCCB;color:#5E5046;width:38%">' + x[0] + '</td><td style="padding:7px 10px;border-bottom:1px solid #E9DCCB">' + esc_(String(x[1])) + '</td></tr>';
+    }).join('') + '</table>' + deposit +
+    '<p style="margin:20px 0 8px"><a href="https://wa.me/' + CONFIG.SAM_WHATSAPP + '?text=' + encodeURIComponent(T('Assalamualaikum Sam, berkenaan tempahan ', 'Hi Sam, about booking ') + o['ID']) +
+    '" style="background:#1E7E45;color:#fff;padding:11px 18px;border-radius:999px;text-decoration:none;display:inline-block">WhatsApp Sam</a> ' +
+    (kind !== 'cancelled' ? '<a href="' + CONFIG.SITE_URL + '" style="background:#86663F;color:#fff;padding:11px 18px;border-radius:999px;text-decoration:none;display:inline-block">' + T('Semak / tukar tempahan', 'Check / change booking') + '</a>' : '') + '</p>' +
+    '<p style="font-size:12px;color:#8a7a6b">' + T('Untuk semak atau tukar tempahan, gunakan ID ', 'To check or change your booking, use ID ') + esc_(o['ID']) + T(' dan nombor telefon anda di laman web.', ' and your phone number on the website.') +
+    '<br>Spa SAM · Chendering, Kuala Terengganu · WhatsApp 011-6979 6259</p></div>';
+  var plain = head[0] + '\n\n' + head[1] + '\n\n' + rows.map(function (x) { return x[0] + ': ' + x[1]; }).join('\n');
+  try {
+    sendMail_(to, head[0] + ' — ' + o['ID'] + ' · ' + fmtWhen_(o['Tarikh'], o['Masa']), plain, html, null, CONFIG.SENDER_NAME);
+  } catch (err) { Logger.log('client email failed: ' + err); return; }
+  if (kind !== 'rescheduled' && sent.indexOf(kind) < 0) sent.push(kind);
+  sh.getRange(r, C['Emel dihantar']).setValue(sent.join(','));
+  sh.getRange(r, C['Masa dimaklumkan']).setValue(when);
 }
 
 // ===================== HELPERS =====================
@@ -406,7 +498,11 @@ function getSpreadsheet_() {
   return ss;
 }
 function sheet_() { return getSpreadsheet_().getSheetByName(CONFIG.SHEET_NAME); }
-function calendar_() { return CONFIG.CALENDAR_ID ? CalendarApp.getCalendarById(CONFIG.CALENDAR_ID) : CalendarApp.getDefaultCalendar(); }
+function calendar_() {
+  var cal = CONFIG.CALENDAR_ID ? CalendarApp.getCalendarById(CONFIG.CALENDAR_ID) : CalendarApp.getDefaultCalendar();
+  if (!cal) throw new Error('calendar_not_shared');
+  return cal;
+}
 function getFolder_() {
   var props = PropertiesService.getScriptProperties(), id = props.getProperty('FOLDER_ID');
   if (id) { try { return DriveApp.getFolderById(id); } catch (x) {} }

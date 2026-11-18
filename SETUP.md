@@ -2,11 +2,19 @@
 
 Masa diperlukan: lebih kurang **15 minit**, sekali sahaja. Buat di **komputer / laptop** (lebih mudah daripada telefon).
 
+## Akaun yang digunakan
+
+| Akaun | Peranan |
+|---|---|
+| **muhdyusry.abdullah@gmail.com** | **Backend** — memiliki Google Sheet, Apps Script, folder resit. Semua setup dibuat di sini. |
+| **syafiqaurawellness@gmail.com** | **Akaun perniagaan Sam** — kalendar Sam (slot kosong/penuh), menerima emel notifikasi, dan **alamat yang pelanggan nampak** pada emel pengesahan. |
+
 ## Apa yang sistem ini buat
 
 1. Pelanggan tempah di web app → pilih servis, tarikh & masa (slot yang sudah diambil ditanda **Penuh**).
 2. Tempahan **masuk automatik** ke Google Sheet "Tempahan" dan **Google Calendar** akaun `syafiqaurawellness@gmail.com`.
-3. **Emel** dihantar ke `syafiqaurawellness@gmail.com` untuk setiap tempahan baharu.
+3. **Emel notifikasi** dihantar ke `syafiqaurawellness@gmail.com` dan `muhdyusry.abdullah@gmail.com` untuk setiap tempahan baharu.
+   Jika pelanggan isi emel, mereka terima emel **daripada syafiqaurawellness@gmail.com**: tempahan diterima (dengan butiran deposit), resit diterima, **disahkan**, tarikh ditukar, dibatalkan.
 4. Pelanggan pilih **cara deposit** (slot tetap ditahan untuk kedua-dua pilihan):
    - **Bayar deposit sekarang** → QR DuitNow + Maybank 1630 4662 3774 → **muat naik resit** di web app → resit disimpan dalam Google Drive dan **emel dengan resit** dihantar kepada Sam.
    - **Bayar kemudian melalui WhatsApp** → mesej WhatsApp meminta Sam hantar butiran deposit. Lajur **Cara deposit** dalam Sheet tertulis "Melalui WhatsApp".
@@ -20,9 +28,26 @@ Masa diperlukan: lebih kurang **15 minit**, sekali sahaja. Buat di **komputer / 
 
 Warna acara Calendar: **Kuning** = menunggu deposit · **Oren** = semak resit · **Hijau** = disahkan · **Kelabu** = selesai. Status **Batal** memadam acara dan membuka semula slot.
 
+## Langkah 0 — Sediakan akaun Sam (sekali sahaja)
+
+**A. Sam kongsi kalendar dengan akaun backend** (log masuk sebagai syafiqaurawellness@gmail.com, di komputer):
+1. Buka **calendar.google.com** → ⚙ **Settings**.
+2. Di kiri, bawah "Settings for my calendars", klik kalendar **Sam** (nama akaun).
+3. **Share with specific people or groups** → **+ Add people and groups** → `muhdyusry.abdullah@gmail.com`.
+4. Kebenaran: **Make changes to events** → **Send**.
+5. Yusri buka emel jemputan di muhdyusry.abdullah@gmail.com dan klik pautan untuk **tambah kalendar**.
+
+**B. Emel pelanggan keluar dari alamat Sam** (log masuk sebagai muhdyusry.abdullah@gmail.com):
+1. Gmail → ⚙ → **See all settings** → tab **Accounts and Import**.
+2. **Send mail as** → **Add another email address**.
+3. Name: `Spa SAM — Syafiq Aura Massage` · Email: `syafiqaurawellness@gmail.com` · biarkan "Treat as an alias" bertanda → **Next Step** → **Send Verification**.
+4. Sam buka Gmail **syafiqaurawellness@gmail.com** → klik pautan pengesahan (atau salin kod dan masukkan).
+
+> Jika langkah B belum dibuat, sistem tetap hantar emel — dari muhdyusry.abdullah@gmail.com dengan "Reply-To" ke syafiqaurawellness@gmail.com.
+
 ## Langkah 1 — Buat Google Sheet
 
-1. Log masuk ke Google sebagai **syafiqaurawellness@gmail.com**.
+1. Log masuk ke Google sebagai **muhdyusry.abdullah@gmail.com** (akaun backend).
 2. Buka **sheets.new** → namakan fail **SAM Tempahan**.
 
 ## Langkah 2 — Tampal kod Apps Script
@@ -37,14 +62,16 @@ Warna acara Calendar: **Kuning** = menunggu deposit · **Oren** = semak resit ·
 1. Di bahagian atas, pilih fungsi **setup** → klik **▶ Run**.
 2. Google akan minta kebenaran: **Review permissions** → pilih akaun → **Advanced** → **Go to project (unsafe)** → **Allow**.
    (Amaran "unsafe" ini biasa untuk skrip peribadi — skrip ini hanya berjalan dalam akaun Sam sendiri.)
+   Google akan minta kebenaran Gmail, Calendar, Drive dan Sheets — ini untuk hantar emel dari alamat Sam, tulis ke kalendar Sam, simpan resit dan rekod tempahan.
 3. Selepas siap, tab **Tempahan** muncul dalam Sheet dengan tajuk lajur, dan folder **SAM - Resit Deposit** dibuat dalam Google Drive.
+4. Klik **Execution log** di bawah. Pastikan ada **"Calendar OK"** dan **"Sender alias OK"**. Jika tertulis *CALENDAR NOT FOUND*, ulang Langkah 0A.
 
 ## Langkah 4 — Deploy sebagai Web app
 
 1. Klik **Deploy › New deployment**.
 2. ⚙ di sebelah "Select type" → pilih **Web app**.
 3. Tetapkan:
-   - **Execute as:** Me (syafiqaurawellness@gmail.com)
+   - **Execute as:** Me (muhdyusry.abdullah@gmail.com)
    - **Who has access:** **Anyone**
 4. Klik **Deploy** → salin **Web app URL** (berakhir dengan `/exec`).
 
@@ -62,7 +89,7 @@ Warna acara Calendar: **Kuning** = menunggu deposit · **Oren** = semak resit ·
 ## Langkah 6 — Uji
 
 1. Buka website di telefon → tempah satu sesi ujian.
-2. Semak: baris baharu dalam Sheet ✓ · acara kuning dalam Calendar ✓ · emel "Tempahan baharu" ✓.
+2. Isi emel anda sendiri dalam borang. Semak: baris baharu dalam Sheet ✓ · acara kuning dalam **kalendar Sam** ✓ · emel "Tempahan baharu" kepada Sam & Yusri ✓ · emel "Tempahan diterima" kepada pelanggan **daripada syafiqaurawellness@gmail.com** ✓.
 3. Muat naik gambar resit → acara jadi oren ✓ · emel dengan lampiran ✓.
 4. "Tempahan saya" → tukar tarikh → acara bergerak ✓.
 5. Tukar Status ujian kepada **Batal** dalam Sheet untuk memadam acara ujian.
@@ -76,15 +103,20 @@ Warna acara Calendar: **Kuning** = menunggu deposit · **Oren** = semak resit ·
 - Mahu tutup masa tertentu? Tambah acara dalam Google Calendar (cth. "Rehat") — slot itu jadi kelabu di website.
 - Cuti sehari? Tambah acara **sepanjang hari** — seluruh hari ditutup.
 
+## Media sosial di website
+
+Bahagian **"Lihat Sam beraksi"** menunjukkan video terkini TikTok **@urutkt** secara automatik (setiap hantaran baharu muncul sendiri).
+Untuk suapan Facebook secara langsung, buka `config.js` dan isi `facebookPage` dengan alamat **Page** Facebook (cth. `https://www.facebook.com/SpaSamKT`). Pautan kongsi (`facebook.com/share/...`) dan profil peribadi tidak boleh dipaparkan sebagai suapan — hanya **Facebook Page**.
+
 ## Kongsi maklumat pelanggan dengan rakan kongsi
 
 Tak perlu Google Forms — kongsi terus fail yang sistem ini guna:
 
-1. **Google Sheet "SAM Tempahan"** → butang **Share** (Kongsi) → masukkan emel rakan kongsi → pilih **Viewer** (lihat sahaja) atau **Editor** (boleh tukar status/tarikh) → **Send**. Mereka nampak semua tempahan secara langsung.
+1. **Google Sheet "SAM Tempahan"** → butang **Share** (Kongsi) → masukkan **syafiqaurawellness@gmail.com** (Editor, supaya Sam boleh tukar Status) dan emel rakan kongsi → pilih **Viewer** (lihat sahaja) atau **Editor** (boleh tukar status/tarikh) → **Send**. Mereka nampak semua tempahan secara langsung.
 2. **Google Calendar** → ⚙ **Settings** → pilih kalendar Sam → **Share with specific people** → **Add people** → emel rakan kongsi → **See all event details** (atau **Make changes to events**).
 3. **Emel notifikasi kepada lebih dari seorang:** dalam `Code.gs`, tukar baris
-   `NOTIFY_EMAIL: 'syafiqaurawellness@gmail.com',` kepada
-   `NOTIFY_EMAIL: 'syafiqaurawellness@gmail.com, rakan@gmail.com',`
+   `NOTIFY_EMAIL: 'syafiqaurawellness@gmail.com, muhdyusry.abdullah@gmail.com',` kepada
+   `NOTIFY_EMAIL: 'syafiqaurawellness@gmail.com, muhdyusry.abdullah@gmail.com, rakan@gmail.com',`
    kemudian **Deploy › Manage deployments › ✏️ › New version › Deploy**.
 4. **Folder Drive "SAM - Resit Deposit"** → Share → emel rakan kongsi (jika mereka perlu lihat resit).
 
